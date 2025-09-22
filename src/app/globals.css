@@ -1,15 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +15,117 @@
   }
 }
 
+@theme inline {
+  --color-black: #2b2b2b;
+  --color-white: #f1f1f1;
+  --color-gray: #b5b5b5;
+  --color-blue: #002422;
+  --color-green: #328f03;
+  --color-darkGrey: #6b7280;
+  --color-grey1: #f6f8f6;
+  --color-grey2: #eef1f0;
+  --color-grey3: #c9cbd2;
+  --breakpoint-ssm: 500px;
+  --breakpoint-sm: 640px;
+  --breakpoint-ms: 700px;
+  --breakpoint-md: 768px;
+  --breakpoint-lm: 840px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-mg: 1135px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xll: 1300px;
+  --breakpoint-xxl: 1400px;
+  --breakpoint-2xl: 1536px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+.hover\:shadow-lg:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navbar styles */
+.navbar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-background {
+  backdrop-filter: blur(10px);
+}
+
+/* Active indicator styles */
+.active-indicator {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.active-indicator.transitioning {
+  transition: left 0.5s ease;
+}
+
+.body2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+/* Mobile menu styles */
+@media (max-width: 1023px) {
+  .llg\:hidden {
+    display: block;
+  }
+
+  .llg\:block {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .llg\:hidden {
+    display: none;
+  }
+
+  .llg\:block {
+    display: block;
+  }
 }
