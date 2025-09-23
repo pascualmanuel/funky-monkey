@@ -12,8 +12,18 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ["Helvetica", "Arial", "sans-serif"],
+        sans: [
+          "var(--font-plus-jakarta-sans)",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
         mono: ["Monaco", "Menlo", "monospace"],
+        jakarta: [
+          "var(--font-plus-jakarta-sans)",
+          "Plus Jakarta Sans",
+          "sans-serif",
+        ],
       },
     },
   },

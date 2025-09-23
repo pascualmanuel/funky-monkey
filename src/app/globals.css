@@ -78,6 +78,13 @@ button {
 /* Navbar styles */
 .navbar {
   transition: transform 0.3s ease-in-out;
+  /* height: 130px; */
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    height: 102px;
+  }
 }
 
 .navbar-visible {
@@ -117,6 +124,14 @@ button {
   line-height: 17px;
 }
 
+.myH3 {
+  font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 45px;
+}
+
 /* Mobile menu styles */
 @media (max-width: 1023px) {
   .llg\:hidden {
@@ -125,6 +140,10 @@ button {
 
   .llg\:block {
     display: none;
+  }
+  .myH3 {
+    font-size: 32px;
+    line-height: 37px;
   }
 }
 

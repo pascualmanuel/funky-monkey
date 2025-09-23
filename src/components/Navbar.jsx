@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Logo from "../assets/f-monkey-logo.svg";
+import Arrow from "../assets/arrow.svg";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -231,18 +232,32 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen((s) => !s);
   const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <div
-      className={`navbar  fixed z-[1000] w-full ${
-        isVisible ? "navbar-visible  z-50" : "navbar-hidden"
-      }`}
+      className={`navbar fixed z-[1000] w-full
+      ${isVisible ? "navbar-visible z-50" : "navbar-hidden"}
+      ${menuOpen ? "!h-[100dvh]" : "h-[130px] lg:h-[102px]"}
+    `}
       style={{
-        background: "rgba(48, 48, 48, 0.5)",
+        background: menuOpen ? "rgba(0, 0, 0, 0.8)" : "rgba(48, 48, 48, 0.5)",
         backdropFilter: "blur(15px)",
+        WebkitBackdropFilter: "blur(15px)",
+        // transition: "height 300ms ease",
       }}
     >
       <nav className=" relative">
-        <div className="h-[102px] mx-auto max-w-screen-2xl flex items-center">
+        <div className="h-[130px] lg:h-[102px] mx-auto max-w-screen-2xl flex items-center">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="ml-[20px] mg:ml-[80px] xl:ml-28">
@@ -336,52 +351,45 @@ const Navbar = () => {
         </div>
 
         {/* Overlay Mobile */}
+
         <div
-          className={`z-[999] fixed top-0 left-0 w-screen h-[100dvh] transition-transform duration-300 ease-in-out transform ${
-            menuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-          style={{ willChange: "transform" }}
+          className={`
+    lg:hidden px-6 
+    transition-all duration-300
+    flex flex-col justify-end h-[100dvh] pb-12
+    ${
+      menuOpen
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 -translate-y-2 pointer-events-none"
+    }
+  `}
+          style={{ overflowY: "auto", maxHeight: "calc(100dvh - 102px)" }} // debajo del header
         >
-          {/* Fondo con blur - cubre toda la pantalla */}
-          <div
-            className="absolute top-0 left-0 w-full h-full mobile-overlay-blur "
-            style={{
-              background: "rgba(0, 0, 0, 0.8)",
-              backdropFilter: "blur(43px)",
-              WebkitBackdropFilter: "blur(43px)",
-            }}
-          />
-
-          {/* Contenido sin blur - en una capa superior */}
-          <div className="relative z-20 h-full flex flex-col">
-            <div className="flex items-center justify-between mr-[78px] h-[72px] ml-5">
-              <Link href="/" onClick={closeMenu}>
-                <img src={Logo.src} alt="Logo" className="w-[120px]" />
+          <nav className="flex flex-col gap-5 mt-4">
+            {navLinks.map((item, index) => (
+              <Link
+                key={index}
+                href={item.link}
+                onClick={(e) => {
+                  // si querés animación de indicador en mobile, podés llamar handleLinkClick(e, index)
+                  closeMenu();
+                }}
+                className="text-white text-[20px] font-semibold  flex items-center myH3"
+              >
+                {item.text}
+                <img src={Arrow.src} className="ml-4" alt="Arrow" />
               </Link>
-            </div>
+            ))}
+          </nav>
 
-            <div className="flex flex-col mb-10 absolute bottom-0 z-20">
-              {navLinks.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.link}
-                  className="text-white py-3 px-5 text-xl font-semibold hover:bg-blue-700 transition-colors"
-                  onClick={closeMenu}
-                >
-                  {item.text.toUpperCase()}
-                </Link>
-              ))}
-
-              <div className="pt-11 flex justify-center w-screen">
-                <Link
-                  href="/contact"
-                  className="bg-white text-blue-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors absolute bottom-10 left-1/2 transform -translate-x-1/2"
-                  onClick={closeMenu}
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
+          <div className="mt-6">
+            <Link
+              href="/contact"
+              onClick={closeMenu}
+              className="block text-center bg-green text-white px-6 py-3 rounded-lg font-bold hover:bg-[#176221]"
+            >
+              Book Now
+            </Link>
           </div>
         </div>
       </nav>

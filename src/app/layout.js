@@ -1,4 +1,11 @@
 import "./globals.css";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Funkey Monkey - Adventure & Wellness Destination",
@@ -9,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className={`${plusJakartaSans.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
