@@ -110,6 +110,13 @@ button {
   transition: left 0.5s ease;
 }
 
+.body1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+}
+
 .body2 {
   font-style: normal;
   font-weight: 400;
@@ -122,6 +129,15 @@ button {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+}
+
+.myH1 {
+  font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 80px;
+  letter-spacing: -0.02em;
 }
 
 .myH3 {
@@ -145,6 +161,20 @@ button {
     font-size: 32px;
     line-height: 37px;
   }
+  .myH1 {
+    font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 44px;
+  }
+}
+
+.body1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 @media (min-width: 1024px) {
