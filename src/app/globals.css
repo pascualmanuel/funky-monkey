@@ -109,6 +109,14 @@ button {
   font-size: 18px;
   line-height: 21px;
 }
+
+.body3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 /* Mobile menu styles */
 @media (max-width: 1023px) {
   .llg\:hidden {
@@ -128,4 +136,11 @@ button {
   .llg\:block {
     display: block;
   }
+}
+
+/* Mobile overlay blur */
+.mobile-overlay-blur {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(43px);
+  -webkit-backdrop-filter: blur(43px);
 }
