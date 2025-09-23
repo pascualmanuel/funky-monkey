@@ -246,7 +246,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="ml-[20px] mg:ml-[80px] xl:ml-28">
-              <img src={Logo.src} alt="Logo" className="w-[160px]" />
+              <img
+                src={Logo.src}
+                alt="Logo"
+                className="w-[110px] md:w-[160px]"
+              />
             </div>
           </Link>
 
@@ -269,7 +273,7 @@ const Navbar = () => {
                 )}
 
                 {/* Lista de links (más juntos: space-x-4) */}
-                <div className="flex space-x-4">
+                <div className="flex llg:space-x-4">
                   {navLinks.map((item, index) => (
                     <Link
                       key={index}
@@ -288,14 +292,12 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Botón derecha */}
+          {/* Botón derecha - Desktop */}
           <div className="flex-shrink-0">
-            <div className="hidden llg:block mr-[20px] mg:mr-[80px] xl:mr-28">
+            <div className="hidden lg:block mr-[20px] mg:mr-[80px] xl:mr-28">
               <Link
                 href="/contact"
-                className={`transition-all duration-300 bg-green text-white px-10 py-[14px] rounded-[8px] font-bold hover:bg-[#176221] ${
-                  menuOpen ? "absolute bottom-4" : ""
-                }`}
+                className="transition-all duration-300 bg-green text-white px-10 py-[14px] rounded-[8px] font-bold hover:bg-[#176221]"
               >
                 Book Now
               </Link>
@@ -303,70 +305,82 @@ const Navbar = () => {
           </div>
 
           {/* Mobile */}
-          <div className="flex items-center llg:hidden">
+          <div className="flex items-center lg:hidden mr-[22px]">
             <Link
               href="/contact"
-              className={`transition-all duration-300 bg-white text-blue-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100 text-sm mr-4 llg:hidden ${
-                menuOpen ? "absolute bottom-4" : ""
-              }`}
+              className="transition-all duration-300 bg-green text-white px-5 py-3 rounded-lg font-bold hover:bg-[#176221] text-[16px] mr-4"
             >
-              Contact
+              Book Now
             </Link>
-
+            {/*  */}
             <div
-              className="flex flex-col justify-between items-center w-[24px] h-[18px] cursor-pointer mx-[20px] llg:hidden z-[1000]"
               onClick={toggleMenu}
+              className="bg-[#FFFFFF0D] cursor-pointer w-[50px] h-[50px] flex items-center justify-center rounded-full z-[1000]"
             >
-              <div
-                className={`h-[2px] w-full bg-white transition-transform duration-300 ${
-                  menuOpen
-                    ? "transform rotate-45 translate-y-[8px] mt-0"
-                    : "mt-1"
-                }`}
-              />
-              <div
-                className={`h-[2px] w-full bg-white transition-transform duration-300 ${
-                  menuOpen ? "transform -rotate-45 translate-y-[-8px]" : ""
-                }`}
-              />
+              <div className="flex flex-col justify-between items-center w-[24px] h-[14px] cursor-pointer ">
+                <div
+                  className={`h-[2px] w-full bg-white rounded-full  transition-transform duration-300 ${
+                    menuOpen
+                      ? "transform rotate-45 translate-y-[7px] mt-0"
+                      : "mt-1"
+                  }`}
+                />
+                <div
+                  className={`h-[2px] w-full bg-white rounded-full  transition-transform duration-300 ${
+                    menuOpen ? "transform -rotate-45 translate-y-[-5px]" : ""
+                  }`}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* Overlay Mobile */}
         <div
-          className={`z-[999] absolute navbar-background top-0 left-0 w-screen h-[100dvh] bg-blue-600 bg-opacity-100 transition-transform duration-300 ease-in-out transform ${
+          className={`z-[999] fixed top-0 left-0 w-screen h-[100dvh] transition-transform duration-300 ease-in-out transform ${
             menuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           style={{ willChange: "transform" }}
         >
-          <div className="flex items-center justify-between mr-[78px] h-[72px] ml-5">
-            <Link href="/" onClick={closeMenu}>
-              {/* FIX: usar Logo.src para que cargue igual que arriba */}
-              <img src={Logo.src} alt="Logo" className="w-[120px]" />
-            </Link>
-          </div>
+          {/* Fondo con blur - cubre toda la pantalla */}
+          <div
+            className="absolute top-0 left-0 w-full h-full mobile-overlay-blur "
+            style={{
+              background: "rgba(0, 0, 0, 0.8)",
+              backdropFilter: "blur(43px)",
+              WebkitBackdropFilter: "blur(43px)",
+            }}
+          />
 
-          <div className="flex flex-col mb-10 absolute bottom-0 z-100">
-            {navLinks.map((item, index) => (
-              <Link
-                key={index}
-                href={item.link}
-                className="text-white py-3 px-5 text-xl font-semibold hover:bg-blue-700 transition-colors"
-                onClick={closeMenu}
-              >
-                {item.text.toUpperCase()}
+          {/* Contenido sin blur - en una capa superior */}
+          <div className="relative z-20 h-full flex flex-col">
+            <div className="flex items-center justify-between mr-[78px] h-[72px] ml-5">
+              <Link href="/" onClick={closeMenu}>
+                <img src={Logo.src} alt="Logo" className="w-[120px]" />
               </Link>
-            ))}
+            </div>
 
-            <div className="pt-11 flex justify-center w-screen">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors absolute bottom-10 left-1/2 transform -translate-x-1/2"
-                onClick={closeMenu}
-              >
-                Contact Us
-              </Link>
+            <div className="flex flex-col mb-10 absolute bottom-0 z-20">
+              {navLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.link}
+                  className="text-white py-3 px-5 text-xl font-semibold hover:bg-blue-700 transition-colors"
+                  onClick={closeMenu}
+                >
+                  {item.text.toUpperCase()}
+                </Link>
+              ))}
+
+              <div className="pt-11 flex justify-center w-screen">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors absolute bottom-10 left-1/2 transform -translate-x-1/2"
+                  onClick={closeMenu}
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>

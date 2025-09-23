@@ -6,13 +6,13 @@ const Button = forwardRef(
     {
       children,
       variant = "primary",
-      size = "medium",
       className = "",
       width = "",
       height = "",
       disabled = false,
       onClick,
       link = "/",
+      classNames = "",
       type = "button",
       ...props
     },
@@ -36,25 +36,43 @@ const Button = forwardRef(
       ghost: "text-blue-600 hover:bg-blue-50 focus:ring-blue-500",
     };
 
-    const classes = `${baseClasses} ${variants[variant]}  ${className}`;
+    const classes = `${baseClasses} ${variants[variant]}  ${className} ${classNames}`;
 
-    return (
-      <Link href={link} style={{ textDecoration: "none" }}>
-        <button
-          ref={ref}
-          type={type}
+    if (link && link !== "/") {
+      return (
+        <Link
+          href={link}
           className={classes}
-          disabled={disabled}
-          onClick={onClick}
           style={{
             width: width,
             height: height,
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
           {...props}
         >
           {children}
-        </button>
-      </Link>
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className={classes}
+        disabled={disabled}
+        onClick={onClick}
+        style={{
+          width: width,
+          height: height,
+        }}
+        {...props}
+      >
+        {children}
+      </button>
     );
   }
 );
