@@ -2,11 +2,10 @@ import Layout from "@/components/Layout";
 import RetreatsImage from "@/assets/retreats/retreats.webp";
 
 export default function Retreats() {
-
   return (
     <Layout title="Wellness Retreats">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] max-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(359.9deg, rgba(0, 0, 0, 0.6) 2.16%, rgba(0, 0, 0, 0) 61.44%),  url("${RetreatsImage.src}")`,
           backgroundPosition: "center",

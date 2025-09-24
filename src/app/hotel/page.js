@@ -144,7 +144,7 @@ export default function Hotel() {
   return (
     <Layout title="Our Hotel">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] max-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(1.26deg, #000000 10.01%, rgba(0, 0, 0, 0) 80.21%), url("${TheHotelImage.src}")`,
           backgroundPosition: "center",

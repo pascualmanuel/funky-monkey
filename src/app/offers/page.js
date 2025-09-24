@@ -5,7 +5,7 @@ export default function Offers() {
   return (
     <Layout title="Special Offers">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] max-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 127.49%), url("${OffersImage.src}")`,
           backgroundPosition: "bottom",
