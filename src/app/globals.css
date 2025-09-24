@@ -146,6 +146,19 @@ button {
   line-height: 55px;
   letter-spacing: -0.02em;
 }
+.subH1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+}
+
+.subH2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
 
 /* Mobile menu styles */
 @media (max-width: 1023px) {
@@ -182,6 +195,11 @@ button {
     font-size: 32px;
     line-height: 38px;
     letter-spacing: -0.02em;
+  }
+  .subH2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
   }
 }
 
