@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Button from "./Button.jsx";
+import HomeGrid from "./HomeGrid.jsx";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -101,7 +102,7 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
 
   return (
     <>
-      <section className="relative w-full h-[100vh] overflow-hidden">
+      <section className="relative w-full h-[100dvh] overflow-hidden">
         {/* Video de fondo */}
         <video
           ref={videoRef}
@@ -138,59 +139,27 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
               classNames="w-[100%] md:w-[325px]"
               height="54px"
               link="/contact"
+              variant="ghost"
             >
-              Book your stay
+              View rooms
             </Button>
           </div>
         </div>
       </section>
 
-      <div className="lg:h-[1200px] bg-gradient-to-br from-gray-900 to-gray-800 flex flex-col lg:items-center lg:flex-row lg:justify-between max-w-screen-2xl m-auto">
-        <div className="max-w-[540px] lg:w-[460px] ml-6 mr-6 md:ml-16 xl:ml-28 relative lg:mr-[70px] 2xl:m">
-          <h1 className="text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 absolute right-[32px] top-0">
-            50+
-          </h1>
-
-          <div className="lg:mb-[50px] z-50 relative">
-            <h2 className="text-6xl lg:text-7xl font-black tracking-tight lg:leading-[110px] lg:tracking-[-3%] text-white uppercase mb-5 lg:mb-0">
-              Aventuras
-            </h2>
-            <h3 className="text-2xl lg:text-3xl font-bold text-green-400">
-              Inolvidables
-            </h3>
-          </div>
-          <div className="my-10 lg:my-0">
-            <p className="text-gray-300 text-lg lg:text-xl mb-8">
-              Sumérgete en la naturaleza exuberante de Costa Rica con nuestras
-              experiencias únicas. Desde canopy tours hasta buceo en aguas
-              cristalinas, cada aventura está diseñada para crear recuerdos
-              inolvidables.
-            </p>
-            <Button
-              variant="primary"
-              width="w-[155px]"
-              height="h-[48px]"
-              link="/activities"
-            >
-              Ver Aventuras
-            </Button>
-          </div>
-        </div>
-        <div className="lg:h-[1440px] flex sm:justify-end lg:items-end sm:mt-[-110px] lg:mt-0">
-          <div className="lg:mb-[270px] xl:mb-[140px] m-6 sm:m-0">
-            <div className="">
-              <Image
-                src="/assets/home/hero-image.jpg"
-                alt="Aventura en Costa Rica"
-                width={740}
-                height={600}
-                className="sm:w-[440px] md:w-[540px] xl:w-[740px] rounded-md sm:rounded-r-none"
-                priority
-              />
-            </div>
-          </div>
-        </div>
+      <div className=" mx-auto md:mt-[130px] md:mb-[130px] mt-[50px] mb-[50px] text-center flex items-center flex-col gap-10 px-4">
+        <h3 className="myH2 max-w-[776px]">
+          Boutique hotel in Santa Teresa,{" "}
+          <span className="text-[#5AB012]">steps from the beach </span>
+        </h3>
+        <p className="body1 max-w-[560px] text-darkGrey">
+          Funky Monkey Lodge is designed for relaxation. With a vibrant
+          atmosphere and attentive staff, we ensure your stay is nothing short
+          of amazing. Whether for a romantic escape or a family vacation, our
+          accommodations cater to every need.{" "}
+        </p>
       </div>
+      <HomeGrid />
     </>
   );
 };
