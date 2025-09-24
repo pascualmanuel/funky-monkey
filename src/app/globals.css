@@ -44,26 +44,16 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+.jakarta {
+  font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.bgreen-gradient {
+  background: linear-gradient(90.71deg, #279b37 -3.04%, #5ab012 115.98%);
 }
 
 button {
@@ -148,6 +138,15 @@ button {
   line-height: 45px;
 }
 
+.myH2 {
+  font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 55px;
+  letter-spacing: -0.02em;
+}
+
 /* Mobile menu styles */
 @media (max-width: 1023px) {
   .llg\:hidden {
@@ -168,13 +167,22 @@ button {
     font-size: 45px;
     line-height: 44px;
   }
-}
 
-.body1 {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
+  .body1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .myH2 {
+    font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.02em;
+  }
 }
 
 @media (min-width: 1024px) {
