@@ -55,6 +55,9 @@ html {
 .bgreen-gradient {
   background: linear-gradient(90.71deg, #279b37 -3.04%, #5ab012 115.98%);
 }
+.bgreen-gradient2 {
+  background: linear-gradient(139.26deg, #25d366 6.28%, #136d35 223.69%);
+}
 
 button {
   transition: all 0.2s ease-in-out;
