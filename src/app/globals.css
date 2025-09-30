@@ -3,19 +3,58 @@
 @tailwind utilities;
 @import "tailwindcss";
 
-/* Carousel slide animations */
-@keyframes fade-out {
+@keyframes slide-in-right {
   0% {
-    opacity: 1;
+    transform: translateX(100%);
   }
   100% {
-    opacity: 0;
+    transform: translateX(0);
   }
 }
-
-.animate-fade-out {
-  animation: fade-out 0.5s ease-in-out;
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-in-out;
+}
+.animate-slide-in-left {
+  animation: slide-in-left 0.5s ease-in-out;
+}
+
+/* Salidas */
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.animate-slide-out-left {
+  animation: slide-out-left 0.5s ease-in-out forwards;
+}
+.animate-slide-out-right {
+  animation: slide-out-right 0.5s ease-in-out forwards;
+}
+
+/* (Opcional) por si querés soporte extra fluido en móviles */
+/* * {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+} */
 
 :root {
   --background: #ffffff;
