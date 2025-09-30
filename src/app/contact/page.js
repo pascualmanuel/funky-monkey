@@ -1,309 +1,538 @@
+"use client";
 import Layout from "@/components/Layout";
+import FooterBg from "@/assets/footer-bg.webp";
+import Logo from "@/assets/f-monkey-logo.svg";
+import Button from "@/components/Button";
+import GoogleReviews from "@/assets/google-review.svg";
+import TripReviews from "@/assets/trip-review.svg";
+import Link from "next/link";
+import Arrow from "@/assets/arrow.svg";
+import WpIcon from "@/assets/contact/wp-icon.svg";
+import FbIcon from "@/assets/contact/fb-icon.svg";
+import InstagramIcon from "@/assets/contact/instagram-icon.png";
+import MailIcon from "@/assets/contact/mail-icon.svg";
+import PhoneIcon from "@/assets/contact/phone-icon.svg";
+
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    participants: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <Layout title="Contact Us">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            We&apos;d love to hear from you! Contact us for reservations,
-            questions, or to plan your perfect getaway at Funkey Monkey.
-          </p>
-        </div>
+    <Layout title="Contact Us" showFooter={false}>
+      <footer
+        className="bg-gray-800 text-white"
+        style={{
+          backgroundImage: `url(${FooterBg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div
+          className="py-8 md:py-12 px-4 sm:px-6 lg:px-8 mt-[155px] mx-4 sm:mx-8 lg:mx-[70px]"
+          style={{
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(22px)",
+            borderRadius: "16px",
+          }}
+        >
+          <div className="flex flex-col md:flex-row items-start md:justify-between md:gap-8 ">
+            <div className="col-span-1 md:col-span-2 lg:w-1/2">
+              <p className="myH2">Get in touch</p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-semibold mb-6">
-                Contact Information
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="text-blue-600 mr-4 mt-1">
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </div>
+              <p className="text-grey3 body1  max-w-[430px] mt-4 md:mb-10 mb-4">
+                Whether you have questions about our accommodations, want to
+                book an experience, or need help planning your trip to Santa
+                Teresa, our friendly team is here to assist you.
+              </p>
+              <div>
+                <div>
+                  <p className="mb-2 text-grey3 text-base font-medium">Email</p>
+                  <Link
+                    href="mailto:info@funkeymonkey.com"
+                    className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
+                    style={{
+                      background: "rgba(0, 0, 0, 0.25)",
+                      border: "1px solid rgba(0, 0, 0, 0.25)",
+                    }}
+                  >
+                    <img src={MailIcon.src} alt="Mail" /> info@funkeymonkey.com
+                  </Link>
+                </div>
+                <div className="mt-6 flex gap-2 lm:flex-row flex-col">
                   <div>
-                    <h4 className="font-semibold">Address</h4>
-                    <p className="text-gray-600">
-                      123 Adventure Lane
-                      <br />
-                      Mountain View, CA 94041
-                      <br />
-                      United States
+                    <p className="mb-2 text-grey3 text-base font-medium">
+                      Email
                     </p>
+                    <Link
+                      href="tel:+50683922295"
+                      className=" w-full justify-center ssm:w-[200px] lm:w-fit text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
+                      style={{
+                        background: "rgba(0, 0, 0, 0.25)",
+                        border: "1px solid rgba(0, 0, 0, 0.25)",
+                      }}
+                    >
+                      <img src={PhoneIcon.src} alt="Phone" /> +506 8392 2295
+                    </Link>
+                  </div>
+                  <div className="mt-1 lm:mt-0 ">
+                    <p className="mb-2 text-grey3 text-base font-medium lm:block hidden ">
+                      &nbsp;
+                    </p>
+                    <Link
+                      href="https://wa.me/50683922295"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full justify-center ssm:w-[200px] lm:w-fit text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
+                      style={{
+                        background:
+                          "linear-gradient(139.26deg, #25d366 6.28%, #136d35 223.69%)",
+                        border: "1px solid rgba(0, 0, 0, 0.25)",
+                      }}
+                    >
+                      <img src={WpIcon.src} alt="WhatsApp" /> WhatsApp us
+                    </Link>
                   </div>
                 </div>
-
-                <div className="flex items-start">
-                  <div className="text-blue-600 mr-4 mt-1">
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Phone</h4>
-                    <p className="text-gray-600">
-                      <a href="tel:+1234567890" className="hover:text-blue-600">
-                        (123) 456-7890
-                      </a>
-                      <br />
-                      <a href="tel:+1234567891" className="hover:text-blue-600">
-                        (123) 456-7891
-                      </a>
+                <div className="mt-6 flex gap-2">
+                  <div className="w-full ssm:w-fit justify-center">
+                    <p className="mb-2 text-grey3 text-base font-medium">
+                      Follow us
                     </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="text-blue-600 mr-4 mt-1">
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                    <Link
+                      href="https://www.instagram.com/funkymonkeysurfyoga"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
+                      style={{
+                        background: "rgba(0, 0, 0, 0.25)",
+                        border: "1px solid rgba(0, 0, 0, 0.25)",
+                      }}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
+                      <img src={InstagramIcon.src} alt="Instagram" /> Instagram
+                    </Link>
                   </div>
-                  <div>
-                    <h4 className="font-semibold">Email</h4>
-                    <p className="text-gray-600">
-                      <a
-                        href="mailto:info@funkeymonkey.com"
-                        className="hover:text-blue-600"
-                      >
-                        info@funkeymonkey.com
-                      </a>
-                      <br />
-                      <a
-                        href="mailto:reservations@funkeymonkey.com"
-                        className="hover:text-blue-600"
-                      >
-                        reservations@funkeymonkey.com
-                      </a>
+                  <div className="w-full ssm:w-fit justify-center">
+                    <p className="mb-2 text-grey3 text-base font-medium">
+                      &nbsp;
                     </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="text-blue-600 mr-4 mt-1">
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                    <Link
+                      href="https://www.facebook.com/funkymonkeylodge/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
+                      style={{
+                        background: "rgba(0, 0, 0, 0.25)",
+                        border: "1px solid rgba(0, 0, 0, 0.25)",
+                      }}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Hours</h4>
-                    <p className="text-gray-600">
-                      Front Desk: 24/7
-                      <br />
-                      Restaurant: 6:00 AM - 10:00 PM
-                      <br />
-                      Activities Desk: 8:00 AM - 6:00 PM
-                    </p>
+                      <img src={FbIcon.src} alt="Facebook" /> Facebook
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-blue-600">
-                  <span className="sr-only">Facebook</span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-600">
-                  <span className="sr-only">Instagram</span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.647.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-600">
-                  <span className="sr-only">Twitter</span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                  </svg>
-                </a>
+            {/* <div className="flex flex-col items-center md:items-end w-full">
+              <Button
+                classNames="w-[100%] md:w-[325px]"
+                height="54px"
+                link="/contact"
+              >
+                Book your stay
+              </Button>
+              <div className="flex gap-[10px] mt-4">
+                <img src={GoogleReviews.src} alt="Google Reviews" />
+                <img src={TripReviews.src} alt="Trip Reviews" />
               </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-xl font-semibold mb-6">Send us a Message</h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            </div> */}
+            <form
+              onSubmit={handleSubmit}
+              className="w-full md:w-1/2 mt-8 lg:mt-0 "
+            >
+              {/* Name and Email Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    htmlFor="name"
+                    className="block text-white text-base font-bold mb-2"
                   >
-                    First Name
+                    Name*
                   </label>
                   <input
                     type="text"
-                    id="firstName"
-                    name="firstName"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Name..."
                     required
+                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    htmlFor="email"
+                    className="block text-white text-base font-bold mb-2"
                   >
-                    Last Name
+                    Email*
                   </label>
                   <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email..."
                     required
+                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   />
                 </div>
               </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Select a subject</option>
-                  <option value="reservation">Reservation Inquiry</option>
-                  <option value="activities">Activities Information</option>
-                  <option value="retreats">Wellness Retreats</option>
-                  <option value="general">General Question</option>
-                  <option value="feedback">Feedback</option>
-                </select>
-              </div>
-
+              {/* Kind of retreat */}
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-white text-base font-bold mb-2 mt-4"
                 >
-                  Message
+                  Message:*
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Tell us how we can help you..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Write your message..."
                   required
-                ></textarea>
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none"
+                />
               </div>
 
+              {/* Amount of participants */}
+
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                disabled={isSubmitting}
+                className={`w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 transform mt-6 ${
+                  isSuccess
+                    ? "bg-green scale-101"
+                    : isSubmitting
+                    ? "bg-green opacity-75 cursor-not-allowed"
+                    : "bg-green cursor-pointer hover:bg-[#176221] hover:scale-101 active:scale-99"
+                }`}
               >
-                Send Message
+                {isSuccess ? (
+                  <span className="flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Message Sent!
+                  </span>
+                ) : isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  "Send"
+                )}
               </button>
             </form>
           </div>
         </div>
-      </div>
+        <div
+          className="py-8 md:py-12 px-4 sm:px-6 lg:px-8 my-4 mx-4 sm:mx-8 lg:mx-[70px]"
+          style={{
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(22px)",
+            borderRadius: "16px",
+          }}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-4 lg:justify-between lg:flex lg:flex-row">
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                Santa Teresa
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3 "
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                Santa Teresa
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                The hotel
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                The hotel
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                Rooms
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                Rooms
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                Activities
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                Activities
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                Retreats
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                Retreats
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                Offers
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                Offers
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+            >
+              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+                Contact
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
+                Contact
+                <img
+                  src={Arrow.src}
+                  alt="Arrow"
+                  className="inline-block ml-3"
+                />
+              </div>
+            </Link>
+          </div>
+          <div className="mt-8 pt-8 border-t border-darkGrey  flex-col sm:flex-row gap-2 sm:gap-4 justify-start hidden md:flex">
+            <p className="text-center sm:text-left text-grey3 body3">
+              © {new Date().getFullYear()} Funkey Monkey.
+            </p>
+            <Link
+              href="https://labba.studio"
+              target="_blank"
+              className="text-center sm:text-left text-grey3 body3"
+            >
+              Made by Labba Studio
+            </Link>
+            <Link
+              href="/"
+              className="text-center sm:text-left text-grey3 body3"
+            >
+              Privacidad
+            </Link>
+            <Link
+              href="/"
+              className="text-center sm:text-left text-grey3 body3"
+            >
+              Términos y condiciones
+            </Link>
+            <div className="flex ml-auto gap-6">
+              <Link
+                href="https://www.instagram.com/funkymonkeysurfyoga"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={InstagramIcon.src} alt="Instagram" />
+              </Link>
+              <Link
+                href="https://www.facebook.com/funkymonkeylodge/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={FbIcon.src} alt="Facebook" />
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div className="mt-8 pt-8 border-t border-darkGrey  flex-col sm:flex-row gap-2 sm:gap-4 justify-start flex md:hidden">
+              <div className="flex flex-col w-full justify-center items-center gap-2">
+                <div className="flex gap-6 mb-4">
+                  <Link
+                    href="https://www.instagram.com/funkymonkeysurfyoga"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={InstagramIcon.src} alt="Instagram" />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/funkymonkeylodge/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={FbIcon.src} alt="Facebook" />
+                  </Link>
+                </div>
+                <p className="text-center sm:text-left text-grey3 body3">
+                  © {new Date().getFullYear()} Funkey Monkey.
+                </p>
+                <Link
+                  href="https://labba.studio"
+                  target="_blank"
+                  className="text-center sm:text-left text-grey3 body3"
+                >
+                  Made by Labba Studio
+                </Link>
+                <div className="flex flex-row gap-2">
+                  <Link
+                    href="/"
+                    className="text-center sm:text-left text-grey3 body3"
+                  >
+                    Privacidad
+                  </Link>
+                  <Link
+                    href="/"
+                    className="text-center sm:text-left text-grey3 body3"
+                  >
+                    Términos y condiciones
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </Layout>
   );
 }
