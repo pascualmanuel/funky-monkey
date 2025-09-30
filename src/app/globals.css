@@ -3,6 +3,20 @@
 @tailwind utilities;
 @import "tailwindcss";
 
+/* Carousel slide animations */
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-out {
+  animation: fade-out 0.5s ease-in-out;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
