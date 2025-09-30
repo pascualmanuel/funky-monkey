@@ -9,9 +9,11 @@ import Instagram from "../assets/instagram.svg";
 import Facebook from "../assets/facebook.svg";
 
 export default function Footer() {
-  // background: rgba(255, 255, 255, 0.1);
-  // backdrop-filter: blur(22px);
-  // border-radius: 16px;
+
+
+
+
+  
   return (
     <footer
       className="bg-gray-800 text-white"
