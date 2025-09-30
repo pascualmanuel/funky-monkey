@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import React from "react";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ArrowCarousel from "@/assets/carousel-arrow.svg";
@@ -7,9 +8,12 @@ import CarouselImage from "@/assets/offers/offers.webp";
 import CarouselImage1 from "@/assets/activities/activity-11.webp";
 import CarouselImage2 from "@/assets/activities/activity-9.webp";
 import InstagramBg from "@/assets/offers/instagram-bg.png";
+
 export default function Offers() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState(null); // capa anterior visible para animar salida
   const [slideDirection, setSlideDirection] = useState("right");
+  const DURATION = 500;
 
   const carouselData = [
     {
@@ -41,83 +45,111 @@ export default function Offers() {
     },
   ];
 
-  const nextSlide = () => {
-    setSlideDirection("right");
-    setCurrentSlide((prev) => (prev + 1) % carouselData.length);
+  // refs a los DOM nodes de las capas
+  const currentRef = useRef(null);
+  const prevRef = useRef(null);
+
+  const startTransition = (toIndex, dir) => {
+    setSlideDirection(dir);
+    setPrevSlide(currentSlide); // mostramos la capa anterior
+    setCurrentSlide(toIndex); // seteamos la nueva
+    // limpiamos la anterior al terminar la animación
+    setTimeout(() => setPrevSlide(null), DURATION);
   };
 
-  const prevSlide = () => {
-    setSlideDirection("left");
-    setCurrentSlide(
-      (prev) => (prev - 1 + carouselData.length) % carouselData.length
+  const nextSlide = () =>
+    startTransition((currentSlide + 1) % carouselData.length, "right");
+
+  const prevSlideFn = () =>
+    startTransition(
+      (currentSlide - 1 + carouselData.length) % carouselData.length,
+      "left"
     );
-  };
 
   const goToSlide = (index) => {
-    if (index > currentSlide) {
-      setSlideDirection("right");
-    } else if (index < currentSlide) {
-      setSlideDirection("left");
-    }
-    setCurrentSlide(index);
+    if (index === currentSlide) return;
+    startTransition(index, index > currentSlide ? "right" : "left");
   };
+
+  // Corre la animación cada vez que hay una capa anterior + una actual
+  useEffect(() => {
+    const curr = currentRef.current;
+    const prev = prevRef.current;
+    if (!curr) return;
+
+    // Evitá animar en el primer render (no hay prev)
+    if (prevSlide === null || !prev) return;
+
+    const dir = slideDirection === "right" ? 1 : -1;
+
+    // animamos la capa que ENTRA
+    const inAnim = curr.animate(
+      [
+        { transform: `translateX(${100 * dir}%)` },
+        { transform: "translateX(0%)" },
+      ],
+      {
+        duration: DURATION,
+        easing: "cubic-bezier(.22,.61,.36,1)",
+        fill: "forwards",
+      }
+    );
+
+    // animamos la capa que SALE
+    const outAnim = prev.animate(
+      [
+        { transform: "translateX(0%)" },
+        { transform: `translateX(${-100 * dir}%)` },
+      ],
+      {
+        duration: DURATION,
+        easing: "cubic-bezier(.22,.61,.36,1)",
+        fill: "forwards",
+      }
+    );
+
+    // limpieza por si desmonta en medio
+    return () => {
+      inAnim?.cancel?.();
+      outAnim?.cancel?.();
+    };
+  }, [currentSlide, prevSlide, slideDirection]);
+
   const currentData = carouselData[currentSlide];
 
   return (
     <Layout title="Special Offers">
-      <div className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px] relative overflow-hidden">
-        <div
-          key={`slide-${currentSlide}`}
-          className={`min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px] flex flex-col justify-center items-center w-full absolute inset-0 ${
-            slideDirection === "right"
-              ? "animate-slide-in-right"
-              : "animate-slide-in-left"
-          }`}
-          style={{
-            backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 127.49%), url("${currentData.image.src}")`,
-            backgroundPosition: "center bottom",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
-          }}
-        >
-          <div className="flex flex-col justify-center items-center">
-            <h2 className="myH1 text-center text-white max-w-[600px]">
-              {currentData.title}
-            </h2>
-            <p className="body1 text-center text-white max-w-[650px] mt-10">
-              {currentData.description}
-            </p>
-            <p className="body1 text-center text-white max-w-[650px] mt-6">
-              {currentData.voucher}
-            </p>
-            <Button
-              variant="primary"
-              classNames="w-[155px] h-[50px] mt-10"
-              link={currentData.buttonLink}
-            >
-              {currentData.buttonText}
-            </Button>
-          </div>
-        </div>
-        <div className="body1 text-center text-white max-w-[450px] absolute bottom-16 left-1/2 transform -translate-x-1/2 flex items-center gap-2 z-10">
+      {/* contenedor del carrusel */}
+      <div className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black">
+        {/* capa anterior (sale) */}
+        {prevSlide !== null && (
+          <Slide ref={prevRef} data={carouselData[prevSlide]} />
+        )}
+
+        {/* capa actual (entra) */}
+        <Slide ref={currentRef} data={currentData} />
+
+        {/* Controles */}
+        <div className="body1 text-center text-white max-w-[450px] absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
           <button
-            onClick={prevSlide}
+            onClick={prevSlideFn}
             className="mr-10 hover:opacity-70 cursor-pointer transition-opacity"
           >
             <img src={ArrowCarousel.src} alt="Previous" />
           </button>
+
           <div className="flex items-center gap-3">
             {carouselData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-[7px] h-[7px] rounded-full transition-all duration-300 ${
+                className={`w-[7px] h-[7px] rounded-full cursor-pointer transition-all duration-300 ${
                   index === currentSlide ? "bg-white" : "bg-white opacity-30"
                 }`}
               />
             ))}
           </div>
+
           <button
             onClick={nextSlide}
             className="rotate-180 ml-10 hover:opacity-70 cursor-pointer transition-opacity"
@@ -126,6 +158,8 @@ export default function Offers() {
           </button>
         </div>
       </div>
+      {/* Newsletter ... */}
+
       <div className="mx-4 sm:mx-8 lg:mx-[70px]">
         <h3 className="myH2 text-center mt-[80px]"> Don't miss any offer</h3>
         <div className="flex flex-col md:flex-row items-center justify-between mt-10 mx-auto max-w-[770px]">
@@ -177,3 +211,40 @@ export default function Offers() {
     </Layout>
   );
 }
+
+const Slide = React.forwardRef(function Slide({ data }, ref) {
+  return (
+    <div
+      ref={ref}
+      className="absolute inset-0 flex flex-col justify-center items-center w-full will-change-transform"
+      style={{
+        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 127.49%), url("${data.image.src}")`,
+        backgroundPosition: "center bottom",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        // IMPORTANTE: no usar 'fixed' en un nodo animado; evita flashes y glitches
+        backgroundAttachment: "scroll",
+        transform: "translateZ(0)",
+      }}
+    >
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="myH1 text-center text-white max-w-[600px]">
+          {data.title}
+        </h2>
+        <p className="body1 text-center text-white max-w-[650px] mt-10">
+          {data.description}
+        </p>
+        <p className="body1 text-center text-white max-w-[650px] mt-6">
+          {data.voucher}
+        </p>
+        <Button
+          variant="primary"
+          classNames="w-[155px] h-[50px] mt-10"
+          link={data.buttonLink}
+        >
+          {data.buttonText}
+        </Button>
+      </div>
+    </div>
+  );
+});
