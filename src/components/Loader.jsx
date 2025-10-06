@@ -1,47 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Loader = ({ onComplete, videoProgress = 0 }) => {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [startTime] = useState(Date.now());
+  const startTime = useRef(Date.now());
+  const completionTimeout = useRef(null);
 
   useEffect(() => {
     // Bloquear el scroll del body cuando el loader está visible
     document.body.style.overflow = "hidden";
 
-    // Usar el progreso real del video si está disponible
+    // Función para completar el loader
+    const completeLoader = () => {
+      const elapsedTime = Date.now() - startTime.current;
+      const remainingTime = Math.max(0, 3000 - elapsedTime); // 3 segundos mínimo
+
+      completionTimeout.current = setTimeout(() => {
+        setIsVisible(false);
+        if (onComplete) {
+          onComplete();
+        }
+      }, remainingTime + 500);
+    };
+
+    // Si tenemos progreso del video
     if (videoProgress > 0) {
       setProgress(videoProgress);
 
-      // Cuando el video esté completamente cargado (100%), verificar tiempo mínimo
+      // Cuando el video esté completamente cargado (100%)
       if (videoProgress >= 100) {
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = Math.max(0, 3000 - elapsedTime); // 3 segundos mínimo
-
-        setTimeout(() => {
-          setIsVisible(false);
-          if (onComplete) {
-            onComplete();
-          }
-        }, remainingTime + 500);
+        completeLoader();
       }
     } else {
-      // Fallback: si no hay progreso del video, usar el timer anterior
+      // Fallback: simular progreso si no hay video
       const timer = setInterval(() => {
         setProgress((prevProgress) => {
           if (prevProgress >= 100) {
             clearInterval(timer);
-
-            // Verificar que hayan pasado mínimo 3 segundos
-            const elapsedTime = Date.now() - startTime;
-            const remainingTime = Math.max(0, 3000 - elapsedTime);
-
-            setTimeout(() => {
-              setIsVisible(false);
-              if (onComplete) {
-                onComplete();
-              }
-            }, remainingTime + 500);
+            completeLoader();
             return 100;
           }
           return prevProgress + Math.random() * 15;
@@ -51,11 +47,14 @@ const Loader = ({ onComplete, videoProgress = 0 }) => {
       return () => clearInterval(timer);
     }
 
-    // Cleanup: restaurar el scroll cuando el componente se desmonte
+    // Cleanup
     return () => {
       document.body.style.overflow = "unset";
+      if (completionTimeout.current) {
+        clearTimeout(completionTimeout.current);
+      }
     };
-  }, [onComplete, videoProgress, startTime]);
+  }, [onComplete, videoProgress]);
 
   if (!isVisible) return null;
 
