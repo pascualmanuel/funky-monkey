@@ -14,6 +14,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   // Links
   const navLinks = [
@@ -45,9 +46,12 @@ const Navbar = () => {
   });
 
   // Índice activo real (o null si está oculto/no existe) // CHANGED
-  const rawIndex = navLinks.findIndex((l) => l.link === pathname);
-  const isRouteHidden = HIDE_INDICATOR_ON.has(pathname);
-  const activeIndex = !isRouteHidden && rawIndex >= 0 ? rawIndex : null;
+  const rawIndex = isClient
+    ? navLinks.findIndex((l) => l.link === pathname)
+    : -1;
+  const isRouteHidden = isClient ? HIDE_INDICATOR_ON.has(pathname) : true;
+  const activeIndex =
+    isClient && !isRouteHidden && rawIndex >= 0 ? rawIndex : null;
 
   // Mide link i relativo al contenedor
   const measureLink = (index) => {
@@ -181,9 +185,14 @@ const Navbar = () => {
     }
   };
 
+  // Establecer isClient después del montaje para evitar problemas de hidratación
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Al cambiar ruta: si no hay índice válido, ocultar; si hay, posicionar // CHANGED
   useEffect(() => {
-    if (isAnimating) return;
+    if (!isClient || isAnimating) return;
     if (activeIndex === null) {
       setIndicator((p) => ({ ...p, visible: false }));
       return;
@@ -191,10 +200,12 @@ const Navbar = () => {
     const id = requestAnimationFrame(() => moveIndicatorTo(activeIndex));
     return () => cancelAnimationFrame(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname, isAnimating, activeIndex]);
+  }, [pathname, isAnimating, activeIndex, isClient]);
 
   // Recalcular en resize/carga de fuentes (solo si hay índice válido) // CHANGED
   useEffect(() => {
+    if (!isClient) return;
+
     const onResize = () => {
       if (activeIndex === null) return;
       moveIndicatorTo(activeIndex, { proportional: false });
@@ -213,10 +224,12 @@ const Navbar = () => {
       ro?.disconnect?.();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIndex]);
+  }, [activeIndex, isClient]);
 
   // Mostrar/ocultar navbar por scroll
   useEffect(() => {
+    if (!isClient) return;
+
     const handleScroll = () => {
       const current = window.scrollY;
       if (current > lastScrollY && lastScrollY < 90) setIsVisible(true);
@@ -227,7 +240,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lastScrollY]);
+  }, [lastScrollY, isClient]);
 
   const toggleMenu = () => setMenuOpen((s) => !s);
   const closeMenu = () => setMenuOpen(false);
@@ -256,7 +269,7 @@ const Navbar = () => {
         // transition: "height 300ms ease",
       }}
     >
-      <nav className=" relative">
+      <nav className={`relative ${menuOpen ? "h-[100dvh]" : "h-[130px] lg:h-[102px]"}`}>
         <div className="h-[130px] lg:h-[102px] mx-auto max-w-screen-2xl flex items-center">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
