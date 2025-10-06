@@ -12,6 +12,32 @@ export const metadata = {
   title: "Funkey Monkey - Adventure & Wellness Destination",
   description:
     "Your ultimate destination for adventure, relaxation, and unforgettable experiences. Luxury accommodations, exciting activities, and wellness retreats await you at Funkey Monkey.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "Funkey Monkey - Adventure & Wellness Destination",
+    description:
+      "Your ultimate destination for adventure, relaxation, and unforgettable experiences. Luxury accommodations, exciting activities, and wellness retreats await you at Funkey Monkey.",
+    images: [
+      {
+        url: "/assets/funkey-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Funkey Monkey Lodge",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Funkey Monkey - Adventure & Wellness Destination",
+    description:
+      "Your ultimate destination for adventure, relaxation, and unforgettable experiences. Luxury accommodations, exciting activities, and wellness retreats await you at Funkey Monkey.",
+    images: ["/assets/funkey-logo.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
