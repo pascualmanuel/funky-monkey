@@ -255,11 +255,11 @@ export default function Retreats() {
           <div className="flex flex-col lg:flex-row items-center py-6 px-6 md:py-20 md:px-8 mg:px-[64px] justify-between">
             <div className="w-full lg:w-[40%] lg:mr-10 ">
               <h4 className="myH2 text-white">
-                Let's plan your retreat or event in Santa Teresa
+                Let&apos;s plan your retreat or event in Santa Teresa
               </h4>
               <p className="body1 text-grey2 mt-4 mb-6 lg:mb-[50px]">
-                Let us help you bring your vision to life in one of Costa Rica's
-                most magical locations.
+                Let us help you bring your vision to life in one of Costa
+                Rica&apos;s most magical locations.
               </p>
               <div className="bgreen-gradient2 text-white text-center py-4 px-6 rounded-[58px] md:max-w-[200px] flex items-center gap-2 justify-center font-bold">
                 <img src={WhatsApp.src} alt="WhatsApp" /> WhatsApp us

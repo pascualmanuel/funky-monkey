@@ -81,8 +81,9 @@ export default function Activities() {
           <div className="h-[40%] p-6 flex flex-col justify-center">
             <h4 className="subH1 mb-3">Jungle meets ocean</h4>
             <p className="body1 text-darkGrey">
-              Costa Rica's biodiversity shines in every corner, from birds'
-              songs to the soothing waves that mark the day's rhythm.
+              Costa Rica&apos;s biodiversity shines in every corner, from
+              birds&apos; songs to the soothing waves that mark the day&apos;s
+              rhythm.
             </p>
           </div>
         </div>
@@ -98,8 +99,8 @@ export default function Activities() {
           <div className="h-[40%] p-6 flex flex-col justify-center">
             <h4 className="subH1 mb-3">Magic sunsets</h4>
             <p className="body1 text-darkGrey">
-              Santa Teresa's sunsets paint the sky with vibrant colors, creating
-              unforgettable, magical evenings by the ocean.
+              Santa Teresa&apos;s sunsets paint the sky with vibrant colors,
+              creating unforgettable, magical evenings by the ocean.
             </p>
           </div>
         </div>
@@ -132,7 +133,7 @@ export default function Activities() {
           <div className="h-[40%] p-6 flex flex-col justify-center">
             <h4 className="subH1 mb-3">Laid-Back freedom</h4>
             <p className="body1 text-darkGrey">
-              No rush, no stress. Time moves differently here, and that's
+              No rush, no stress. Time moves differently here, and that&apos;s
               exactly the point.
             </p>
           </div>

@@ -5,8 +5,6 @@ import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ArrowCarousel from "@/assets/carousel-arrow.svg";
 import CarouselImage from "@/assets/offers/offers.webp";
-import CarouselImage1 from "@/assets/activities/activity-11.webp";
-import CarouselImage2 from "@/assets/activities/activity-9.webp";
 import InstagramBg from "@/assets/offers/instagram-bg.png";
 import Jungle from "@/assets/santa-teresa/jungle.webp";
 import Yoga from "@/assets/retreats/retreats-4.webp";
@@ -163,7 +161,10 @@ export default function Offers() {
       {/* Newsletter ... */}
 
       <div className="mx-4 sm:mx-8 lg:mx-[70px]">
-        <h3 className="myH2 text-center mt-[80px]"> Don't miss any offer</h3>
+        <h3 className="myH2 text-center mt-[80px]">
+          {" "}
+          Don&apos;t miss any offer
+        </h3>
         <div className="flex flex-col md:flex-row items-center justify-between mt-10 mx-auto max-w-[770px]">
           <div>
             <p className="subH2 mb-6">Suscribe to our newsletter</p>

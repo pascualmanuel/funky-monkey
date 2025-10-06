@@ -1,10 +1,6 @@
 "use client";
 import Layout from "@/components/Layout";
 import FooterBg from "@/assets/footer-bg.webp";
-import Logo from "@/assets/f-monkey-logo.svg";
-import Button from "@/components/Button";
-import GoogleReviews from "@/assets/google-review.svg";
-import TripReviews from "@/assets/trip-review.svg";
 import Link from "next/link";
 import Arrow from "@/assets/arrow.svg";
 import WpIcon from "@/assets/contact/wp-icon.svg";
@@ -23,7 +19,7 @@ export default function Contact() {
     participants: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

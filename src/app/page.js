@@ -61,12 +61,16 @@ export default function Home() {
 
   // Función para resetear el estado del loader (útil para desarrollo)
   // Puedes llamar resetLoader() desde la consola del navegador si necesitas volver a mostrar el loader
-  window.resetLoader = () => {
-    localStorage.removeItem("funkey-monkey-loader-shown");
-    console.log(
-      "Loader state reset. Refresh the page to see the loader again."
-    );
-  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.resetLoader = () => {
+        localStorage.removeItem("funkey-monkey-loader-shown");
+        console.log(
+          "Loader state reset. Refresh the page to see the loader again."
+        );
+      };
+    }
+  }, []);
 
   const handleVideoProgress = (progress) => {
     setVideoProgress(progress);
@@ -91,13 +95,13 @@ export default function Home() {
 
   return (
     <>
-      {isLoading && shouldShowLoader && (
-        <Loader
-          onComplete={handleLoaderComplete}
-          videoProgress={videoProgress}
-        /> 
-      )}
       <Layout fullWidth>
+        {isLoading && shouldShowLoader && (
+          <Loader
+            onComplete={handleLoaderComplete}
+            videoProgress={videoProgress}
+          />
+        )}
         <HomeHero
           onVideoLoad={handleVideoLoad}
           onError={handleVideoError}
