@@ -12,6 +12,7 @@ export const metadata = {
   title: "Funkey Monkey - Adventure & Wellness Destination",
   description:
     "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
+  metadataBase: new URL("https://funky-monkey.onrender.com/"),
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -21,7 +22,7 @@ export const metadata = {
     title: "Funkey Monkey - Adventure & Wellness Destination",
     description:
       "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
-    url: "https://funkeymonkey.com",
+    url: "https://funky-monkey.onrender.com/",
     siteName: "Funkey Monkey Lodge",
     images: [
       {
@@ -39,7 +40,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Funkey Monkey - Adventure & Wellness Destination",
     description:
-      "Your ultimate destination for adventure, relaxation, and unforgettable experiences. Luxury accommodations, exciting activities, and wellness retreats await you at Funkey Monkey.",
+      "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
     images: ["/assets/funkey-logo-og.png"],
   },
 };
