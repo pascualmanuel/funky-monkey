@@ -28,6 +28,7 @@ export default function Rooms() {
       description:
         "Exclusive romantic hideaway with stunning ocean views, 200 steps above the jungle.",
       image: Room1,
+      images: [Room1, Room2, Room3],
       features: [
         { icon: AcIcon, text: "2 max" },
         { icon: M2Icon, text: "55m2" },
@@ -43,6 +44,7 @@ export default function Rooms() {
       description:
         "Breathtaking ocean views, 200 steps up, perfect for couples, friends or solo travelers.",
       image: Room2,
+      images: [Room2, Room3, Room4, Room5, Room6],
       features: [
         { icon: PersonIcon, text: "3 max" },
         { icon: M2Icon, text: "60m²" },
@@ -57,6 +59,7 @@ export default function Rooms() {
       description:
         "Comfortable jungle escape for couples and singles looking for privacy close to nature.",
       image: Room3,
+      images: [Room3, Room4, Room5],
       features: [
         { icon: PersonIcon, text: "3 max" },
         { icon: M2Icon, text: "45m²" },
@@ -72,6 +75,7 @@ export default function Rooms() {
       description:
         "Cozy room 100 steps to lush greenery, peaceful vibes for singles, couples or small family.",
       image: Room4,
+      images: [Room4, Room5, Room6],
       features: [
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "45m²" },
@@ -87,6 +91,7 @@ export default function Rooms() {
       description:
         "Spacious and bright with peaceful views, 100 steps climb, best choice for families and friends.",
       image: Room5,
+      images: [Room5, Room6, Room7],
       features: [
         { icon: PersonIcon, text: "7 max" },
         { icon: M2Icon, text: "65m²" },
@@ -102,6 +107,7 @@ export default function Rooms() {
       description:
         "Great for singles couples or small family seeking simplicity, comfort and connection with nature.",
       image: Room6,
+      images: [Room6, Room7, Room8],
       features: [
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "40m²" },
@@ -118,6 +124,7 @@ export default function Rooms() {
       description:
         "Comfortable loft-style studio for families or small groups of friends surrounded by nature.",
       image: Room7,
+      images: [Room7, Room8, Room9],
       features: [
         { icon: PersonIcon, text: "7 max" },
         { icon: M2Icon, text: "65m²" },
@@ -133,6 +140,7 @@ export default function Rooms() {
       description:
         "Charming, natural style room designed for laid-back stays with warmth and space.",
       image: Room8,
+      images: [Room8, Room9, Room1],
       features: [
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "55m²" },
@@ -148,6 +156,7 @@ export default function Rooms() {
       description:
         "Simple, comfy, and affordable for light easygoing travelers who value comfort and good vibes.",
       image: Room9,
+      images: [Room9, Room1, Room2],
       features: [
         { icon: PersonIcon, text: "2 max" },
         { icon: M2Icon, text: "12m²" },
@@ -159,7 +168,7 @@ export default function Rooms() {
   return (
     <Layout title="Our Rooms">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(359.9deg, #000000 2.16%, rgba(0, 0, 0, 0) 61.44%), url("${RoomsImage.src}")`,
           backgroundPosition: "center",
@@ -186,14 +195,14 @@ export default function Rooms() {
         </p>
       </div>
       {/* Rooms Grid */}
-      <div className=" mx-auto px-[70px] pb-20">
+      <div className=" mx-auto md:px-[70px] px-4 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.map((room, index) => (
             <RoomCard
               key={index}
               room={room}
-              imageIndex={index + 1}
-              totalImages={rooms.length}
+              imageIndex={1}
+              totalImages={room.images ? room.images.length : 1}
             />
           ))}
         </div>

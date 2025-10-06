@@ -24,7 +24,7 @@ export default function Activities() {
   return (
     <Layout title="Santa Teresa">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(359.9deg, #000000 2.16%, rgba(0, 0, 0, 0) 61.44%), url("${SantaTeresa.src}")`,
           backgroundPosition: "bottom",
@@ -320,7 +320,7 @@ export default function Activities() {
                 target="_blank"
                 style={{
                   background:
-                    "linear-gradient(139.26deg, #25D366 6.28%, #136D35 223.69%);",
+                    "linear-gradient(139.26deg, #25D366 6.28%, #136D35 223.69%)",
                   borderRadius: "8px",
                 }}
               >
@@ -332,7 +332,7 @@ export default function Activities() {
                 className="w-full h-[50px] text-white flex flex-row gap-4 items-center justify-center text-base font-bold"
                 target="_blank"
                 style={{
-                  background: " #002422;  ",
+                  background: " #002422",
                   borderRadius: "8px",
                 }}
               >

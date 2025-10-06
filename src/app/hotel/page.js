@@ -6,12 +6,13 @@ import HotelIcon3 from "@/assets/the-hotel/hotel-icon-3.svg";
 import HotelIcon4 from "@/assets/the-hotel/hotel-icon-4.svg";
 import HotelIcon5 from "@/assets/the-hotel/hotel-icon-5.svg";
 import HotelIcon6 from "@/assets/the-hotel/hotel-icon-6.svg";
+import HotelCarousel from "@/components/HotelCarousel";
 
 export default function Hotel() {
   return (
     <Layout title="Our Hotel">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(1.26deg, #000000 10.01%, rgba(0, 0, 0, 0) 80.21%), url("${TheHotelImage.src}")`,
           backgroundPosition: "center",
@@ -115,6 +116,9 @@ export default function Hotel() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <HotelCarousel />
       </div>
     </Layout>
   );

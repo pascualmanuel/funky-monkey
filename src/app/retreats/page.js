@@ -57,7 +57,7 @@ export default function Retreats() {
   return (
     <Layout title="Wellness Retreats">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(359.9deg, rgba(0, 0, 0, 0.6) 2.16%, rgba(0, 0, 0, 0) 61.44%),  url("${RetreatsImage.src}")`,
           backgroundPosition: "center",
@@ -266,7 +266,10 @@ export default function Retreats() {
               </div>
             </div>
             <div className="w-full lg:w-[60%] mt-6 lg:mt-0 ">
-              <form onSubmit={handleSubmit} className="lg:max-w-[520px] ml-auto ">
+              <form
+                onSubmit={handleSubmit}
+                className="lg:max-w-[520px] ml-auto "
+              >
                 {/* Name and Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>

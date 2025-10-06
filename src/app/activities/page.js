@@ -130,7 +130,7 @@ export default function Activities() {
   return (
     <Layout title="Activities">
       <div
-        className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relativemax-h-[850px]  flex flex-col justify-center items-center"
+        className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"
         style={{
           background: `linear-gradient(359.9deg, #000000 2.16%, rgba(0, 0, 0, 0) 61.44%), url("${ActivitiesImage.src}")`,
           backgroundPosition: "bottom",

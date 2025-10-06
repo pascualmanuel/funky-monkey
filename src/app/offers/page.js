@@ -8,6 +8,8 @@ import CarouselImage from "@/assets/offers/offers.webp";
 import CarouselImage1 from "@/assets/activities/activity-11.webp";
 import CarouselImage2 from "@/assets/activities/activity-9.webp";
 import InstagramBg from "@/assets/offers/instagram-bg.png";
+import Jungle from "@/assets/santa-teresa/jungle.webp";
+import Yoga from "@/assets/retreats/retreats-4.webp";
 
 export default function Offers() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -26,19 +28,19 @@ export default function Offers() {
       buttonLink: "/contact",
     },
     {
-      image: CarouselImage1,
-      title: "Weekend Getaway Special",
+      image: Yoga,
+      title: "SILK Retreat 2025",
       description:
-        "Book 2 nights and get the 3rd night free. Perfect for a relaxing weekend escape.",
+        "FEB  - MAR  / HOSTED BY FLY TIME RETREATS / info@thecircusfix.ca 10% DISCOUNT FOR PARTICIPANTS",
       voucher: "Use voucher: WEEKEND3",
       buttonText: "Book Now",
       buttonLink: "/contact",
     },
     {
-      image: CarouselImage2,
-      title: "Early Bird Discount",
+      image: Jungle,
+      title: "10% OFF week",
       description:
-        "Book 30 days in advance and save up to 30% on your stay. Limited time offer.",
+        "GET A DISCOUNT ON TOP OF OUR RATES   FOR WEEK / 7 NGHTS STAY FROM 08.04 TILL 15.12 /  Use VOUCHER: FUNKY24 - only direct reservations!",
       voucher: "Use voucher: EARLY30",
       buttonText: "Reserve Today",
       buttonLink: "/contact",
@@ -120,7 +122,7 @@ export default function Offers() {
   return (
     <Layout title="Special Offers">
       {/* contenedor del carrusel */}
-      <div className="min-h-[530px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black">
+      <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black">
         {/* capa anterior (sale) */}
         {prevSlide !== null && (
           <Slide ref={prevRef} data={carouselData[prevSlide]} />
