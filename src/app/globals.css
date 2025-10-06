@@ -61,12 +61,12 @@ button {
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 @theme inline {
   --color-black: #2b2b2b;
