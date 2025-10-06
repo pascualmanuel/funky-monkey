@@ -120,7 +120,7 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
           <source src="/assets/home/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-[#03000D] to-transparent"></div>
-        <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-22 lg:px-28 pb-[130px] text-white max-w-screen-2xl mx-auto">
+        <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-22 lg:px-28 pb-[50px] text-white max-w-screen-2xl mx-auto">
           <h1 className="myH1  mb-6 lg:mb-8 md:w-[550px] 2xl:w-auto  ">
             Santa Teresa’s hidden oasis
           </h1>
