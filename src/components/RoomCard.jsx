@@ -217,9 +217,13 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
         </div>
 
         {/* Book Now Button */}
-        <button className="w-full bg-[#5AB012] hover:bg-[#4A950F] text-white font-bold py-3 px-6 rounded-xl transition-colors duration-200">
+        <a
+          href={`https://beds24.com/booking2.php?roomid=${room.buttonLink}`}
+          target="_blank"
+          className="w-full bg-[#5AB012] hover:bg-[#4A950F] text-white font-bold py-3 px-6 rounded-xl text-center transition-colors duration-200"
+        >
           Book Now
-        </button>
+        </a>
       </div>
 
       {/* Gallery Modal */}
@@ -229,6 +233,7 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
         images={roomImages}
         initialIndex={currentImageIndex}
         roomTitle={room.title}
+        buttonLink={room.buttonLink}
       />
     </div>
   );
