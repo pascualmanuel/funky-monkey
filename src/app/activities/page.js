@@ -13,7 +13,8 @@ import Img10 from "@/assets/activities/activity-10.webp";
 import Img11 from "@/assets/activities/activity-11.webp";
 import Img12 from "@/assets/activities/activity-12.webp";
 import Img13 from "@/assets/activities/activity-13.webp";
-
+import Faqs from "@/components/Faqs";
+import PreFooter from "@/components/PreFooter";
 export default function Activities() {
   const sections = [
     {
@@ -209,6 +210,8 @@ export default function Activities() {
           )
         )}
       </div>
+      <Faqs category="activities" showFilters={false} showViewMore={true} />
+      <PreFooter />
     </Layout>
   );
 }
