@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ArrowLeft from "../assets/prev.svg";
 import ArrowRight from "../assets/next.svg";
+import GalleryModal from "./GalleryModal";
 
 import Carousel7 from "../assets/rooms/room-7.webp";
 import Carousel8 from "../assets/rooms/room-8.webp";
@@ -23,6 +24,9 @@ export default function Carousel({ images }) {
   const [currentTranslateX, setCurrentTranslateX] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobileDevice, setIsMobileDevice] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [galleryCurrentIndex, setGalleryCurrentIndex] = useState(0);
+  const [hasDragged, setHasDragged] = useState(false);
   const carouselRef = useRef(null);
 
   // Configuración de tamaños de imagen
@@ -55,6 +59,7 @@ export default function Carousel({ images }) {
     { src: Carousel7, alt: "Hotel room 7", size: "small" },
     { src: Carousel8, alt: "Hotel room 8", size: "medium" },
     { src: Carousel9, alt: "Hotel room 9", size: "small" },
+    { src: Carousel3, alt: "Hotel room 9", size: "large" },
   ];
 
   const slides = images || defaultImages;
@@ -83,15 +88,24 @@ export default function Carousel({ images }) {
 
     let totalWidth = 0;
     let visibleSlides = 0;
+    const maxWidth = containerWidth * 0.9;
 
     for (let i = currentIndex; i < slides.length; i++) {
       const slide = slides[i];
       const slideWidth = getSlideWidth(slide);
+
+      // Si agregar esta imagen excede el límite, verificar si es la última imagen
+      if (totalWidth + slideWidth > maxWidth) {
+        // Si es la última imagen, incluirla de todas formas para que se vea completa
+        if (i === slides.length - 1) {
+          totalWidth += slideWidth;
+          visibleSlides++;
+        }
+        break;
+      }
+
       totalWidth += slideWidth;
       visibleSlides++;
-
-      // Si ya no caben más slides, parar
-      if (totalWidth >= containerWidth * 0.9) break;
     }
 
     return { totalWidth, visibleSlides };
@@ -124,7 +138,32 @@ export default function Carousel({ images }) {
   }, []);
 
   const { totalWidth, visibleSlides } = calculateVisibleWidth();
-  const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+  // Calcular maxIndex considerando que la última imagen debe mostrarse completamente
+  const calculateMaxIndex = () => {
+    if (slides.length <= 1) return 0;
+
+    // Calcular cuántas imágenes caben en el espacio visible
+    let totalWidth = 0;
+    let maxSlides = 0;
+    const maxWidth = containerWidth * 0.9;
+
+    for (let i = 0; i < slides.length; i++) {
+      const slideWidth = getSlideWidth(slides[i]);
+
+      if (totalWidth + slideWidth <= maxWidth) {
+        totalWidth += slideWidth;
+        maxSlides++;
+      } else {
+        break;
+      }
+    }
+
+    // El maxIndex es el último índice desde donde podemos mostrar al menos una imagen completa
+    return Math.max(0, slides.length - maxSlides);
+  };
+
+  const maxIndex = calculateMaxIndex();
 
   const isPrevDisabled = currentIndex <= 0;
   const isNextDisabled = currentIndex >= maxIndex;
@@ -140,6 +179,17 @@ export default function Carousel({ images }) {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
+
+  const handleImageClick = (clickedIndex) => {
+    // Solo abrir la galería si no hubo drag significativo
+    if (!hasDragged) {
+      setGalleryCurrentIndex(clickedIndex);
+      setIsGalleryOpen(true);
+    }
+  };
+
+  // Prepare images array for GalleryModal
+  const galleryImages = slides.map((slide) => slide.src);
 
   const getClientX = (e) => {
     if (
@@ -170,6 +220,7 @@ export default function Carousel({ images }) {
   const handleStart = (e) => {
     if (e.type.startsWith("touch")) e.preventDefault();
     setIsDragging(true);
+    setHasDragged(false);
     setStartX(getClientX(e));
     setCurrentTranslateX(calculateTranslateX(currentIndex));
   };
@@ -181,6 +232,11 @@ export default function Carousel({ images }) {
     const currentX = getClientX(e);
     const diffX = currentX - startX;
     const translateX = currentTranslateX + diffX;
+
+    // Marcar como drag si el movimiento es mayor a 10px
+    if (Math.abs(diffX) > 10) {
+      setHasDragged(true);
+    }
 
     carouselRef.current.style.transform = `translateX(${translateX}px)`;
     carouselRef.current.style.transition = "none";
@@ -204,6 +260,11 @@ export default function Carousel({ images }) {
     if (carouselRef.current) {
       carouselRef.current.style.transition = "transform 0.4s ease-in-out";
     }
+
+    // Resetear el estado de drag después de un pequeño delay
+    setTimeout(() => {
+      setHasDragged(false);
+    }, 100);
   };
 
   useEffect(() => {
@@ -224,8 +285,8 @@ export default function Carousel({ images }) {
   return (
     <>
       <div className="">
-        <div className="carousel-container">
-          <div className="carousel-wrapper pt-14">
+        <div className="carousel-container ">
+          <div className="carousel-wrapper pt-14 ">
             <div
               ref={carouselRef}
               className="carousel"
@@ -260,7 +321,9 @@ export default function Carousel({ images }) {
                       borderRadius: "16px",
                       overflow: "hidden",
                       marginRight: "12px",
+                      cursor: "pointer",
                     }}
+                    onClick={() => handleImageClick(index)}
                   >
                     <Image
                       src={slide.src}
@@ -313,6 +376,15 @@ export default function Carousel({ images }) {
           </button>
         </div>
       </div>
+
+      {/* Gallery Modal */}
+      <GalleryModal
+        isOpen={isGalleryOpen}
+        onClose={() => setIsGalleryOpen(false)}
+        images={galleryImages}
+        initialIndex={galleryCurrentIndex}
+        roomTitle="Hotel Gallery"
+      />
     </>
   );
 }
