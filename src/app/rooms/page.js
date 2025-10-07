@@ -1,3 +1,4 @@
+"use client";
 import Layout from "@/components/Layout";
 import RoomsImage from "@/assets/home/rooms.webp";
 import Room1 from "@/assets/rooms/room-1.webp";
@@ -20,8 +21,37 @@ import M2Icon from "@/assets/rooms/icons/m2-icon.svg";
 import OceanIcon from "@/assets/rooms/icons/ocean-icon.svg";
 import PersonIcon from "@/assets/rooms/icons/person-icon.svg";
 import SofaIcon from "@/assets/rooms/icons/sofa-icon.svg";
-
+import { useState, useEffect } from "react";
+import Faqs from "@/components/Faqs";
+import PreFooter from "@/components/PreFooter";
 export default function Rooms() {
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "https://funkymonkeylodge.com/wp-json/beds24/v2/properties-rooms?fwedaxs"
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setProperties(data.data[0].roomTypes);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching rooms:", err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  console.log(properties, "properties");
+
   const rooms = [
     {
       title: "Treetop upper apartment",
@@ -38,6 +68,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "1 XL king bed" },
       ],
       additionalFeatures: 3,
+      buttonLink: "149020",
     },
     {
       title: "Treetop lower apartment",
@@ -53,6 +84,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "King bed convertible in single" },
       ],
       additionalFeatures: 3,
+      buttonLink: "149070",
     },
     {
       title: "Luxury apartment",
@@ -69,6 +101,7 @@ export default function Rooms() {
         { icon: BalconyIcon, text: "Balcony" },
       ],
       additionalFeatures: 2,
+      buttonLink: "149071",
     },
     {
       title: "Ocean view room",
@@ -85,6 +118,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "Queen bed" },
       ],
       additionalFeatures: 3,
+      buttonLink: "149072",
     },
     {
       title: "Large ocean view room",
@@ -101,6 +135,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "3+2 single beds" },
       ],
       additionalFeatures: 2,
+      buttonLink: "149073",
     },
     {
       title: "Private bungalows (3)",
@@ -118,6 +153,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "2 single beds" },
       ],
       additionalFeatures: 1,
+      buttonLink: "149074",
     },
     {
       title: "Large Ocean view bungalow",
@@ -134,6 +170,7 @@ export default function Rooms() {
         { icon: BalconyIcon, text: "Balcony" },
       ],
       additionalFeatures: 2,
+      buttonLink: "149076",
     },
     {
       title: "Private suite",
@@ -150,6 +187,7 @@ export default function Rooms() {
         { icon: SofaIcon, text: "Sofa convertible in king bed" },
       ],
       additionalFeatures: 2,
+      buttonLink: "149077",
     },
     {
       title: "Budget rooms (2)",
@@ -163,6 +201,7 @@ export default function Rooms() {
         { icon: AcIcon, text: "Ceiling fan" },
         { icon: BedIcon, text: "1 king or 2 single beds" },
       ],
+      buttonLink: "149078",
     },
   ];
   return (
@@ -207,6 +246,8 @@ export default function Rooms() {
           ))}
         </div>
       </div>
+      <Faqs category="hotel" showFilters={false} showViewMore={true} />
+      <PreFooter />
     </Layout>
   );
 }

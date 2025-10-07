@@ -20,6 +20,8 @@ import Sansa from "@/assets/santa-teresa/sansa.svg";
 import Link from "next/link";
 import WhatsApp from "@/assets/santa-teresa/whatsapp-icon.svg";
 import Phone from "@/assets/santa-teresa/phone-icon.svg";
+import Faqs from "@/components/Faqs";
+import PreFooter from "@/components/PreFooter";
 export default function Activities() {
   return (
     <Layout title="Santa Teresa">
@@ -42,7 +44,7 @@ export default function Activities() {
 
       <div className=" mx-auto md:mt-[130px] md:mb-[130px] mt-[50px] mb-[50px] text-center flex items-center flex-col gap-10 px-4">
         <h3 className="myH2 max-w-[776px]">
-          Why is Santa Teresa
+          Why is Santa Teresa <br />
           <span className="text-[#5AB012]">so special </span>
         </h3>
         <p className="body1 max-w-[560px] text-darkGrey">
@@ -343,6 +345,8 @@ export default function Activities() {
           </div>
         </div>
       </div>
+      <Faqs category="location" showFilters={false} showViewMore={true} />
+      <PreFooter />
     </Layout>
   );
 }

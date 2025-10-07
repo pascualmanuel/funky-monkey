@@ -14,7 +14,7 @@ import CarIcon from "@/assets/retreats/car-icon.svg";
 import FoodIcon from "@/assets/retreats/food-icon.svg";
 import WhatsApp from "@/assets/santa-teresa/whatsapp-icon.svg";
 import { useState } from "react";
-
+import Faqs from "@/components/Faqs";
 export default function Retreats() {
   const [formData, setFormData] = useState({
     name: "",
@@ -412,6 +412,7 @@ export default function Retreats() {
           </div>
         </div>
       </div>
+      <Faqs category="retreats" showFilters={false} showViewMore={true} />
     </Layout>
   );
 }
