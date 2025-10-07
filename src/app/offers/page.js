@@ -8,12 +8,55 @@ import CarouselImage from "@/assets/offers/offers.webp";
 import InstagramBg from "@/assets/offers/instagram-bg.png";
 import Jungle from "@/assets/santa-teresa/jungle.webp";
 import Yoga from "@/assets/retreats/retreats-4.webp";
-
+import Faqs from "@/components/Faqs";
+import PreFooter from "@/components/PreFooter";
 export default function Offers() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(null); // capa anterior visible para animar salida
   const [slideDirection, setSlideDirection] = useState("right");
   const DURATION = 500;
+
+  // useEffect(() => {
+  //   fetch("https://api.beds24.com/v2/properties?includeAllRooms=true", {
+  //     method: "GET",
+  //     headers: {
+  //       accept: "application/json",
+  //       token: process.env.NEXT_PUBLIC_BEDS24_API_KEY, // ✅ correcto
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data, "DATA"))
+  //     .catch((err) => console.error("Error:", err));
+  // }, []);
+
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Llamás al endpoint de tu plugin WordPress, no al de Beds24 directamente
+    fetch(
+      "https://funkymonkeylodge.com/wp-json/beds24/v2/properties-rooms?fwedaxs"
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setProperties(data.data[0].roomTypes);
+
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching rooms:", err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  console.log(properties, "properties");
 
   const carouselData = [
     {
@@ -199,18 +242,9 @@ export default function Offers() {
         </div>
       </div>
 
-      <div className="mx-4 sm:mx-8 lg:mx-[70px]">
-        <div className=" overflow-hidden bgreen-gradient rounded-[16px]  my-[100px]">
-          <div className="flex flex-col items-center justify-center gap-6 py-[55px]">
-            <p className="myH3 h-full text-white text-center z-10  max-w-[200px] sm:max-w-[520px] mx-auto">
-              Ready for a Costa Rican adventure?
-            </p>
-            <Button variant="greenBlue" classNames="w-[155px] h-[50px]">
-              Book your stay
-            </Button>
-          </div>
-        </div>
-      </div>
+      <PreFooter />
+
+      {/* <Faqs /> */}
     </Layout>
   );
 }

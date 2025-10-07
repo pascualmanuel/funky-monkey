@@ -7,7 +7,8 @@ import HotelIcon4 from "@/assets/the-hotel/hotel-icon-4.svg";
 import HotelIcon5 from "@/assets/the-hotel/hotel-icon-5.svg";
 import HotelIcon6 from "@/assets/the-hotel/hotel-icon-6.svg";
 import HotelCarousel from "@/components/HotelCarousel";
-
+import Faqs from "@/components/Faqs";
+import PreFooter from "@/components/PreFooter";
 export default function Hotel() {
   return (
     <Layout title="Our Hotel">
@@ -120,6 +121,8 @@ export default function Hotel() {
       <div>
         <HotelCarousel />
       </div>
+      <Faqs category="hotel" showFilters={false} showViewMore={true} />
+      <PreFooter />
     </Layout>
   );
 }
