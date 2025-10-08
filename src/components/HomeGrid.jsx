@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Rooms from "../assets/home/rooms.webp";
 import Activities from "../assets/home/activities.webp";
 import Location from "../assets/home/location.webp";
@@ -12,7 +13,10 @@ const HomeGrid = () => {
     <>
       <div className="mx-4 sm:mx-8 lg:mx-[70px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px]">
+          <Link
+            href="/rooms"
+            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer"
+          >
             <img
               src={Rooms.src}
               className="w-full h-full object-cover"
@@ -28,8 +32,11 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Rooms
             </p>
-          </div>
-          <div className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px]">
+          </Link>
+          <Link
+            href="/activities"
+            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer"
+          >
             <img
               src={Activities.src}
               className="w-full h-full object-cover"
@@ -45,8 +52,11 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Activities
             </p>
-          </div>
-          <div className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px]">
+          </Link>
+          <Link
+            href="/santa-teresa"
+            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer"
+          >
             <img
               src={Location.src}
               className="w-full h-full object-cover"
@@ -62,8 +72,11 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Location
             </p>
-          </div>
-          <div className="relative overflow-hidden rounded-[16px]  h-[200px] sm:h-[677px] lg:hidden">
+          </Link>
+          <Link
+            href="/hotel"
+            className="relative overflow-hidden rounded-[16px]  h-[200px] sm:h-[677px] lg:hidden cursor-pointer"
+          >
             <img
               src={TheHotel.src}
               className="w-full h-full object-cover"
@@ -79,11 +92,14 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               The Hotel
             </p>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="mx-4 sm:mx-8 lg:mx-[70px] mt-6 hidden lg:block">
-        <div className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px]">
+        <Link
+          href="/hotel"
+          className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] cursor-pointer block"
+        >
           <img
             src={TheHotel.src}
             className="w-full h-full object-cover"
@@ -99,11 +115,14 @@ const HomeGrid = () => {
           <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
             The Hotel
           </p>
-        </div>
+        </Link>
       </div>
       <div className="mx-4 sm:mx-8 lg:mx-[70px] mt-6">
         <div className="flex gap-6 flex-col lg:flex-row">
-          <div className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[65%]">
+          <Link
+            href="/retreats"
+            className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[65%] cursor-pointer"
+          >
             <img
               src={Retreats.src}
               className="w-full h-full object-cover"
@@ -119,8 +138,11 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Retreats
             </p>
-          </div>
-          <div className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[35%]">
+          </Link>
+          <Link
+            href="/offers"
+            className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[35%] cursor-pointer"
+          >
             <img
               src={Offer.src}
               className="w-full h-full object-cover "
@@ -141,7 +163,7 @@ const HomeGrid = () => {
               className="absolute sm:bottom-10 sm:right-10 bottom-2 right-2"
               alt="Offer Icon"
             />
-          </div>
+          </Link>
         </div>
       </div>
       <div className="mx-4 sm:mx-8 lg:mx-[70px]">
