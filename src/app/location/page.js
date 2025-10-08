@@ -9,7 +9,7 @@ export default function Location() {
             Discover Our Beautiful Location
           </h2>
           <p className="text-gray-600 mb-6">
-            Funkey Monkey is strategically located in one of the most beautiful
+            Funky Monkey is strategically located in one of the most beautiful
             and accessible destinations, offering easy access to nature,
             adventure, and relaxation.
           </p>

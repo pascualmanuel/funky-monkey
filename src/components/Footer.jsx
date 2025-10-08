@@ -9,11 +9,6 @@ import Instagram from "../assets/instagram.svg";
 import Facebook from "../assets/facebook.svg";
 
 export default function Footer() {
-
-
-
-
-  
   return (
     <footer
       className="bg-gray-800 text-white"
@@ -210,7 +205,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-darkGrey  flex-col sm:flex-row gap-2 sm:gap-4 justify-start hidden md:flex">
           <p className="text-center sm:text-left text-grey3 body3">
-            © {new Date().getFullYear()} Funkey Monkey.
+            © {new Date().getFullYear()} Funky Monkey.
           </p>
           <Link
             href="https://labba.studio"
@@ -246,7 +241,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-center sm:text-left text-grey3 body3">
-              © {new Date().getFullYear()} Funkey Monkey.
+              © {new Date().getFullYear()} Funky Monkey.
             </p>
             <Link
               href="https://labba.studio"

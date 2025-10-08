@@ -1,4 +1,4 @@
-// Utility functions for the Funkey Monkey application
+// Utility functions for the Funky Monkey application
 
 /**
  * Format currency values

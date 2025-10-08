@@ -9,7 +9,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "Funkey Monkey - Adventure & Wellness Destination",
+  title: "Funky Monkey - Adventure & Wellness Destination",
   description:
     "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
   metadataBase: new URL("https://funky-monkey.onrender.com/"),
@@ -19,17 +19,17 @@ export const metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Funkey Monkey - Adventure & Wellness Destination",
+    title: "Funky Monkey - Adventure & Wellness Destination",
     description:
       "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
     url: "https://funky-monkey.onrender.com/",
-    siteName: "Funkey Monkey Lodge",
+    siteName: "Funky Monkey Lodge",
     images: [
       {
-        url: "/assets/funkey-logo-og.png",
+        url: "/assets/funky-logo-og.png",
         width: 1200,
         height: 630,
-        alt: "Funkey Monkey Lodge",
+        alt: "Funky Monkey Lodge",
         type: "image/png",
       },
     ],
@@ -38,10 +38,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Funkey Monkey - Adventure & Wellness Destination",
+    title: "Funky Monkey - Adventure & Wellness Destination",
     description:
       "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
-    images: ["/assets/funkey-logo-og.png"],
+    images: ["/assets/funky-logo-og.png"],
   },
 };
 

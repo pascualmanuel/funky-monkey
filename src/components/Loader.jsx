@@ -75,7 +75,7 @@ const Loader = ({ onComplete, videoProgress = 0 }) => {
     >
       <div className="relative">
         {/* Logo o texto de carga */}
-        <div className="text-white text-2xl font-bold mb-8">Funkey Monkey</div>
+        <div className="text-white text-2xl font-bold mb-8">Funky Monkey</div>
 
         {/* Barra de progreso */}
         <div className="w-64 h-1 bg-gray-700 rounded-full overflow-hidden">

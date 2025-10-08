@@ -1,6 +1,6 @@
-# Funkey Monkey - Adventure & Wellness Destination
+# Funky Monkey - Adventure & Wellness Destination
 
-A modern Next.js 15 website for Funkey Monkey, a luxury adventure and wellness destination hotel.
+A modern Next.js 15 website for Funky Monkey, a luxury adventure and wellness destination hotel.
 
 ## 🚀 Features
 
@@ -63,7 +63,7 @@ src/
 
 ```bash
 git clone <repository-url>
-cd funkey-monkey
+cd funky-monkey
 ```
 
 2. Install dependencies:
@@ -173,10 +173,11 @@ This project is licensed under the MIT License.
 
 For support or questions, please contact:
 
-- Email: info@funkeymonkey.com
+- Email: info@funkymokey.com
 - Phone: (123) 456-7890
 
 ---
 
 Built with ❤️ using Next.js 15 and Tailwind CSS
+
 # funky-monkey

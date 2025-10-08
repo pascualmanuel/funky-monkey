@@ -61,14 +61,14 @@ export default function Contact() {
                 <div>
                   <p className="mb-2 text-grey3 text-base font-medium">Email</p>
                   <Link
-                    href="mailto:info@funkeymonkey.com"
+                    href="mailto:info@funkymonkey.com"
                     className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
                     style={{
                       background: "rgba(0, 0, 0, 0.25)",
                       border: "1px solid rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <img src={MailIcon.src} alt="Mail" /> info@funkeymonkey.com
+                    <img src={MailIcon.src} alt="Mail" /> info@funkymonkey.com
                   </Link>
                 </div>
                 <div className="mt-6 flex gap-2 lm:flex-row flex-col">
@@ -443,7 +443,7 @@ export default function Contact() {
           </div>
           <div className="mt-8 pt-8 border-t border-darkGrey  flex-col sm:flex-row gap-2 sm:gap-4 justify-start hidden md:flex">
             <p className="text-center sm:text-left text-grey3 body3">
-              © {new Date().getFullYear()} Funkey Monkey.
+              © {new Date().getFullYear()} Funky Monkey.
             </p>
             <Link
               href="https://labba.studio"
@@ -501,7 +501,7 @@ export default function Contact() {
                   </Link>
                 </div>
                 <p className="text-center sm:text-left text-grey3 body3">
-                  © {new Date().getFullYear()} Funkey Monkey.
+                  © {new Date().getFullYear()} Funky Monkey.
                 </p>
                 <Link
                   href="https://labba.studio"
