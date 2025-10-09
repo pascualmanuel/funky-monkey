@@ -55,7 +55,7 @@ export default function Footer() {
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-4 lg:justify-between lg:flex lg:flex-row">
             <Link
-              href="/"
+              href="/santa-teresa"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -76,7 +76,7 @@ export default function Footer() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/hotel"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -97,7 +97,7 @@ export default function Footer() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/rooms"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -118,7 +118,7 @@ export default function Footer() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/activities"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -139,7 +139,7 @@ export default function Footer() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/retreats"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -160,7 +160,7 @@ export default function Footer() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/offers"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -181,7 +181,7 @@ export default function Footer() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/contact"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
