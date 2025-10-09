@@ -1,15 +1,6 @@
 "use client";
 import Layout from "@/components/Layout";
 import RoomsImage from "@/assets/home/rooms.webp";
-import Room1 from "@/assets/rooms/room-1.webp";
-import Room2 from "@/assets/rooms/room-2.webp";
-import Room3 from "@/assets/rooms/room-3.webp";
-import Room4 from "@/assets/rooms/room-4.webp";
-import Room5 from "@/assets/rooms/room-5.webp";
-import Room6 from "@/assets/rooms/room-6.webp";
-import Room7 from "@/assets/rooms/room-7.webp";
-import Room8 from "@/assets/rooms/room-8.webp";
-import Room9 from "@/assets/rooms/room-9.webp";
 import RoomCard from "@/components/RoomCard";
 import AcIcon from "@/assets/rooms/icons/ac-icon.svg";
 import BalconyIcon from "@/assets/rooms/icons/balcony-icon.svg";
@@ -24,6 +15,15 @@ import SofaIcon from "@/assets/rooms/icons/sofa-icon.svg";
 import { useState, useEffect } from "react";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
+
+// Helper function to generate image paths
+const generateImagePaths = (folderName, count, prefix) => {
+  return Array.from(
+    { length: count },
+    (_, i) => `/assets/rooms/${folderName}/${prefix}-${i + 1}.webp`
+  );
+};
+
 export default function Rooms() {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -57,8 +57,12 @@ export default function Rooms() {
       title: "Treetop upper apartment",
       description:
         "Exclusive romantic hideaway with stunning ocean views, 200 steps above the jungle.",
-      image: Room1,
-      images: [Room1, Room2, Room3],
+      image: "/assets/rooms/Treetop-Upper-Apartment/treetop-upper-1.webp",
+      images: generateImagePaths(
+        "Treetop-Upper-Apartment",
+        13,
+        "treetop-upper"
+      ),
       features: [
         { icon: AcIcon, text: "2 max" },
         { icon: M2Icon, text: "55m2" },
@@ -74,8 +78,12 @@ export default function Rooms() {
       title: "Treetop lower apartment",
       description:
         "Breathtaking ocean views, 200 steps up, perfect for couples, friends or solo travelers.",
-      image: Room2,
-      images: [Room2, Room3, Room4, Room5, Room6],
+      image: "/assets/rooms/Treetop-Lower-Apartment/treetop-lower-1.webp",
+      images: generateImagePaths(
+        "Treetop-Lower-Apartment",
+        11,
+        "treetop-lower"
+      ),
       features: [
         { icon: PersonIcon, text: "3 max" },
         { icon: M2Icon, text: "60m²" },
@@ -90,8 +98,12 @@ export default function Rooms() {
       title: "Luxury apartment",
       description:
         "Comfortable jungle escape for couples and singles looking for privacy close to nature.",
-      image: Room3,
-      images: [Room3, Room4, Room5],
+      image: "/assets/rooms/Luxury-Garden-View-Apartment/luxury-garden-1.webp",
+      images: generateImagePaths(
+        "Luxury-Garden-View-Apartment",
+        10,
+        "luxury-garden"
+      ),
       features: [
         { icon: PersonIcon, text: "3 max" },
         { icon: M2Icon, text: "45m²" },
@@ -107,8 +119,8 @@ export default function Rooms() {
       title: "Ocean view room",
       description:
         "Cozy room 100 steps to lush greenery, peaceful vibes for singles, couples or small family.",
-      image: Room4,
-      images: [Room4, Room5, Room6],
+      image: "/assets/rooms/Ocean-View-Room/ocean-view-1.webp",
+      images: generateImagePaths("Ocean-View-Room", 9, "ocean-view"),
       features: [
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "45m²" },
@@ -124,8 +136,12 @@ export default function Rooms() {
       title: "Large ocean view room",
       description:
         "Spacious and bright with peaceful views, 100 steps climb, best choice for families and friends.",
-      image: Room5,
-      images: [Room5, Room6, Room7],
+      image: "/assets/rooms/Large-Ocean-View-Room/large-ocean-view-1.webp",
+      images: generateImagePaths(
+        "Large-Ocean-View-Room",
+        10,
+        "large-ocean-view"
+      ),
       features: [
         { icon: PersonIcon, text: "7 max" },
         { icon: M2Icon, text: "65m²" },
@@ -141,8 +157,8 @@ export default function Rooms() {
       title: "Private bungalows (3)",
       description:
         "Great for singles couples or small family seeking simplicity, comfort and connection with nature.",
-      image: Room6,
-      images: [Room6, Room7, Room8],
+      image: "/assets/rooms/Private-Bungalow/private-bungalow-1.webp",
+      images: generateImagePaths("Private-Bungalow", 11, "private-bungalow"),
       features: [
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "40m²" },
@@ -159,8 +175,8 @@ export default function Rooms() {
       title: "Large Ocean view bungalow",
       description:
         "Comfortable loft-style studio for families or small groups of friends surrounded by nature.",
-      image: Room7,
-      images: [Room7, Room8, Room9],
+      image: "/assets/rooms/Large-Bungalow/large-bungalow-1.webp",
+      images: generateImagePaths("Large-Bungalow", 11, "large-bungalow"),
       features: [
         { icon: PersonIcon, text: "7 max" },
         { icon: M2Icon, text: "65m²" },
@@ -176,8 +192,8 @@ export default function Rooms() {
       title: "Private suite",
       description:
         "Charming, natural style room designed for laid-back stays with warmth and space.",
-      image: Room8,
-      images: [Room8, Room9, Room1],
+      image: "/assets/rooms/Private Suite/private-suite-1.webp",
+      images: generateImagePaths("Private Suite", 9, "private-suite"),
       features: [
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "55m²" },
@@ -193,8 +209,8 @@ export default function Rooms() {
       title: "Budget rooms (2)",
       description:
         "Simple, comfy, and affordable for light easygoing travelers who value comfort and good vibes.",
-      image: Room9,
-      images: [Room9, Room1, Room2],
+      image: "/assets/rooms/Private-Budget-Room/private-budget-1.webp",
+      images: generateImagePaths("Private-Budget-Room", 8, "private-budget"),
       features: [
         { icon: PersonIcon, text: "2 max" },
         { icon: M2Icon, text: "12m²" },
