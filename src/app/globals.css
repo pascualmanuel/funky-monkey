@@ -57,7 +57,7 @@ button {
 } */
 
 :root {
-  --background: #f9fafb;
+  --background: #fdfffc;
   --foreground: #171717;
 }
 
@@ -300,32 +300,37 @@ button {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  cursor: grab;
   touch-action: pan-y pinch-zoom;
 }
 
-.carousel:active {
-  cursor: grabbing;
+/* Hide scrollbar */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .carousel-slide {
   position: relative;
-  max-height: 670px;
+  max-height: 580px;
   flex-shrink: 0;
   min-width: 200px; /* Ancho mínimo de respaldo */
 }
 
 /* Tamaños específicos para diferentes configuraciones */
 .carousel-slide[data-size="large"] {
-  max-height: 670px;
+  max-height: 580px;
 }
 
 .carousel-slide[data-size="medium"] {
-  max-height: 670px;
+  max-height: 580px;
 }
 
 .carousel-slide[data-size="small"] {
-  max-height: 670px;
+  max-height: 580px;
 }
 
 .carousel-image {
@@ -363,19 +368,11 @@ button {
 }
 
 .carousel-arrow-left {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .carousel-arrow-right {
-  margin-left: 5px;
-}
-
-.carousel-navigation {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 20px;
-  /* margin-left: 10px; */
+  margin-left: 8px;
 }
 
 /* Touch device optimizations */

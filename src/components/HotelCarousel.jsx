@@ -9,13 +9,13 @@ import cloudinaryImages from "../../public/cloudinary-images.json";
 
 export default function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [currentTranslateX, setCurrentTranslateX] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobileDevice, setIsMobileDevice] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [galleryCurrentIndex, setGalleryCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startScrollLeft, setStartScrollLeft] = useState(0);
   const [hasDragged, setHasDragged] = useState(false);
   const carouselRef = useRef(null);
 
@@ -146,14 +146,22 @@ export default function Carousel({ images }) {
   const isNextDisabled = currentIndex >= maxIndex;
 
   const nextSlide = () => {
-    if (!isNextDisabled) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+    if (!isNextDisabled && carouselRef.current) {
+      const nextSlideWidth = getSlideWidth(slides[currentIndex + 1]) + 12; // +12 for margin
+      carouselRef.current.scrollBy({
+        left: nextSlideWidth,
+        behavior: "smooth",
+      });
     }
   };
 
   const prevSlide = () => {
-    if (!isPrevDisabled) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+    if (!isPrevDisabled && carouselRef.current) {
+      const prevSlideWidth = getSlideWidth(slides[currentIndex - 1]) + 12; // +12 for margin
+      carouselRef.current.scrollBy({
+        left: -prevSlideWidth,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -168,81 +176,72 @@ export default function Carousel({ images }) {
   // Prepare images array for GalleryModal
   const galleryImages = slides.map((slide) => slide.src);
 
+  // Helper para obtener clientX de mouse o touch events
   const getClientX = (e) => {
-    if (
-      e &&
-      typeof e === "object" &&
-      ("touches" in e || "changedTouches" in e)
-    ) {
-      const t =
-        (e.touches && e.touches[0]) ||
-        (e.changedTouches && e.changedTouches[0]) ||
-        null;
-      return t ? t.clientX : 0;
+    if (e.type.includes("mouse")) {
+      return e.clientX;
     }
-    return e?.clientX ?? 0;
+    return e.touches?.[0]?.clientX || e.changedTouches?.[0]?.clientX || 0;
   };
 
-  // Calcular el translateX basado en los anchos reales de las imágenes
-  const calculateTranslateX = (index) => {
-    let translateX = 0;
-    for (let i = 0; i < index; i++) {
-      const slide = slides[i];
-      const slideWidth = getSlideWidth(slide);
-      translateX += slideWidth;
-    }
-    return -translateX;
-  };
-
-  const handleStart = (e) => {
-    if (e.type.startsWith("touch")) e.preventDefault();
+  // Manejadores de drag
+  const handleDragStart = (e) => {
+    if (!carouselRef.current) return;
     setIsDragging(true);
     setHasDragged(false);
     setStartX(getClientX(e));
-    setCurrentTranslateX(calculateTranslateX(currentIndex));
+    setStartScrollLeft(carouselRef.current.scrollLeft);
   };
 
-  const handleMove = (e) => {
+  const handleDragMove = (e) => {
     if (!isDragging || !carouselRef.current) return;
-    if (e.type.startsWith("touch")) e.preventDefault();
+    e.preventDefault();
 
-    const currentX = getClientX(e);
-    const diffX = currentX - startX;
-    const translateX = currentTranslateX + diffX;
+    const x = getClientX(e);
+    const walk = startX - x; // Invertido para que el drag sea natural
 
-    // Marcar como drag si el movimiento es mayor a 10px
-    if (Math.abs(diffX) > 10) {
+    // Marcar como dragged si el movimiento es mayor a 5px
+    if (Math.abs(walk) > 5) {
       setHasDragged(true);
     }
 
-    carouselRef.current.style.transform = `translateX(${translateX}px)`;
-    carouselRef.current.style.transition = "none";
+    carouselRef.current.scrollLeft = startScrollLeft + walk;
   };
 
-  const handleEnd = (e) => {
-    if (!isDragging) return;
+  const handleDragEnd = () => {
     setIsDragging(false);
-
-    const currentX = getClientX(e);
-    const diffX = currentX - startX;
-
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0 && !isPrevDisabled) setCurrentIndex((p) => p - 1);
-      else if (diffX < 0 && !isNextDisabled) setCurrentIndex((p) => p + 1);
-      else setCurrentIndex(currentIndex);
-    } else {
-      setCurrentIndex(currentIndex);
-    }
-
-    if (carouselRef.current) {
-      carouselRef.current.style.transition = "transform 0.4s ease-in-out";
-    }
-
-    // Resetear el estado de drag después de un pequeño delay
+    // Resetear hasDragged después de un pequeño delay
     setTimeout(() => {
       setHasDragged(false);
     }, 100);
   };
+
+  // Track scroll position to update currentIndex
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+      const scrollLeft = carousel.scrollLeft;
+      let accumulatedWidth = 0;
+      let newIndex = 0;
+
+      for (let i = 0; i < slides.length; i++) {
+        const slideWidth = getSlideWidth(slides[i]) + 12; // +12 for margin
+        if (scrollLeft >= accumulatedWidth + slideWidth / 2) {
+          newIndex = i;
+        } else {
+          break;
+        }
+        accumulatedWidth += slideWidth;
+      }
+
+      setCurrentIndex(newIndex);
+    };
+
+    carousel.addEventListener("scroll", handleScroll);
+    return () => carousel.removeEventListener("scroll", handleScroll);
+  }, [slides, containerWidth, isMobileDevice]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -257,8 +256,6 @@ export default function Carousel({ images }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isPrevDisabled, isNextDisabled]);
 
-  const translateX = calculateTranslateX(currentIndex);
-
   return (
     <>
       <div className="">
@@ -267,17 +264,19 @@ export default function Carousel({ images }) {
             <div
               ref={carouselRef}
               className="carousel"
-              onMouseDown={handleStart}
-              onMouseMove={handleMove}
-              onMouseUp={handleEnd}
-              onMouseLeave={handleEnd}
-              onTouchStart={handleStart}
-              onTouchMove={handleMove}
-              onTouchEnd={handleEnd}
+              onMouseDown={handleDragStart}
+              onMouseMove={handleDragMove}
+              onMouseUp={handleDragEnd}
+              onMouseLeave={handleDragEnd}
+              onTouchStart={handleDragStart}
+              onTouchMove={handleDragMove}
+              onTouchEnd={handleDragEnd}
               style={{
+                display: "flex",
+                overflowX: "scroll",
+                scrollBehavior: "smooth",
+                WebkitOverflowScrolling: "touch",
                 cursor: isDragging ? "grabbing" : "grab",
-                transform: `translateX(${translateX}px)`,
-                transition: isDragging ? "none" : "transform 0.4s ease-in-out",
               }}
             >
               {slides.map((slide, index) => {
@@ -318,7 +317,7 @@ export default function Carousel({ images }) {
           </div>
         </div>
 
-        <div className="carousel-navigation ml-3 md:ml-[100px]">
+        <div className="carousel-navigation flex justify-center sm:justify-end items-center mt-10 sm:mr-15 ">
           <button
             className={`carousel-arrow carousel-arrow-left !border-1 !border-grey3 !rounded-[50%] ${
               isPrevDisabled ? "disabled" : ""

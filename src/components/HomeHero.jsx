@@ -138,7 +138,7 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
             <Button
               classNames="w-[100%] md:w-[325px]"
               height="54px"
-              link="/contact"
+              link="/rooms"
               variant="ghost"
             >
               View rooms

@@ -308,7 +308,11 @@ export default function Faqs({
   return (
     <div className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 lg:px-8 bg-[#F6F8F6]">
       {/* {showFilters && ( */}
-      <div className="mx-4 sm:mx-8 lg:mx-[70px] mt-[160px] pb-10">
+      <div
+        className={`mx-4 sm:mx-8 lg:mx-[70px]  lg:mt-[160px] pb-10 ${
+          showFilters ? "mt-40" : "mt-10"
+        }`}
+      >
         <h2 className="myH3 text-[#211F20] text-center">
           Frequently Asked Questions
         </h2>
@@ -342,19 +346,22 @@ export default function Faqs({
           <div
             key={`${activeFilter}-${index}`}
             onClick={() => toggleFaq(index)}
-            className="flex cursor-pointer mx-auto flex-col bg-[#ffffff] rounded-[12px] sm:rounded-[16px] p-4 sm:p-6 lg:p-8 max-w-[1000px] w-full shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)] mb-4 sm:mb-6"
+            className="flex cursor-pointer mx-auto flex-col bg-[#ffffff] rounded-[12px] sm:rounded-[16px] p-7 md:p-9 max-w-[1000px] w-full shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)] mb-4 sm:mb-6"
           >
             <div className="flex flex-row justify-between items-start cursor-pointer h-full">
-              <div className="flex flex-col justify-between h-full flex-1 pr-4">
-                <p className="subH2 text-black leading-tight">{faq.question}</p>
+              <div className="flex flex-col justify-between h-full flex-1 md:pr-4">
+                <p
+                  className="subH2 text-black leading-tight select-none
+"
+                >
+                  {faq.question}
+                </p>
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openFaqs[index]
-                      ? "max-h-32 sm:max-h-36 lg:max-h-40 opacity-100"
-                      : "max-h-0 opacity-0"
+                    openFaqs[index] ? " opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="body2 pointer-events-none text-darkGrey leading-relaxed mt-2 sm:mt-3 lg:mt-4">
+                  <p className=" !leading-[24px] body2 select-none text-darkGrey  mt-2 sm:mt-3 lg:mt-4">
                     {faq.answer}
                   </p>
                 </div>
