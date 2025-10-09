@@ -67,7 +67,7 @@ export default function Retreats() {
         <div className="flex flex-col justify-center items-center">
           <h2 className="myH1 text-center text-white "> Retreats</h2>
         </div>
-        <p className="body1 text-center text-white max-w-[450px] absolute bottom-16">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           Rejuvenate your mind, body, and soul with our carefully designed
           wellness retreats and programs.
         </p>
@@ -187,13 +187,13 @@ export default function Retreats() {
           </div>
         </div>
       </div>
-      <div className=" mx-auto md:mt-[130px] md:mb-[130px] mt-[50px] mb-[50px] text-center flex items-center flex-col gap-10 px-4">
+      <div className=" mx-auto md:mt-[130px] md:mb-[130px] mt-[50px] mb-[0px] text-center flex items-center flex-col gap-10 px-4">
         <h3 className="myH2 max-w-[692px]">
           Your retreat, our space.
           <br />
           <span className="text-[#5AB012]">Why Funky Monkey Lodge? </span>
         </h3>
-        <div className="max-w-7xl mx-auto px-4 mt-20">
+        <div className="max-w-7xl mx-auto px-4 mt-8 lg:mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:[&>*:nth-child(3)]:col-start-1 sm:[&>*:nth-child(4)]:col-start-2 sm:[&>*:nth-child(5)]:col-start-1 sm:[&>*:nth-child(5)]:col-span-2 sm:[&>*:nth-child(5)]:justify-self-center lg:[&>*:nth-child(3)]:col-auto lg:[&>*:nth-child(4)]:col-auto lg:[&>*:nth-child(5)]:col-auto lg:[&>*:nth-child(5)]:col-span-1 lg:[&>*:nth-child(5)]:justify-self-auto xl:[&>*:nth-child(3)]:col-auto xl:[&>*:nth-child(4)]:col-auto xl:[&>*:nth-child(5)]:col-auto xl:[&>*:nth-child(5)]:col-span-1 xl:[&>*:nth-child(5)]:justify-self-auto">
             <div className="flex flex-col items-center text-center">
               <img

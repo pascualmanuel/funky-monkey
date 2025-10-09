@@ -22,6 +22,8 @@ import WhatsApp from "@/assets/santa-teresa/whatsapp-icon.svg";
 import Phone from "@/assets/santa-teresa/phone-icon.svg";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
+import SansaIcon from "@/assets/santa-teresa/sansa-icon.png";
+import GreenAirwaysIcon from "@/assets/santa-teresa/green-airways-icon-2.png";
 export default function Activities() {
   return (
     <Layout title="Santa Teresa">
@@ -36,7 +38,7 @@ export default function Activities() {
         <div className="flex flex-col justify-center items-center">
           <h2 className="myH1 text-center text-white ">Santa Teresa</h2>
         </div>
-        <p className="body1 text-center text-white max-w-[450px] absolute bottom-16">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           A laid-back beach town where the jungle meets the ocean and adventure
           begins.
         </p>
@@ -270,12 +272,26 @@ export default function Activities() {
               option.
             </p>
             <div className="flex flex-row gap-2 ml-8">
-              <img src={Sansa.src} className="h-[40px]" alt="Sansa" />
-              <img
-                src={GreenAirways.src}
-                className="h-[40px]"
-                alt="GreenAirways"
-              />
+              <div className="flex flex-row gap-2 px-3 py-1 items-center bg-[#ffffff] rounded-[11px] p-1 border border-[#EEF1F0]">
+                <div className="bg-[#ffffff] rounded-full p-1 shadow-[0_0_3px_2px_rgba(0,0,0,0.06)]">
+                  <img
+                    src={SansaIcon.src}
+                    className="h-[25px] w-[25px] object-contain rounded-2xl"
+                    alt="Sansa"
+                  />
+                </div>
+                <p>Sansa</p>
+              </div>
+              <div className="flex flex-row gap-2 px-3 py-1 items-center bg-[#ffffff] rounded-[11px] p-1 border border-[#EEF1F0]">
+                <div className="bg-[#ffffff] rounded-full p-1 shadow-[0_0_3px_2px_rgba(0,0,0,0.06)]">
+                  <img
+                    src={GreenAirwaysIcon.src}
+                    className="h-[25px] w-[25px] object-contain"
+                    alt="GreenAirways"
+                  />
+                </div>
+                <p>GreenAirways</p>
+              </div>
             </div>
           </div>
 

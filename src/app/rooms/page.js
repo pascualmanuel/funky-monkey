@@ -233,7 +233,7 @@ export default function Rooms() {
         <div className="flex flex-col justify-center items-center">
           <h2 className="myH1 text-center text-white "> Rooms</h2>
         </div>
-        <p className="body1 text-center text-white max-w-[450px] absolute bottom-16">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           Choose from our carefully designed rooms and suites, each offering
           comfort, style, and breathtaking views.
         </p>

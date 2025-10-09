@@ -173,7 +173,7 @@ export default function Offers() {
         <Slide ref={currentRef} data={currentData} />
 
         {/* Controles */}
-        <div className="body1 text-center text-white max-w-[450px] absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+        <div className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
           <button
             onClick={prevSlideFn}
             className="mr-10 hover:opacity-70 cursor-pointer transition-opacity"
@@ -268,10 +268,10 @@ const Slide = React.forwardRef(function Slide({ data }, ref) {
         <h2 className="myH1 text-center text-white max-w-[600px]">
           {data.title}
         </h2>
-        <p className="body1 text-center text-white max-w-[650px] mt-10">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[650px] mt-10">
           {data.description}
         </p>
-        <p className="body1 text-center text-white max-w-[650px] mt-6">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[650px] mt-6">
           {data.voucher}
         </p>
         <Button

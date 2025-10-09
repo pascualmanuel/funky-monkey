@@ -23,7 +23,7 @@ export default function Hotel() {
         <div className="flex flex-col justify-center items-center">
           <h2 className="myH1 text-center text-white ">The Hotel</h2>
         </div>
-        <p className="body1 text-center text-white max-w-[450px] absolute bottom-16">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           Laid-back, cozy and surrounded by nature. Hidden gem in a private
           paradise to relax and reset.
         </p>
@@ -65,7 +65,7 @@ export default function Hotel() {
           Amenities that make you&nbsp;
           <span className="text-[#5AB012]">feel at home </span>
         </h3>
-        <div className="max-w-7xl mx-auto px-4 mt-20">
+        <div className="max-w-7xl mx-auto px-4 lg:mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             <div className="flex flex-col items-center text-center">
               <img
@@ -118,7 +118,7 @@ export default function Hotel() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="mb-10">
         <HotelCarousel />
       </div>
       <Faqs category="hotel" showFilters={false} showViewMore={true} />

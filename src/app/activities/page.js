@@ -141,7 +141,7 @@ export default function Activities() {
         <div className="flex flex-col justify-center items-center">
           <h2 className="myH1 text-center text-white ">Activities</h2>
         </div>
-        <p className="body1 text-center text-white max-w-[450px] absolute bottom-16">
+        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           Discover a wide range of exciting activities and adventures designed
           to create unforgettable memories during your stay.
         </p>
@@ -168,7 +168,8 @@ export default function Activities() {
               key={idx}
               className={`parallax-section flex ${
                 reverse ? "md:flex-row-reverse" : "md:flex-row"
-              } flex-col-reverse justify-center items-center p-6 lg:px-20 lg:pt-16 gap-3 sm:mt-0 `}
+              } flex-col justify-center items-center p-6 lg:px-20 lg:pt-16 gap-6 sm:mt-0 `}
+              
             >
               {/* CONTENEDOR FIJO */}
               <div className="relative md:w-1/2 w-full h-[300px] sm:h-[390px] lg:h-[390px] rounded-[24px] overflow-hidden">
@@ -181,9 +182,9 @@ export default function Activities() {
               </div>
 
               {/* TEXTO */}
-              <div className="md:w-1/2 w-full flex flex-col  items-start sm:min-h-[390px] lg:min-h-[400px] md:pr-10">
+              <div className="md:w-1/2 w-full flex flex-col  items-start  lg:min-h-[400px] md:pr-10">
                 <div
-                  className={` px-4 lg:px-0 pb-10 text-darkGrey ${
+                  className={` lg:pb-10 text-darkGrey ${
                     reverse ? "lg:px-0 " : "lg:px-10"
                   }`}
                 >
