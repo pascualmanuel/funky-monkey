@@ -5,17 +5,7 @@ import Link from "next/link";
 import ArrowLeft from "../assets/prev.svg";
 import ArrowRight from "../assets/next.svg";
 import GalleryModal from "./GalleryModal";
-
-import Carousel7 from "../assets/rooms/room-7.webp";
-import Carousel8 from "../assets/rooms/room-8.webp";
-import Carousel9 from "../assets/rooms/room-9.webp";
-
-import Carousel1 from "../assets/home/rooms.webp";
-import Carousel2 from "../assets/home/activities.webp";
-import Carousel3 from "../assets/home/location.webp";
-import Carousel4 from "../assets/home/offer-2.webp";
-import Carousel5 from "../assets/home/retreats.webp";
-import Carousel6 from "../assets/home/the-hotel.webp";
+import cloudinaryImages from "../../public/cloudinary-images.json";
 
 export default function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,21 +38,8 @@ export default function Carousel({ images }) {
     },
   };
 
-  // Datos de ejemplo con diferentes tamaños
-  const defaultImages = [
-    { src: Carousel1, alt: "Hotel room 1", size: "large" },
-    { src: Carousel2, alt: "Hotel room 2", size: "medium" },
-    { src: Carousel3, alt: "Hotel room 3", size: "small" },
-    { src: Carousel4, alt: "Hotel room 4", size: "large" },
-    { src: Carousel5, alt: "Hotel room 5", size: "medium" },
-    { src: Carousel6, alt: "Hotel room 6", size: "large" },
-    { src: Carousel7, alt: "Hotel room 7", size: "small" },
-    { src: Carousel8, alt: "Hotel room 8", size: "medium" },
-    { src: Carousel9, alt: "Hotel room 9", size: "small" },
-    { src: Carousel3, alt: "Hotel room 9", size: "large" },
-  ];
-
-  const slides = images || defaultImages;
+  // Usar imágenes de Cloudinary
+  const slides = images || cloudinaryImages;
 
   // Función helper para obtener el ancho apropiado según el dispositivo
   const getSlideWidth = (slide) => {
