@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import HeroImagePreloader from "@/components/HeroImagePreloader";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
       <body className={`${plusJakartaSans.variable} antialiased`}>
         <HeroImagePreloader />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

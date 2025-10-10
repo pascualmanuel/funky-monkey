@@ -287,7 +287,7 @@ export default function Retreats() {
                       onChange={handleChange}
                       placeholder="Name..."
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200"
                     />
                   </div>
                   <div>
@@ -305,7 +305,7 @@ export default function Retreats() {
                       onChange={handleChange}
                       placeholder="Email..."
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -326,7 +326,7 @@ export default function Retreats() {
                     placeholder="Write your message..."
                     required
                     rows={2}
-                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200 resize-none"
                   />
                 </div>
 
@@ -346,7 +346,7 @@ export default function Retreats() {
                     placeholder="Write your message..."
                     required
                     rows={1}
-                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200 resize-none"
                   />
                 </div>
 

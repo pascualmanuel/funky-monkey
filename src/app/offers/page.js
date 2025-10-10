@@ -10,6 +10,7 @@ import Jungle from "@/assets/santa-teresa/jungle.webp";
 import Yoga from "@/assets/retreats/retreats-4.webp";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
+import Link from "next/link";
 export default function Offers() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(null); // capa anterior visible para animar salida
@@ -72,7 +73,7 @@ export default function Offers() {
       image: Yoga,
       title: "SILK Retreat 2025",
       description:
-        "FEB  - MAR  / HOSTED BY FLY TIME RETREATS / info@thecircusfix.ca 10% DISCOUNT FOR PARTICIPANTS",
+        "FEB  - MAR  / HOSTED BY FLY TIME RETREATS / office@funkymonkeylodge.com 10% DISCOUNT FOR PARTICIPANTS",
       voucher: "Use voucher: WEEKEND3",
       buttonText: "Book Now",
       buttonLink: "/contact",
@@ -223,7 +224,10 @@ export default function Offers() {
           <div className="mt-8 md:mt-0">
             <p className="subH2">Follow us</p>
             <div className="flex items-center gap-3 mt-6">
-              <div
+              <Link
+                href="https://www.instagram.com/funkymonkeysurfyoga"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#9797971A] rounded-md px-10 py-4 text-center text-white font-bold"
                 style={{
                   backgroundImage: `url(${InstagramBg.src})`,
@@ -233,10 +237,16 @@ export default function Offers() {
                 }}
               >
                 Instagram
-              </div>
-              <div className="bg-[#0766FF] rounded-md px-10 py-4 text-center text-white font-bold">
-                Facebook
-              </div>
+              </Link>
+              <Link
+                href="https://www.facebook.com/funkymonkeylodge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="bg-[#0766FF] rounded-md px-10 py-4 text-center text-white font-bold">
+                  Facebook
+                </div>
+              </Link>
             </div>
           </div>
         </div>

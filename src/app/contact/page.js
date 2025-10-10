@@ -61,30 +61,31 @@ export default function Contact() {
                 <div>
                   <p className="mb-2 text-grey3 text-base font-medium">Email</p>
                   <Link
-                    href="mailto:info@funkymonkey.com"
+                    href="mailto:office@funkymonkeylodge.com"
                     className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
                     style={{
                       background: "rgba(0, 0, 0, 0.25)",
                       border: "1px solid rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <img src={MailIcon.src} alt="Mail" /> info@funkymonkey.com
+                    <img src={MailIcon.src} alt="Mail" />{" "}
+                    office@funkymonkeylodge.com
                   </Link>
                 </div>
                 <div className="mt-6 flex gap-2 lm:flex-row flex-col">
                   <div>
                     <p className="mb-2 text-grey3 text-base font-medium">
-                      Email
+                      Phone
                     </p>
                     <Link
-                      href="tel:+50683922295"
+                      href="tel:+50626400272"
                       className=" w-full justify-center ssm:w-[200px] lm:w-fit text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
                       style={{
                         background: "rgba(0, 0, 0, 0.25)",
                         border: "1px solid rgba(0, 0, 0, 0.25)",
                       }}
                     >
-                      <img src={PhoneIcon.src} alt="Phone" /> +506 8392 2295
+                      <img src={PhoneIcon.src} alt="Phone" /> +506 2640 0272
                     </Link>
                   </div>
                   <div className="mt-1 lm:mt-0 ">
@@ -179,7 +180,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Name..."
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -197,7 +198,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Email..."
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200"
                   />
                 </div>
               </div>
@@ -218,7 +219,7 @@ export default function Contact() {
                   placeholder="Write your message..."
                   required
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200 resize-none"
                 />
               </div>
 
@@ -294,7 +295,7 @@ export default function Contact() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-4 lg:justify-between lg:flex lg:flex-row">
             <Link
-              href="/"
+              href="/santa-teresa"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -315,7 +316,7 @@ export default function Contact() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/hotel"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -336,7 +337,7 @@ export default function Contact() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/rooms"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -357,7 +358,7 @@ export default function Contact() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/activities"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -378,7 +379,7 @@ export default function Contact() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/retreats"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -399,7 +400,7 @@ export default function Contact() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/offers"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
@@ -420,7 +421,7 @@ export default function Contact() {
               </div>
             </Link>
             <Link
-              href="/"
+              href="/contact"
               className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
             >
               <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">

@@ -60,7 +60,7 @@ export default function Hotel() {
         </div>
       </div>
 
-      <div className=" mx-auto md:mt-[130px] md:mb-[130px] mt-[50px] mb-[50px] text-center flex items-center flex-col gap-10 px-4">
+      <div className=" mx-auto md:mb-[130px] mt-[50px] mb-[50px] text-center flex items-center flex-col gap-10 px-4">
         <h3 className="myH2 max-w-[600px]">
           Amenities that make you&nbsp;
           <span className="text-[#5AB012]">feel at home </span>

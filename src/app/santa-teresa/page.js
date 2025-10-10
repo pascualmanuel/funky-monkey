@@ -175,7 +175,13 @@ export default function Activities() {
               Santa Teresa is beautiful year-round, but each season brings its
               own magic and surf conditions.
             </p>
-            <Button variant="primary" classNames="w-[100%] h-[50px]">
+            <Button
+              link="https://www.surfline.com/surf-report/santa-teresa/5842041f4e65fad6a7708e31?view=table"
+              variant="primary"
+              classNames="w-[100%] h-[50px]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Surf report
             </Button>
           </div>
