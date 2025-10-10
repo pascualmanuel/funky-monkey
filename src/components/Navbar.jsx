@@ -269,7 +269,11 @@ const Navbar = () => {
         // transition: "height 300ms ease",
       }}
     >
-      <nav className={`relative ${menuOpen ? "h-[100dvh]" : "h-[130px] lg:h-[102px]"}`}>
+      <nav
+        className={`relative ${
+          menuOpen ? "h-[100dvh]" : "h-[130px] lg:h-[102px]"
+        }`}
+      >
         <div className="h-[130px] lg:h-[102px] mx-auto max-w-screen-2xl flex items-center">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
@@ -324,7 +328,9 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <div className="hidden lg:block mr-[20px] mg:mr-[80px] xl:mr-28">
               <Link
-                href="/contact"
+                href="https://beds24.com/booking2.php?propid=63844"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="transition-all duration-300 bg-green text-white px-10 py-[14px] rounded-[8px] font-bold hover:bg-[#176221]"
               >
                 Book Now
@@ -335,7 +341,9 @@ const Navbar = () => {
           {/* Mobile */}
           <div className="flex items-center lg:hidden mr-[22px]">
             <Link
-              href="/contact"
+              href="https://beds24.com/booking2.php?propid=63844"
+              target="_blank"
+              rel="noopener noreferrer"
               className="transition-all duration-300 bg-green text-white px-5 py-3 rounded-lg font-bold hover:bg-[#176221] text-[16px] mr-4"
             >
               Book Now
@@ -397,7 +405,9 @@ const Navbar = () => {
 
           <div className="mt-6">
             <Link
-              href="/contact"
+              href="https://beds24.com/booking2.php?propid=63844"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={closeMenu}
               className="block text-center bg-green text-white px-6 py-3 rounded-lg font-bold hover:bg-[#176221]"
             >

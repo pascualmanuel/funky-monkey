@@ -42,7 +42,9 @@ export default function Footer() {
             <Button
               classNames="w-[100%] md:w-[325px]"
               height="54px"
-              link="/contact"
+              link="https://beds24.com/booking2.php?propid=63844"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Book your stay
             </Button>
@@ -221,10 +223,18 @@ export default function Footer() {
             Términos y condiciones
           </Link>
           <div className="flex ml-auto gap-6">
-            <Link href="/">
+            <Link
+              href="https://www.instagram.com/funkymonkeysurfyoga"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={Instagram.src} alt="Instagram" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://www.facebook.com/funkymonkeylodge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={Facebook.src} alt="Facebook" />
             </Link>
           </div>
@@ -233,10 +243,16 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-darkGrey  flex-col sm:flex-row gap-2 sm:gap-4 justify-start flex md:hidden">
           <div className="flex flex-col w-full justify-center items-center gap-2">
             <div className="flex gap-6 mb-4">
-              <Link href="/">
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/funkymonkeysurfyoga"
+              >
                 <img src={Instagram.src} alt="Instagram" />
               </Link>
-              <Link href="/">
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/funkymonkeylodge"
+              >
                 <img src={Facebook.src} alt="Facebook" />
               </Link>
             </div>

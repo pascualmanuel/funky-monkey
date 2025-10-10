@@ -7,7 +7,13 @@ export default function PreFooter() {
           <p className="myH3 h-full text-white text-center z-10  max-w-[200px] sm:max-w-[520px] mx-auto">
             Ready for a Costa Rican adventure?
           </p>
-          <Button variant="greenBlue" classNames="w-[155px] h-[50px]">
+          <Button
+            variant="greenBlue"
+            link="https://beds24.com/booking2.php?propid=63844"
+            target="_blank"
+            rel="noopener noreferrer"
+            classNames="w-[155px] h-[50px]"
+          >
             Book your stay
           </Button>
         </div>
