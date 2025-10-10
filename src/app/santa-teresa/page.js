@@ -57,7 +57,7 @@ export default function Activities() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-[70px]  mx-auto">
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Surf.src}
@@ -74,7 +74,7 @@ export default function Activities() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Jungle.src}
@@ -92,7 +92,7 @@ export default function Activities() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Laid.src}
@@ -109,7 +109,7 @@ export default function Activities() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Magic.src}
@@ -126,7 +126,7 @@ export default function Activities() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Worlds.src}
@@ -143,7 +143,7 @@ export default function Activities() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={PuraVida.src}

@@ -87,7 +87,7 @@ export default function Retreats() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-[70px]  mx-auto">
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Retreats1.src}
@@ -104,7 +104,7 @@ export default function Retreats() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Retreats2.src}
@@ -121,7 +121,7 @@ export default function Retreats() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Retreats3.src}
@@ -138,7 +138,7 @@ export default function Retreats() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Retreats4.src}
@@ -155,7 +155,7 @@ export default function Retreats() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Retreats5.src}
@@ -171,7 +171,7 @@ export default function Retreats() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] shadow-lg overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">
             <img
               src={Retreats6.src}
