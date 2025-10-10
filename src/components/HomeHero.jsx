@@ -131,7 +131,9 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
             <Button
               classNames="w-[100%] md:w-[325px]"
               height="54px"
-              link="/contact"
+              link="https://beds24.com/booking2.php?propid=63844"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Book now
             </Button>
