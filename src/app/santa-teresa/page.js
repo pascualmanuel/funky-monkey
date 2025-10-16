@@ -180,7 +180,7 @@ export default function Activities() {
               variant="primary"
               classNames="w-[100%] h-[50px]"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               Surf report
             </Button>
@@ -254,7 +254,9 @@ export default function Activities() {
             className="w-full max-w-[400px] lg:max-w-none"
           />
           <Link
-            href="/"
+            href="https://www.google.com/maps/place/Funky+Monkey+Surf+%26+Yoga+Lodge/@9.6418962,-85.164389,19z/data=!4m9!3m8!1s0x8f9f6ef470246bab:0xb6dc84e5f6aa0ffc!5m2!4m1!1i2!8m2!3d9.6418183!4d-85.163506!16s%2Fg%2F1hc764zf7?hl=es-419&entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener"
             className=" lg:w-fit w-full text-center text-green border border-green font-bold text-base rounded-[8px] p-3"
           >
             View in Google Maps
@@ -278,26 +280,40 @@ export default function Activities() {
               option.
             </p>
             <div className="flex flex-row gap-2 ml-8">
-              <div className="flex flex-row gap-2 px-3 py-1 items-center bg-[#ffffff] rounded-[11px] p-1 border border-[#EEF1F0]">
-                <div className="bg-[#ffffff] rounded-full p-1 shadow-[0_0_3px_2px_rgba(0,0,0,0.06)]">
-                  <img
-                    src={SansaIcon.src}
-                    className="h-[25px] w-[25px] object-contain rounded-2xl"
-                    alt="Sansa"
-                  />
+              <Link
+                href="https://www.flysansa.com/?utm_source=XLCS0129"
+                target="_blank"
+                rel="noopener"
+              >
+                <div className="flex flex-row gap-2 px-3 py-1 items-center bg-[#ffffff] rounded-[11px] p-1 border border-[#EEF1F0]">
+                  <div className="bg-[#ffffff] rounded-full p-1 shadow-[0_0_3px_2px_rgba(0,0,0,0.06)]">
+                    {" "}
+                    <img
+                      src={SansaIcon.src}
+                      className="h-[25px] w-[25px] object-contain rounded-2xl"
+                      alt="Sansa"
+                    />
+                  </div>
+                  <p>Sansa</p>
                 </div>
-                <p>Sansa</p>
-              </div>
-              <div className="flex flex-row gap-2 px-3 py-1 items-center bg-[#ffffff] rounded-[11px] p-1 border border-[#EEF1F0]">
-                <div className="bg-[#ffffff] rounded-full p-1 shadow-[0_0_3px_2px_rgba(0,0,0,0.06)]">
-                  <img
-                    src={GreenAirwaysIcon.src}
-                    className="h-[25px] w-[25px] object-contain"
-                    alt="GreenAirways"
-                  />
+              </Link>
+              <Link
+                href="https://partner.costaricagreenair.com/en/funky-monkey-lodge/"
+                target="_blank"
+                rel="noopener"
+              >
+                <div className="flex flex-row gap-2 px-3 py-1 items-center bg-[#ffffff] rounded-[11px] p-1 border border-[#EEF1F0]">
+                  <div className="bg-[#ffffff] rounded-full p-1 shadow-[0_0_3px_2px_rgba(0,0,0,0.06)]">
+                    {" "}
+                    <img
+                      src={GreenAirwaysIcon.src}
+                      className="h-[25px] w-[25px] object-contain"
+                      alt="GreenAirways"
+                    />
+                  </div>
+                  <p>GreenAirways</p>
                 </div>
-                <p>GreenAirways</p>
-              </div>
+              </Link>
             </div>
           </div>
 
@@ -353,7 +369,7 @@ export default function Activities() {
               </Link>
 
               <Link
-                href="https://wa.me/50626400272"
+                href="tel:+50626400272"
                 className="w-full h-[50px] text-white flex flex-row gap-4 items-center justify-center text-base font-bold"
                 target="_blank"
                 style={{
