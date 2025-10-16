@@ -22,12 +22,12 @@ export default function Carousel({ images }) {
   // Configuración de tamaños de imagen
   const imageSizeConfig = {
     large: {
-      width: 1024,
+      width: 850,
       aspectRatio: "4/3",
       mobileWidth: 320, // Ancho específico para mobile
     },
     medium: {
-      width: 700,
+      width: 650,
       aspectRatio: "3/2",
       mobileWidth: 280, // Ancho específico para mobile
     },

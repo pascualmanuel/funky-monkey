@@ -11,8 +11,8 @@ export default function PreFooter() {
             variant="greenBlue"
             link="https://beds24.com/booking2.php?propid=63844"
             target="_blank"
-            rel="noopener noreferrer"
-            classNames="w-[155px] h-[50px]"
+            rel="noopener"
+            classNames="w-[155px] h-[50px] transform hover:-translate-y-1 transition duration-400"
           >
             Book your stay
           </Button>

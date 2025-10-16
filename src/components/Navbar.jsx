@@ -330,7 +330,7 @@ const Navbar = () => {
               <Link
                 href="https://beds24.com/booking2.php?propid=63844"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="transition-all duration-300 bg-green text-white px-10 py-[14px] rounded-[8px] font-bold hover:bg-[#176221]"
               >
                 Book Now
@@ -343,7 +343,7 @@ const Navbar = () => {
             <Link
               href="https://beds24.com/booking2.php?propid=63844"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="transition-all duration-300 bg-green text-white px-5 py-3 rounded-lg font-bold hover:bg-[#176221] text-[16px] mr-4"
             >
               Book Now
@@ -407,7 +407,7 @@ const Navbar = () => {
             <Link
               href="https://beds24.com/booking2.php?propid=63844"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               onClick={closeMenu}
               className="block text-center bg-green text-white px-6 py-3 rounded-lg font-bold hover:bg-[#176221]"
             >
