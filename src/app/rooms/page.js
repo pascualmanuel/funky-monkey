@@ -8,6 +8,7 @@ import BedIcon from "@/assets/rooms/icons/bed-icon.svg";
 import FridgeIcon from "@/assets/rooms/icons/fridge-icon.svg";
 import GardenIcon from "@/assets/rooms/icons/garden-icon.svg";
 import JacuzziIcon from "@/assets/rooms/icons/jacuzzi-icon.svg";
+import KitchenIcon from "@/assets/rooms/icons/kitchen-icon.svg";
 import M2Icon from "@/assets/rooms/icons/m2-icon.svg";
 import OceanIcon from "@/assets/rooms/icons/ocean-icon.svg";
 import PersonIcon from "@/assets/rooms/icons/person-icon.svg";
@@ -64,14 +65,16 @@ export default function Rooms() {
         "treetop-upper"
       ),
       features: [
-        { icon: AcIcon, text: "2 max" },
-        { icon: M2Icon, text: "55m2" },
+        { icon: PersonIcon, text: "2 max" },
+        { icon: M2Icon, text: "55m²" },
+        { icon: AcIcon, text: "AC & Ceiling fan" },
         { icon: OceanIcon, text: "Ocean view" },
         { icon: JacuzziIcon, text: "Jacuzzi" },
-        { icon: BalconyIcon, text: "Floating balcony" },
+        { icon: BalconyIcon, text: "Floating Balcony" },
+        { icon: KitchenIcon, text: "Equipped kitchen" },
         { icon: BedIcon, text: "1 XL king bed" },
+        { icon: SofaIcon, text: "1 Sofa bed" },
       ],
-      additionalFeatures: 3,
       buttonLink: "149020",
     },
     {
@@ -89,9 +92,11 @@ export default function Rooms() {
         { icon: M2Icon, text: "60m²" },
         { icon: AcIcon, text: "AC & Ceiling fan" },
         { icon: OceanIcon, text: "Ocean view" },
-        { icon: BedIcon, text: "King bed convertible in single" },
+        { icon: BalconyIcon, text: "Floating Balcony" },
+        { icon: KitchenIcon, text: "Equipped kitchen" },
+        { icon: SofaIcon, text: "1 Sofa bed" },
+        { icon: BedIcon, text: "King bed convertible in 2 single" },
       ],
-      additionalFeatures: 3,
       buttonLink: "149070",
     },
     {
@@ -108,11 +113,12 @@ export default function Rooms() {
         { icon: PersonIcon, text: "3 max" },
         { icon: M2Icon, text: "45m²" },
         { icon: AcIcon, text: "AC & Ceiling fan" },
+        { icon: KitchenIcon, text: "Equipped kitchen" },
+        { icon: GardenIcon, text: "Garden view" },
         { icon: BedIcon, text: "1 XL king bed" },
         { icon: SofaIcon, text: "1 Sofa bed" },
-        { icon: BalconyIcon, text: "Balcony" },
+        { icon: BalconyIcon, text: "Floating Balcony" },
       ],
-      additionalFeatures: 2,
       buttonLink: "149071",
     },
     {
@@ -128,8 +134,10 @@ export default function Rooms() {
         { icon: OceanIcon, text: "Ocean view" },
         { icon: BalconyIcon, text: "Balcony" },
         { icon: BedIcon, text: "Queen bed" },
+        { icon: SofaIcon, text: "1 Sofa bed" },
+        { icon: SofaIcon, text: "Bunk bed" },
+        { icon: FridgeIcon, text: "Mini fridge" },
       ],
-      additionalFeatures: 3,
       buttonLink: "149072",
     },
     {
@@ -147,10 +155,11 @@ export default function Rooms() {
         { icon: M2Icon, text: "65m²" },
         { icon: AcIcon, text: "AC & Fan" },
         { icon: OceanIcon, text: "Ocean view" },
+        { icon: BalconyIcon, text: "Floating Balcony" },
         { icon: BedIcon, text: "Queen bed" },
+        { icon: KitchenIcon, text: "Shared kitchen" },
         { icon: BedIcon, text: "3+2 single beds" },
       ],
-      additionalFeatures: 2,
       buttonLink: "149073",
     },
     {
@@ -163,12 +172,12 @@ export default function Rooms() {
         { icon: PersonIcon, text: "4 max" },
         { icon: M2Icon, text: "40m²" },
         { icon: AcIcon, text: "AC & Ceiling fan" },
+        { icon: GardenIcon, text: "Garden view" },
         { icon: BedIcon, text: "1 Full bed" },
         { icon: BalconyIcon, text: "Balcony" },
         { icon: FridgeIcon, text: "Mini fridge" },
         { icon: BedIcon, text: "2 single beds" },
       ],
-      additionalFeatures: 1,
       buttonLink: "149074",
     },
     {
@@ -181,11 +190,12 @@ export default function Rooms() {
         { icon: PersonIcon, text: "7 max" },
         { icon: M2Icon, text: "65m²" },
         { icon: AcIcon, text: "AC & Fan" },
+        { icon: KitchenIcon, text: "Equipped kitchen" },
+        { icon: GardenIcon, text: "Garden view" },
         { icon: BedIcon, text: "1 king bed" },
         { icon: BedIcon, text: "3+2 single beds" },
         { icon: BalconyIcon, text: "Balcony" },
       ],
-      additionalFeatures: 2,
       buttonLink: "149076",
     },
     {
@@ -201,8 +211,9 @@ export default function Rooms() {
         { icon: GardenIcon, text: "Garden View" },
         { icon: BedIcon, text: "1 king bed" },
         { icon: SofaIcon, text: "Sofa convertible in king bed" },
+        { icon: BalconyIcon, text: "Balcony" },
+        { icon: FridgeIcon, text: "Mini fridge" },
       ],
-      additionalFeatures: 2,
       buttonLink: "149077",
     },
     {
@@ -251,7 +262,7 @@ export default function Rooms() {
       </div>
       {/* Rooms Grid */}
       <div className=" mx-auto md:px-[70px] px-4 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {rooms.map((room, index) => (
             <RoomCard
               key={index}

@@ -15,6 +15,7 @@ import FoodIcon from "@/assets/retreats/food-icon.svg";
 import WhatsApp from "@/assets/santa-teresa/whatsapp-icon.svg";
 import { useState } from "react";
 import Faqs from "@/components/Faqs";
+import Link from "next/link";
 export default function Retreats() {
   const [formData, setFormData] = useState({
     name: "",
@@ -261,9 +262,11 @@ export default function Retreats() {
                 Let us help you bring your vision to life in one of Costa
                 Rica&apos;s most magical locations.
               </p>
-              <div className="bgreen-gradient2 text-white text-center py-4 px-6 rounded-[58px] md:max-w-[200px] flex items-center gap-2 justify-center font-bold">
-                <img src={WhatsApp.src} alt="WhatsApp" /> WhatsApp us
-              </div>
+              <Link href="tel:+50626400272" target="_blank" rel="noopener">
+                <div className="bgreen-gradient2 text-white text-center py-4 px-6 rounded-[58px] md:max-w-[200px] flex items-center gap-2 justify-center font-bold">
+                  <img src={WhatsApp.src} alt="WhatsApp" /> WhatsApp us
+                </div>
+              </Link>
             </div>
             <div className="w-full lg:w-[60%] mt-6 lg:mt-0 ">
               <form
