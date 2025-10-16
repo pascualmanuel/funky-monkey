@@ -44,13 +44,26 @@ export default function Footer() {
               height="54px"
               link="https://beds24.com/booking2.php?propid=63844"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               Book your stay
             </Button>
             <div className="flex gap-[10px] mt-4">
-              <img src={GoogleReviews.src} alt="Google Reviews" />
-              <img src={TripReviews.src} alt="Trip Reviews" />
+              <Link
+                href="https://www.google.com/maps/place/Funky+Monkey+Surf+%26+Yoga+Lodge/@9.6418962,-85.164389,19z/data=!4m11!3m10!1s0x8f9f6ef470246bab:0xb6dc84e5f6aa0ffc!5m2!4m1!1i2!8m2!3d9.6418183!4d-85.163506!9m1!1b1!16s%2Fg%2F1hc764zf7?hl=es-419&entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener"
+              >
+                {" "}
+                <img src={GoogleReviews.src} alt="Google Reviews" />
+              </Link>
+              <Link
+                href="https://www.tripadvisor.com/Hotel_Review-g635538-d648431-Reviews-Funky_Monkey_Lodge-Santa_Teresa_Province_of_Puntarenas.html"
+                target="_blank"
+                rel="noopener"
+              >
+                <img src={TripReviews.src} alt="Trip Reviews" />
+              </Link>
             </div>
           </div>
         </div>
@@ -216,24 +229,24 @@ export default function Footer() {
           >
             Made by Labba Studio
           </Link>
-          <Link href="/" className="text-center sm:text-left text-grey3 body3">
+          {/* <Link href="/" className="text-center sm:text-left text-grey3 body3">
             Privacidad
-          </Link>
-          <Link href="/" className="text-center sm:text-left text-grey3 body3">
+          </Link> */}
+          {/* <Link href="/" className="text-center sm:text-left text-grey3 body3">
             Términos y condiciones
-          </Link>
+          </Link> */}
           <div className="flex ml-auto gap-6">
             <Link
               href="https://www.instagram.com/funkymonkeysurfyoga"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <img src={Instagram.src} alt="Instagram" />
             </Link>
             <Link
               href="https://www.facebook.com/funkymonkeylodge"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               <img src={Facebook.src} alt="Facebook" />
             </Link>
@@ -267,18 +280,18 @@ export default function Footer() {
               Made by Labba Studio
             </Link>
             <div className="flex flex-row gap-2">
-              <Link
+              {/* <Link
                 href="/"
                 className="text-center sm:text-left text-grey3 body3"
               >
                 Privacidad
-              </Link>
-              <Link
+              </Link> */}
+              {/* <Link
                 href="/"
                 className="text-center sm:text-left text-grey3 body3"
               >
                 Términos y condiciones
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

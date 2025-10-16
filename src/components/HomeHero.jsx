@@ -133,7 +133,7 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
               height="54px"
               link="https://beds24.com/booking2.php?propid=63844"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
               Book now
             </Button>
