@@ -294,7 +294,7 @@ const Navbar = () => {
                 {indicator.visible && (
                   <div
                     ref={indicatorRef}
-                    className="absolute rounded-md bg-white/30 pointer-events-none hidden lg:block"
+                    className="absolute rounded-md bg-white/20 pointer-events-none hidden lg:block"
                     style={{
                       transform: `translate(${indicator.x}px, ${indicator.y}px)`,
                       width: `${indicator.w}px`,
@@ -312,7 +312,7 @@ const Navbar = () => {
                       href={item.link}
                       ref={(el) => (linkRefs.current[index] = el)}
                       onClick={(e) => handleLinkClick(e, index)}
-                      className={`hidden lg:inline-block text-white text-base target:underline hover:text-white transition-colors px-3 py-2 rounded-md relative z-10 ${
+                      className={`hidden lg:inline-block text-white text-base target:underline boton-navbar transition-colors px-3 py-2 rounded-md relative z-10 ${
                         activeIndex === index ? "text-white font-bold" : ""
                       }`}
                     >

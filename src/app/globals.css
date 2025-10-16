@@ -412,3 +412,8 @@ button {
     margin-left: 16px !important;
   }
 }
+
+.boton-navbar:hover {
+  background-color: #f1f1f110;
+  color: #fff;
+}
