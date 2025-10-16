@@ -227,7 +227,7 @@ export default function Offers() {
               <Link
                 href="https://www.instagram.com/funkymonkeysurfyoga"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="bg-[#9797971A] rounded-md px-10 py-4 text-center text-white font-bold"
                 style={{
                   backgroundImage: `url(${InstagramBg.src})`,
@@ -241,7 +241,7 @@ export default function Offers() {
               <Link
                 href="https://www.facebook.com/funkymonkeylodge"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
               >
                 <div className="bg-[#0766FF] rounded-md px-10 py-4 text-center text-white font-bold">
                   Facebook

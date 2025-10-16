@@ -95,7 +95,7 @@ export default function Contact() {
                     <Link
                       href="https://wa.me/50683922295"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="w-full justify-center ssm:w-[200px] lm:w-fit text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
                       style={{
                         background:
@@ -115,7 +115,7 @@ export default function Contact() {
                     <Link
                       href="https://www.instagram.com/funkymonkeysurfyoga"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
                       style={{
                         background: "rgba(0, 0, 0, 0.25)",
@@ -132,7 +132,7 @@ export default function Contact() {
                     <Link
                       href="https://www.facebook.com/funkymonkeylodge/"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="w-full ssm:w-fit justify-center text-white text-base font-bold rounded-full flex items-center gap-2 px-5 py-2"
                       style={{
                         background: "rgba(0, 0, 0, 0.25)",
@@ -453,30 +453,30 @@ export default function Contact() {
             >
               Made by Labba Studio
             </Link>
-            <Link
+            {/* <Link
               href="/"
               className="text-center sm:text-left text-grey3 body3"
             >
               Privacidad
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               href="/"
               className="text-center sm:text-left text-grey3 body3"
             >
               Términos y condiciones
-            </Link>
+            </Link> */}
             <div className="flex ml-auto gap-6">
               <Link
                 href="https://www.instagram.com/funkymonkeysurfyoga"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
               >
                 <img src={InstagramIcon.src} alt="Instagram" />
               </Link>
               <Link
                 href="https://www.facebook.com/funkymonkeylodge/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
               >
                 <img src={FbIcon.src} alt="Facebook" />
               </Link>
@@ -489,14 +489,14 @@ export default function Contact() {
                   <Link
                     href="https://www.instagram.com/funkymonkeysurfyoga"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                   >
                     <img src={InstagramIcon.src} alt="Instagram" />
                   </Link>
                   <Link
                     href="https://www.facebook.com/funkymonkeylodge/"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                   >
                     <img src={FbIcon.src} alt="Facebook" />
                   </Link>
@@ -512,18 +512,18 @@ export default function Contact() {
                   Made by Labba Studio
                 </Link>
                 <div className="flex flex-row gap-2">
-                  <Link
+                  {/* <Link
                     href="/"
                     className="text-center sm:text-left text-grey3 body3"
                   >
                     Privacidad
-                  </Link>
-                  <Link
+                  </Link> */}
+                  {/* <Link
                     href="/"
                     className="text-center sm:text-left text-grey3 body3"
                   >
                     Términos y condiciones
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
