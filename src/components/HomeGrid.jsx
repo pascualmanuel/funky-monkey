@@ -8,6 +8,7 @@ import Retreats from "../assets/home/retreats.webp";
 import TheHotel from "../assets/home/the-hotel.webp";
 import OfferIcon from "../assets/home/offer-icon.svg";
 import Button from "./Button";
+import HomeArrow from "../assets/home-arrow.svg";
 const HomeGrid = () => {
   return (
     <>
@@ -15,11 +16,11 @@ const HomeGrid = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Link
             href="/rooms"
-            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer"
+            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer group"
           >
             <img
               src={Rooms.src}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               alt="Home Grid"
             />
             <div
@@ -32,14 +33,19 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Rooms
             </p>
+            <img
+              src={HomeArrow.src}
+              className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
+              alt="Arrow"
+            />
           </Link>
           <Link
             href="/activities"
-            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer"
+            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer group"
           >
             <img
               src={Activities.src}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               alt="Home Grid"
             />
             <div
@@ -52,14 +58,19 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Activities
             </p>
+            <img
+              src={HomeArrow.src}
+              className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
+              alt="Arrow"
+            />
           </Link>
           <Link
             href="/santa-teresa"
-            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer"
+            className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer group"
           >
             <img
               src={Location.src}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               alt="Home Grid"
             />
             <div
@@ -72,14 +83,19 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Location
             </p>
+            <img
+              src={HomeArrow.src}
+              className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
+              alt="Arrow"
+            />
           </Link>
           <Link
             href="/hotel"
-            className="relative overflow-hidden rounded-[16px]  h-[200px] sm:h-[677px] lg:hidden cursor-pointer"
+            className="relative overflow-hidden rounded-[16px]  h-[200px] sm:h-[677px] lg:hidden cursor-pointer group"
           >
             <img
               src={TheHotel.src}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               alt="The Hotel"
             />
             <div
@@ -92,17 +108,22 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               The Hotel
             </p>
+            <img
+              src={HomeArrow.src}
+              className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
+              alt="Arrow"
+            />
           </Link>
         </div>
       </div>
       <div className="mx-4 sm:mx-8 lg:mx-[70px] mt-6 hidden lg:block">
         <Link
           href="/hotel"
-          className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] cursor-pointer block"
+          className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] cursor-pointer block group"
         >
           <img
             src={TheHotel.src}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             alt="The Hotel"
           />
           <div
@@ -115,17 +136,22 @@ const HomeGrid = () => {
           <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
             The Hotel
           </p>
+          <img
+            src={HomeArrow.src}
+            className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            alt="Arrow"
+          />
         </Link>
       </div>
       <div className="mx-4 sm:mx-8 lg:mx-[70px] mt-6">
         <div className="flex gap-6 flex-col lg:flex-row">
           <Link
             href="/retreats"
-            className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[65%] cursor-pointer"
+            className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[65%] cursor-pointer group"
           >
             <img
               src={Retreats.src}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               alt="Retreats"
             />
             <div
@@ -138,14 +164,19 @@ const HomeGrid = () => {
             <p className="text-2xl jakarta font-bold text-white absolute bottom-[30px] left-[30px] z-10">
               Retreats
             </p>
+            <img
+              src={HomeArrow.src}
+              className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
+              alt="Arrow"
+            />
           </Link>
           <Link
             href="/offers"
-            className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[35%] cursor-pointer"
+            className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[35%] cursor-pointer group"
           >
             <img
               src={Offer.src}
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               alt="Offers"
             />
             <div
@@ -162,6 +193,11 @@ const HomeGrid = () => {
               src={OfferIcon.src}
               className="absolute sm:bottom-10 sm:right-10 bottom-2 right-2"
               alt="Offer Icon"
+            />
+            <img
+              src={HomeArrow.src}
+              className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transform translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
+              alt="Arrow"
             />
           </Link>
         </div>
