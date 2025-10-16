@@ -9,8 +9,8 @@ export default function WhatsAppButton() {
     <a
       href={whatsappUrl}
       target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 transition-all duration-300 hover:scale-110 hover:shadow-2xl"
+      rel="noopener"
+      className="fixed bottom-6 right-6 z-50 transition-all duration-300 hover:scale-110 "
       aria-label="Contact us on WhatsApp"
     >
       <Image
@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
         alt="WhatsApp"
         width={64}
         height={64}
-        className="drop-shadow-lg"
+        className=""
       />
     </a>
   );

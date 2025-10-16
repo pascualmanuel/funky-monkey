@@ -88,7 +88,7 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
   return (
     <div className="bg-[#FDFFFC] border border-[#E5E7E4] rounded-[12px] overflow-hidden flex flex-col h-full">
       {/* Image Section */}
-      <div className="relative h-64 md:h-72">
+      <div className="relative h-64 md:h-72 overflow-hidden">
         <button
           onClick={handleImageClick}
           onTouchStart={handleTouchStart}
@@ -101,25 +101,11 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
             src={roomImages[currentImageIndex]}
             alt={room.title}
             fill
-            className="object-cover transition-transform duration-200 group-hover:scale-105"
+            className="object-cover transition-transform duration-400 group-hover:scale-105"
           />
           {/* Hover overlay */}
           <div className="absolute inset-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                />
-              </svg>
-            </div>
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
           </div>
         </button>
 
@@ -177,7 +163,7 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
       </div>
 
       {/* Content Section */}
-      <div className="p-4 flex flex-1 flex-col">
+      <div className="m-4 flex flex-1 flex-col">
         <div className="flex-1">
           {/* Title */}
           <h3 className="subH2 mb-3">{room.title}</h3>
@@ -190,18 +176,18 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
             {room.features.map((feature, index) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1 px-3 py-1 bg-[#FDFFFC] border border-gray-200 rounded-full body3 text-darkGrey"
+                className="inline-flex items-center gap-1 px-[8px] py-1 bg-[#FDFFFC] border border-gray-200 rounded-full body3 text-darkGrey"
               >
-                <span className="w-4 h-4 flex items-center justify-center">
+                <span className="w-3.5 h-3.5 flex items-center justify-center">
                   {typeof feature.icon === "string" ? (
                     feature.icon
                   ) : (
                     <Image
                       src={feature.icon}
                       alt=""
-                      width={16}
-                      height={16}
-                      className="w-4 h-4"
+                      width={15}
+                      height={15}
+                      className="w-3.5 h-3.5"
                     />
                   )}
                 </span>
@@ -218,9 +204,10 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
 
         {/* Book Now Button */}
         <a
-          href={`https://beds24.com/booking2.php?roomid=${room.buttonLink}`}
+          // href={`https://beds24.com/booking2.php?roomid=${room.buttonLink}`}
+          href={"https://beds24.com/booking2.php?propid=63844"}
           target="_blank"
-          className="w-full bg-[#5AB012] hover:bg-[#4A950F] text-white font-bold py-3 px-6 rounded-xl text-center transition-colors duration-200"
+          className="w-full bg-green hover:bg-[#176221] text-white font-bold py-3 px-6 rounded-[8px] text-center transition-colors duration-200"
         >
           Book Now
         </a>
