@@ -1,7 +1,6 @@
 "use client";
 import { useEffect } from "react";
 
-// Importar todas las imágenes hero
 import SantaTeresaImage from "@/assets/santa-teresa/santa-teresa.webp";
 import TheHotelImage from "@/assets/the-hotel/the-hotel.webp";
 import RoomsImage from "@/assets/home/rooms.webp";
@@ -11,7 +10,6 @@ import OffersImage from "@/assets/offers/offers.webp";
 
 const HeroImagePreloader = () => {
   useEffect(() => {
-    // Array con todas las imágenes hero que necesitamos precargar
     const heroImages = [
       SantaTeresaImage.src,
       TheHotelImage.src,

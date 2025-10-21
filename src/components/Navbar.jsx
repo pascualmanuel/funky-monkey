@@ -304,7 +304,7 @@ const Navbar = () => {
                   />
                 )}
 
-                {/* Lista de links (más juntos: space-x-4) */}
+
                 <div className="flex llg:space-x-4">
                   {navLinks.map((item, index) => (
                     <Link
@@ -324,7 +324,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Botón derecha - Desktop */}
+
           <div className="flex-shrink-0">
             <div className="hidden lg:block mr-[20px] mg:mr-[80px] xl:mr-28">
               <Link

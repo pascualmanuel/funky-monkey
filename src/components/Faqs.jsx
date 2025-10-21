@@ -307,7 +307,6 @@ export default function Faqs({
 
   return (
     <div className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 lg:px-8 bg-[#F6F8F6]">
-      {/* {showFilters && ( */}
       <div
         className={`mx-4 sm:mx-8 lg:mx-[70px]  lg:mt-[160px] pb-10 ${
           showFilters ? "mt-40" : "mt-10"
@@ -317,7 +316,7 @@ export default function Faqs({
           Frequently Asked Questions
         </h2>
       </div>
-      {/* //   )} */}
+
       {showFilters && (
         <div className="flex flex-wrap gap-3 sm:gap-6 text-left justify-start max-w-[1000px] mx-auto w-full">
           {filters.map((filter) => (

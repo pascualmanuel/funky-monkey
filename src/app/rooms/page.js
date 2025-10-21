@@ -75,7 +75,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "1 XL king bed" },
         { icon: SofaIcon, text: "1 Sofa bed" },
       ],
-      buttonLink: "149020",
+      buttonLink: "149072",
     },
     {
       title: "Treetop lower apartment",
@@ -97,7 +97,7 @@ export default function Rooms() {
         { icon: SofaIcon, text: "1 Sofa bed" },
         { icon: BedIcon, text: "King bed convertible in 2 single" },
       ],
-      buttonLink: "149070",
+      buttonLink: "149071",
     },
     {
       title: "Luxury apartment",
@@ -119,7 +119,7 @@ export default function Rooms() {
         { icon: SofaIcon, text: "1 Sofa bed" },
         { icon: BalconyIcon, text: "Floating Balcony" },
       ],
-      buttonLink: "149071",
+      buttonLink: "149070",
     },
     {
       title: "Ocean view room",
@@ -138,7 +138,7 @@ export default function Rooms() {
         { icon: SofaIcon, text: "Bunk bed" },
         { icon: FridgeIcon, text: "Mini fridge" },
       ],
-      buttonLink: "149072",
+      buttonLink: "149074",
     },
     {
       title: "Large ocean view room",
@@ -160,7 +160,7 @@ export default function Rooms() {
         { icon: KitchenIcon, text: "Shared kitchen" },
         { icon: BedIcon, text: "3+2 single beds" },
       ],
-      buttonLink: "149073",
+      buttonLink: "149076",
     },
     {
       title: "Private bungalows (3)",
@@ -178,7 +178,7 @@ export default function Rooms() {
         { icon: FridgeIcon, text: "Mini fridge" },
         { icon: BedIcon, text: "2 single beds" },
       ],
-      buttonLink: "149074",
+      buttonLink: "149020",
     },
     {
       title: "Large Ocean view bungalow",
@@ -196,7 +196,7 @@ export default function Rooms() {
         { icon: BedIcon, text: "3+2 single beds" },
         { icon: BalconyIcon, text: "Balcony" },
       ],
-      buttonLink: "149076",
+      buttonLink: "149077",
     },
     {
       title: "Private suite",
@@ -214,7 +214,7 @@ export default function Rooms() {
         { icon: BalconyIcon, text: "Balcony" },
         { icon: FridgeIcon, text: "Mini fridge" },
       ],
-      buttonLink: "149077",
+      buttonLink: "149073",
     },
     {
       title: "Budget rooms (2)",

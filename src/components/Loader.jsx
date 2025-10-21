@@ -7,10 +7,10 @@ const Loader = ({ onComplete, videoProgress = 0 }) => {
   const completionTimeout = useRef(null);
 
   useEffect(() => {
-    // Bloquear el scroll del body cuando el loader está visible
+
     document.body.style.overflow = "hidden";
 
-    // Función para completar el loader
+
     const completeLoader = () => {
       const elapsedTime = Date.now() - startTime.current;
       const remainingTime = Math.max(0, 3000 - elapsedTime); // 3 segundos mínimo
