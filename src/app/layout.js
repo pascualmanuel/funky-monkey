@@ -31,7 +31,7 @@ export const metadata = {
         width: 1200,
         height: 630,
         alt: "Funky Monkey Lodge",
-        type: "image/png",
+        type: "image/webp",
       },
     ],
     type: "website",

@@ -229,9 +229,12 @@ export default function Footer() {
           >
             Made by Labba Studio
           </Link>
-          {/* <Link href="/" className="text-center sm:text-left text-grey3 body3">
-            Privacidad
-          </Link> */}
+          <Link
+            href="/general-policy"
+            className="text-center sm:text-left text-grey3 body3"
+          >
+            General policy
+          </Link>
           {/* <Link href="/" className="text-center sm:text-left text-grey3 body3">
             Términos y condiciones
           </Link> */}
