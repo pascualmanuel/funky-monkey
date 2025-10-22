@@ -304,7 +304,6 @@ const Navbar = () => {
                   />
                 )}
 
-
                 <div className="flex llg:space-x-4">
                   {navLinks.map((item, index) => (
                     <Link
@@ -312,8 +311,8 @@ const Navbar = () => {
                       href={item.link}
                       ref={(el) => (linkRefs.current[index] = el)}
                       onClick={(e) => handleLinkClick(e, index)}
-                      className={`hidden lg:inline-block text-white text-base target:underline boton-navbar transition-colors px-3 py-2 rounded-md relative z-10 ${
-                        activeIndex === index ? "text-white font-bold" : ""
+                      className={`hidden lg:inline-block text-grey2 text-base  boton-navbar transition-colors px-3 py-2 rounded-md relative z-10 ${
+                        activeIndex === index ? "!text-[#ffffff] " : ""
                       }`}
                     >
                       {item.text}
@@ -323,7 +322,6 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
 
           <div className="flex-shrink-0">
             <div className="hidden lg:block mr-[20px] mg:mr-[80px] xl:mr-28">

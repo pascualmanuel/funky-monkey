@@ -88,8 +88,30 @@ export default function Offers() {
       buttonLink: "/contact",
     },
   ];
+  const [data, setData] = useState([]);
 
-  // refs a los DOM nodes de las capas
+  useEffect(() => {
+    fetch(
+      `https://api.corsproxy.io/?${encodeURIComponent(
+        "https://funkymonkeylodge.com/wp-json/offers/v1/list"
+      )}`
+    )
+      .then((r) => {
+        if (!r.ok) {
+          throw new Error(`HTTP error! status: ${r.status}`);
+        }
+        return r.text();
+      })
+      .then((text) => {
+        const data = JSON.parse(text);
+        setData(data);
+      })
+      .catch((err) => {
+        console.error("Error fetching offers:", err);
+      });
+  }, []);
+
+  console.log(data[0], "data offers");
   const currentRef = useRef(null);
   const prevRef = useRef(null);
 
