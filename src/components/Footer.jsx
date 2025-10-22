@@ -223,17 +223,17 @@ export default function Footer() {
             © {new Date().getFullYear()} Funky Monkey.
           </p>
           <Link
+            href="/general-policy"
+            className="text-center sm:text-left text-grey3 body3"
+          >
+            General policy
+          </Link>
+          <Link
             href="https://labba.studio"
             target="_blank"
             className="text-center sm:text-left text-grey3 body3"
           >
             Made by Labba Studio
-          </Link>
-          <Link
-            href="/general-policy"
-            className="text-center sm:text-left text-grey3 body3"
-          >
-            General policy
           </Link>
           {/* <Link href="/" className="text-center sm:text-left text-grey3 body3">
             Términos y condiciones
@@ -276,19 +276,20 @@ export default function Footer() {
               © {new Date().getFullYear()} Funky Monkey.
             </p>
             <Link
-              href="https://labba.studio"
-              target="_blank"
+              href="/general-policy"
               className="text-center sm:text-left text-grey3 body3"
             >
-              Made by Labba Studio
+              General policy
             </Link>
             <div className="flex flex-row gap-2">
-              {/* <Link
-                href="/"
+              <Link
+                href="https://labba.studio"
+                target="_blank"
                 className="text-center sm:text-left text-grey3 body3"
               >
-                Privacidad
-              </Link> */}
+                Made by Labba Studio
+              </Link>
+
               {/* <Link
                 href="/"
                 className="text-center sm:text-left text-grey3 body3"
