@@ -21,7 +21,8 @@ export default function GeneralPolicy() {
           <h2 className="myH1 text-center text-white">General Policy</h2>
         </div>
         <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
-          Important information about our policies, cancellation terms, and general guidelines for your stay.
+          Important information about our policies, cancellation terms, and
+          general guidelines for your stay.
         </p>
       </div>
 
@@ -34,19 +35,32 @@ export default function GeneralPolicy() {
             <div className="bg-white rounded-[16px] p-8 shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)]">
               <ul className="space-y-4">
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">No-shows:</strong> Will be charged the full booking amount including days not used resulting from late arrival or premature departure.
+                  <strong className="text-[#211F20]">No-shows:</strong> Will be
+                  charged the full booking amount including days not used
+                  resulting from late arrival or premature departure.
                 </li>
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Payment:</strong> We charge the balance of your reservation upon arrival, unless you made a full deposit.
+                  <strong className="text-[#211F20]">Payment:</strong> We charge
+                  the balance of your reservation upon arrival, unless you made
+                  a full deposit.
                 </li>
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Deposit:</strong> A 30% non-refundable reservation deposit will be charged on the day of booking.
+                  <strong className="text-[#211F20]">Deposit:</strong> A 30%
+                  non-refundable reservation deposit will be charged on the day
+                  of booking.
                 </li>
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Refunds:</strong> For any exceptional requests for refunds a 10% administration fee will be applied.
+                  <strong className="text-[#211F20]">Refunds:</strong> For any
+                  exceptional requests for refunds a 10% administration fee will
+                  be applied.
                 </li>
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Group Reservations:</strong> All group reservations (10 people and more) are required to pay a 50% deposit at the time of booking (no refunds accepted).
+                  <strong className="text-[#211F20]">
+                    Group Reservations:
+                  </strong>{" "}
+                  All group reservations (10 people and more) are required to
+                  pay a 50% deposit at the time of booking (no refunds
+                  accepted).
                 </li>
               </ul>
             </div>
@@ -55,16 +69,22 @@ export default function GeneralPolicy() {
           {/* General Policy Section */}
           <div className="mb-16">
             <h3 className="myH2 text-[#211F20] mb-8">General Policy</h3>
-            
+
             {/* Check-in/Check-out */}
             <div className="bg-white rounded-[16px] p-8 shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)] mb-6">
-              <h4 className="subH2 text-[#211F20] mb-4">Check-in & Check-out</h4>
+              <h4 className="subH2 text-[#211F20] mb-4">
+                Check-in & Check-out
+              </h4>
               <ul className="space-y-3">
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Check-in:</strong> from 14:00 - 22:00 / earlier or later check in possible upon request
+                  <strong className="text-[#211F20]">Check-in:</strong> from
+                  14:00 - 22:00 / earlier or later check in possible upon
+                  request
                 </li>
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Check-out:</strong> before 11:00 / late check out extra charge from $30 / free luggage storage is available
+                  <strong className="text-[#211F20]">Check-out:</strong> before
+                  11:00 / late check out extra charge from $30 / free luggage
+                  storage is available
                 </li>
               </ul>
             </div>
@@ -74,33 +94,48 @@ export default function GeneralPolicy() {
               <h4 className="subH2 text-[#211F20] mb-4">Payment Policy</h4>
               <ul className="space-y-3">
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Prepayment:</strong> The Deposit of the reservation will be charged on the day of booking.
+                  <strong className="text-[#211F20]">Prepayment:</strong> The
+                  Deposit of the reservation will be charged on the day of
+                  booking.
                 </li>
                 <li className="body1 text-darkGrey">
-                  Please note, if cancelled, modified or in case of no-show, the Deposit of the reservation is not refundable.
+                  Please note, if cancelled, modified or in case of no-show, the
+                  Deposit of the reservation is not refundable.
                 </li>
                 <li className="body1 text-darkGrey">
-                  <strong className="text-[#211F20]">Payment:</strong> The balance of the reservation will be charged upon arrival preferably cash in USD or local currency.
+                  <strong className="text-[#211F20]">Payment:</strong> The
+                  balance of the reservation will be charged upon arrival
+                  preferably cash in USD or local currency.
                 </li>
                 <li className="body1 text-darkGrey">
-                  Prices of accommodation do not include any meal or extra activities except complimentary breakfast.
+                  Prices of accommodation do not include any meal or extra
+                  activities except complimentary breakfast.
                 </li>
               </ul>
             </div>
 
             {/* Children and Extra Beds */}
             <div className="bg-white rounded-[16px] p-8 shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)] mb-6">
-              <h4 className="subH2 text-[#211F20] mb-4">Children and Extra Beds</h4>
+              <h4 className="subH2 text-[#211F20] mb-4">
+                Children and Extra Beds
+              </h4>
               <p className="body1 text-darkGrey">
-                <strong className="text-[#211F20]">Free!</strong> One child under 2 years stays free of charge in a child's cot/crib, upon request.
+                <strong className="text-[#211F20]">Free!</strong> One child
+                under 2 years stays free of charge in a child's cot/crib, upon
+                request.
               </p>
             </div>
 
             {/* Damage Policy */}
             <div className="bg-white rounded-[16px] p-8 shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)] mb-6">
-              <h4 className="subH2 text-[#211F20] mb-4">Damage to Hotel Property</h4>
+              <h4 className="subH2 text-[#211F20] mb-4">
+                Damage to Hotel Property
+              </h4>
               <p className="body1 text-darkGrey">
-                The Hotel reserves the right to charge guests the cost of rectifying damage or soiling, caused by accidental, deliberate, negligent or reckless act of the guest to the Hotel's property or structure.
+                The Hotel reserves the right to charge guests the cost of
+                rectifying damage or soiling, caused by accidental, deliberate,
+                negligent or reckless act of the guest to the Hotel's property
+                or structure.
               </p>
             </div>
 
@@ -108,10 +143,15 @@ export default function GeneralPolicy() {
             <div className="bg-white rounded-[16px] p-8 shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)]">
               <h4 className="subH2 text-[#211F20] mb-4">Safety and Security</h4>
               <p className="body1 text-darkGrey">
-                For the convenience of the Guest safety safe is provided in the room to store any valuables and each room has a lock.
+                For the convenience of the Guest safety safe is provided in the
+                room to store any valuables and each room has a lock.
               </p>
               <p className="body1 text-darkGrey mt-4">
-                The Management will not in any way whatsoever be responsible for any loss / or damage to the Guest's belongings or any other property from either the hotel room or the locker or any other part of the hotel for any cause whatsoever including theft of pilferage.
+                The Management will not in any way whatsoever be responsible for
+                any loss / or damage to the Guest's belongings or any other
+                property from either the hotel room or the locker or any other
+                part of the hotel for any cause whatsoever including theft of
+                pilferage.
               </p>
             </div>
           </div>
