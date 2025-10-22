@@ -447,6 +447,12 @@ export default function Contact() {
               © {new Date().getFullYear()} Funky Monkey.
             </p>
             <Link
+              href="/general-policy"
+              className="text-center sm:text-left text-grey3 body3"
+            >
+              General policy
+            </Link>
+            <Link
               href="https://labba.studio"
               target="_blank"
               className="text-center sm:text-left text-grey3 body3"
@@ -505,6 +511,12 @@ export default function Contact() {
                   © {new Date().getFullYear()} Funky Monkey.
                 </p>
                 <Link
+                  href="/general-policy"
+                  className="text-center sm:text-left text-grey3 body3"
+                >
+                  General policy
+                </Link>
+                <Link
                   href="https://labba.studio"
                   target="_blank"
                   className="text-center sm:text-left text-grey3 body3"
@@ -512,12 +524,6 @@ export default function Contact() {
                   Made by Labba Studio
                 </Link>
                 <div className="flex flex-row gap-2">
-                  {/* <Link
-                    href="/"
-                    className="text-center sm:text-left text-grey3 body3"
-                  >
-                    Privacidad
-                  </Link> */}
                   {/* <Link
                     href="/"
                     className="text-center sm:text-left text-grey3 body3"
