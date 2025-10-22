@@ -8,7 +8,8 @@ import Retreats from "../assets/home/retreats.webp";
 import TheHotel from "../assets/home/the-hotel.webp";
 import OfferIcon from "../assets/home/offer-icon.svg";
 import Button from "./Button";
-import HomeArrow from "../assets/home-arrow.svg";
+import HomeArrow from "../assets/arrow.svg";
+
 const HomeGrid = () => {
   return (
     <>
