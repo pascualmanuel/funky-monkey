@@ -27,7 +27,7 @@ export const metadata = {
     siteName: "Funky Monkey Lodge",
     images: [
       {
-        url: "/assets/funky-logo-og.png",
+        url: "/assets/funky-logo-og.webp",
         width: 1200,
         height: 630,
         alt: "Funky Monkey Lodge",
@@ -42,7 +42,7 @@ export const metadata = {
     title: "Funky Monkey - Adventure & Wellness Destination",
     description:
       "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
-    images: ["/assets/funky-logo-og.png"],
+    images: ["/assets/funky-logo-og.webp"],
   },
 };
 
