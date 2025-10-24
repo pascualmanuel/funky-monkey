@@ -11,11 +11,29 @@ export default function GalleryModal({
   roomTitle,
 }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [imagesLoaded, setImagesLoaded] = useState(new Set());
 
   // Reset current index when modal opens with new initial index
   useEffect(() => {
     setCurrentIndex(initialIndex);
   }, [initialIndex, isOpen]);
+
+  // Pre-load images when modal opens
+  useEffect(() => {
+    if (isOpen && images && images.length > 0) {
+      const preloadImages = () => {
+        images.forEach((imageSrc, index) => {
+          const img = new Image();
+          img.onload = () => {
+            setImagesLoaded((prev) => new Set([...prev, index]));
+          };
+          img.src = imageSrc;
+        });
+      };
+
+      preloadImages();
+    }
+  }, [isOpen, images]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -129,12 +147,22 @@ export default function GalleryModal({
 
           {/* Main image */}
           <div className="relative w-full h-full">
+            {!imagesLoaded.has(currentIndex) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+              </div>
+            )}
             <Image
               src={images[currentIndex]}
               alt={`${roomTitle} - Image ${currentIndex + 1}`}
               fill
-              className="object-contain"
+              className={`object-contain transition-opacity duration-300 ${
+                imagesLoaded.has(currentIndex) ? "opacity-100" : "opacity-0"
+              }`}
               priority
+              onLoad={() => {
+                setImagesLoaded((prev) => new Set([...prev, currentIndex]));
+              }}
             />
           </div>
 
@@ -173,11 +201,21 @@ export default function GalleryModal({
                       : "opacity-60 hover:opacity-80 active:opacity-90"
                   }`}
                 >
+                  {!imagesLoaded.has(index) && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-600"></div>
+                    </div>
+                  )}
                   <Image
                     src={image}
                     alt={`Thumbnail ${index + 1}`}
                     fill
-                    className="object-cover"
+                    className={`object-cover transition-opacity duration-300 ${
+                      imagesLoaded.has(index) ? "opacity-100" : "opacity-0"
+                    }`}
+                    onLoad={() => {
+                      setImagesLoaded((prev) => new Set([...prev, index]));
+                    }}
                   />
                 </button>
               ))}

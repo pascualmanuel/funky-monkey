@@ -14,13 +14,14 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
 
   // Use room images if available, otherwise fallback to sample images
   const roomImages = room.images || [Room1, Room2, Room3, Room4, Room5];
   const actualTotalImages = roomImages.length;
 
   const handleImageClick = (e) => {
-
     // For mobile, this will be handled by touch events
     if (window.innerWidth >= 1024) {
       const rect = e.currentTarget.getBoundingClientRect();
@@ -52,22 +53,32 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
     touchEndX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchMove = (e) => {
     touchEndX.current = e.targetTouches[0].clientX;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchEnd = (e) => {
     if (!touchStartX.current || !touchEndX.current) return;
 
-    const distance = touchStartX.current - touchEndX.current;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-    const isTap = Math.abs(distance) < 30;
+    const distanceX = touchStartX.current - touchEndX.current;
+    const distanceY = touchStartY.current - touchEndY.current;
+    const isLeftSwipe = distanceX > 50;
+    const isRightSwipe = distanceX < -50;
+    const isVerticalScroll = Math.abs(distanceY) > Math.abs(distanceX);
+    const isTap = Math.abs(distanceX) < 30 && Math.abs(distanceY) < 30;
 
     // Only handle touch events on screens < 1024px
     if (window.innerWidth < 1024) {
+      // If it's a vertical scroll, don't do anything
+      if (isVerticalScroll) {
+        return;
+      }
+
       if (isLeftSwipe && actualTotalImages > 1) {
         e.preventDefault();
         setCurrentImageIndex((prev) =>
