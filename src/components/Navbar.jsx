@@ -260,7 +260,7 @@ const Navbar = () => {
     <div
       className={`navbar fixed z-[1000] w-full
       ${isVisible ? "navbar-visible z-50" : "navbar-hidden"}
-      ${menuOpen ? "!h-[100dvh]" : "h-[130px] lg:h-[102px]"}
+      ${menuOpen ? "!h-[100dvh]" : "h-[100px] lg:h-[102px]"}
     `}
       style={{
         background: menuOpen ? "rgba(0, 0, 0, 0.8)" : "rgba(48, 48, 48, 0.5)",
@@ -271,10 +271,10 @@ const Navbar = () => {
     >
       <nav
         className={`relative ${
-          menuOpen ? "h-[100dvh]" : "h-[130px] lg:h-[102px]"
+          menuOpen ? "h-[100dvh]" : "h-[100px] lg:h-[102px]"
         }`}
       >
-        <div className="h-[130px] lg:h-[102px] mx-auto max-w-screen-2xl flex items-center">
+        <div className="h-[100px] lg:h-[102px] mx-auto max-w-screen-2xl flex items-center">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="ml-[20px] mg:ml-[80px] xl:ml-28">
