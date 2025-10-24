@@ -3,12 +3,14 @@ import Button from "./Button.jsx";
 import HomeGrid from "./HomeGrid.jsx";
 import Image from "next/image";
 import Link from "next/link";
+// import HomeHeroImage from "@/assets/home/home-hero.webp";
 
 const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [showPoster, setShowPoster] = useState(true);
 
   const handleVideoLoad = () => {
     setVideoLoaded(true);
@@ -35,6 +37,12 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
   const handleCanPlayThrough = () => {
     // El video está completamente cargado y listo para reproducir
     setIsVideoReady(true);
+
+    // Hide poster after video is ready with a smooth transition
+    setTimeout(() => {
+      setShowPoster(false);
+    }, 300);
+
     if (onVideoProgress) {
       onVideoProgress(100);
     }
@@ -49,6 +57,9 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
         if (video.readyState >= 3) {
           // HAVE_FUTURE_DATA o HAVE_ENOUGH_DATA
           setIsVideoReady(true);
+          setTimeout(() => {
+            setShowPoster(false);
+          }, 300);
           if (onVideoProgress) {
             onVideoProgress(100);
           }
@@ -103,10 +114,27 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
   return (
     <>
       <section className="relative w-full h-[100dvh] overflow-hidden">
+        {/* Poster Image - shown while video loads */}
+        {showPoster && (
+          <div className="absolute top-0 left-0 w-full h-full z-10">
+            <Image
+              src={"/assets/home/home-hero.webp"}
+              alt="Funky Monkey Lodge - Santa Teresa"
+              fill
+              className="object-cover"
+              priority
+              quality={90}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03000D] to-transparent"></div>
+          </div>
+        )}
+
         {/* Video de fondo */}
         <video
           ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
+            isVideoReady ? "opacity-100" : "opacity-0"
+          }`}
           autoPlay={isMobile}
           loop={true}
           muted={true}
@@ -115,10 +143,11 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
           onError={handleVideoError}
           onProgress={handleProgress}
           onCanPlayThrough={handleCanPlayThrough}
-          preload="auto"
+          preload="metadata"
         >
           <source src="/assets/home/hero-video.mp4" type="video/mp4" />
         </video>
+
         <div className="absolute inset-0 bg-gradient-to-t from-[#03000D] to-transparent"></div>
         <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-22 lg:px-28 pb-[50px] text-white max-w-screen-2xl mx-auto">
           <h1 className="myH1  mb-6 lg:mb-8 md:w-[550px] 2xl:w-auto  ">
