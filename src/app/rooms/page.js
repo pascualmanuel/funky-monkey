@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
 import RoomsPreloader from "@/components/RoomsPreloader";
+import SmartHeroPreloader from "@/components/SmartHeroPreloader";
 
 // Helper function to generate image paths
 const generateImagePaths = (folderName, count, prefix) => {
@@ -236,6 +237,9 @@ export default function Rooms() {
     <Layout title="Our Rooms">
       {/* Global preloader for rooms */}
       <RoomsPreloader rooms={rooms} />
+
+      {/* Smart hero preloader for navigation pages */}
+      <SmartHeroPreloader />
 
       <div
         className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"

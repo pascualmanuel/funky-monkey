@@ -2,6 +2,7 @@
 
 import Layout from "@/components/Layout";
 import HomeHero from "@/components/HomeHero";
+import SmartHeroPreloader from "@/components/SmartHeroPreloader";
 
 export default function Home() {
   const handleVideoLoad = () => {
@@ -19,6 +20,9 @@ export default function Home() {
 
   return (
     <Layout fullWidth>
+      {/* Smart hero preloader for navigation pages */}
+      <SmartHeroPreloader />
+
       <HomeHero
         onVideoLoad={handleVideoLoad}
         onError={handleVideoError}
