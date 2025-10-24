@@ -18,16 +18,29 @@ export default function GalleryModal({
     setCurrentIndex(initialIndex);
   }, [initialIndex, isOpen]);
 
-  // Pre-load images when modal opens
+  // Pre-load images when modal opens (optimized)
   useEffect(() => {
     if (isOpen && images && images.length > 0) {
       const preloadImages = () => {
-        images.forEach((imageSrc, index) => {
-          const img = new Image();
-          img.onload = () => {
-            setImagesLoaded((prev) => new Set([...prev, index]));
-          };
-          img.src = imageSrc;
+        // Preload images in batches to avoid overwhelming the browser
+        const batchSize = 3;
+        const batches = [];
+
+        for (let i = 0; i < images.length; i += batchSize) {
+          batches.push(images.slice(i, i + batchSize));
+        }
+
+        batches.forEach((batch, batchIndex) => {
+          setTimeout(() => {
+            batch.forEach((imageSrc, index) => {
+              const globalIndex = batchIndex * batchSize + index;
+              const img = new Image();
+              img.onload = () => {
+                setImagesLoaded((prev) => new Set([...prev, globalIndex]));
+              };
+              img.src = imageSrc;
+            });
+          }, batchIndex * 100); // Stagger batches by 100ms
         });
       };
 

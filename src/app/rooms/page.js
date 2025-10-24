@@ -16,6 +16,7 @@ import SofaIcon from "@/assets/rooms/icons/sofa-icon.svg";
 import { useState, useEffect } from "react";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
+import RoomsPreloader from "@/components/RoomsPreloader";
 
 // Helper function to generate image paths
 const generateImagePaths = (folderName, count, prefix) => {
@@ -233,6 +234,9 @@ export default function Rooms() {
   ];
   return (
     <Layout title="Our Rooms">
+      {/* Global preloader for rooms */}
+      <RoomsPreloader rooms={rooms} />
+
       <div
         className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px]  flex flex-col justify-center items-center"
         style={{

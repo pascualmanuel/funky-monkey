@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import GalleryModal from "./GalleryModal";
+import { useImagePreloader } from "@/hooks/useImagePreloader";
 import Room1 from "@/assets/rooms/room-1.webp";
 import Room2 from "@/assets/rooms/room-2.webp";
 import Room3 from "@/assets/rooms/room-3.webp";
@@ -16,10 +17,51 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
   const touchEndX = useRef(0);
   const touchStartY = useRef(0);
   const touchEndY = useRef(0);
+  const cardRef = useRef(null);
 
   // Use room images if available, otherwise fallback to sample images
   const roomImages = room.images || [Room1, Room2, Room3, Room4, Room5];
   const actualTotalImages = roomImages.length;
+
+  // Use image preloader hook with smart preloading
+  const { isImageLoaded, preloadBatch } = useImagePreloader(roomImages, {
+    preloadDistance: 200, // Start preloading when card is 200px from viewport
+    maxConcurrent: 2, // Load max 2 images at once per room
+    priority: [0, 1], // Preload first 2 images immediately
+  });
+
+  // Intersection Observer for smart preloading
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Preload remaining images when card becomes visible
+            const remainingIndices = roomImages
+              .map((_, index) => index)
+              .filter((index) => !isImageLoaded(index));
+
+            if (remainingIndices.length > 0) {
+              preloadBatch(remainingIndices);
+            }
+
+            // Disconnect observer after first intersection
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        rootMargin: "200px", // Start preloading when 200px away from viewport
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
+  }, [roomImages, isImageLoaded, preloadBatch]);
 
   const handleImageClick = (e) => {
     // For mobile, this will be handled by touch events
@@ -97,7 +139,10 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
     }
   };
   return (
-    <div className="bg-[#FDFFFC] border border-[#E5E7E4] rounded-[12px] overflow-hidden flex flex-col h-full">
+    <div
+      ref={cardRef}
+      className="bg-[#FDFFFC] border border-[#E5E7E4] rounded-[12px] overflow-hidden flex flex-col h-full"
+    >
       {/* Image Section */}
       <div className="relative h-64 md:h-72 overflow-hidden">
         <button
