@@ -169,10 +169,10 @@ export default function Offers() {
         {currentData && <Slide ref={currentRef} data={currentData} />}
 
         {/* Controles */}
-        <div className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+        <div className="body1 text-center text-white sm:mx-5 md:mx-0 sm:max-w-[450px] absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center  gap-10 sm:gap-2 z-10">
           <button
             onClick={prevSlideFn}
-            className="mr-10 hover:opacity-70 cursor-pointer transition-opacity"
+            className="sm:mr-10 hover:opacity-70 cursor-pointer transition-opacity"
           >
             <img src={ArrowCarousel.src} alt="Previous" />
           </button>
@@ -191,7 +191,7 @@ export default function Offers() {
 
           <button
             onClick={nextSlide}
-            className="rotate-180 ml-10 hover:opacity-70 cursor-pointer transition-opacity"
+            className="rotate-180 sm:ml-10 hover:opacity-70 cursor-pointer transition-opacity"
           >
             <img src={ArrowCarousel.src} alt="Next" />
           </button>

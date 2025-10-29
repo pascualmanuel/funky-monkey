@@ -169,7 +169,7 @@ export default function Activities() {
         }}
       >
         <div className="mx-4 sm:mx-8 lg:mx-[70px] my-[100px] flex md:flex-row flex-col md:justify-between justify-center items-center">
-          <div className="max-w-[350px] mr-4 mb-10 md:mb-0">
+          <div className="max-w-[450px] mx-1 sm:mx-0 sm:mr-4 mb-10 md:mb-0">
             <h2 className="myH2 text-white">When to visit Santa Teresa</h2>
             <p className="body1 text-grey2 my-4">
               Santa Teresa is beautiful year-round, but each season brings its
