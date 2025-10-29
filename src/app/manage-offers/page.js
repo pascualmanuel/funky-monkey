@@ -137,7 +137,7 @@ export default function ManageOffers() {
     <Layout title="Gestionar Ofertas">
       <div className="mt-[102px]">
         {/* Header */}
-        <div className="text-center flex items-center flex-col gap-10 px-4 mb-12 mt-[50px] md:mt-[130px]">
+        <div className="text-center flex items-center flex-col gap-10 px-4 mb-12 mt-[50px] md:mt-[40px]">
           <h3 className="myH2">Gestionar Ofertas</h3>
           <Link href="/addoffer">
             <Button variant="primary" height="54px" classNames="w-[250px]">
