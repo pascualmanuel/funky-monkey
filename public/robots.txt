@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /addoffer
+Disallow: /manage-offers
+
+User-agent: Googlebot
+Disallow: /addoffer
+Disallow: /manage-offers
+
+User-agent: Bingbot
+Disallow: /addoffer
+Disallow: /manage-offers
+
