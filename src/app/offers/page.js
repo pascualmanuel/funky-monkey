@@ -14,19 +14,6 @@ export default function Offers() {
   const [slideDirection, setSlideDirection] = useState("right");
   const DURATION = 500;
 
-  // useEffect(() => {
-  //   fetch("https://api.beds24.com/v2/properties?includeAllRooms=true", {
-  //     method: "GET",
-  //     headers: {
-  //       accept: "application/json",
-  //       token: process.env.NEXT_PUBLIC_BEDS24_API_KEY, // ✅ correcto
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data, "DATA"))
-  //     .catch((err) => console.error("Error:", err));
-  // }, []);
-
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -48,13 +35,10 @@ export default function Offers() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching rooms:", err);
         setError(err.message);
         setLoading(false);
       });
   }, []);
-
-  console.log(properties, "properties");
 
   const WORDPRESS_URL =
     "https://backend.funkymonkeylodge.com/funkymonkeylodge.com";
@@ -83,7 +67,6 @@ export default function Offers() {
           setCurrentSlide(0);
         }
       } catch (err) {
-        console.error("Error fetching offers:", err);
         setOffers([]); // Si falla, usar array vacío para evitar errores
       } finally {
         setLoadingOffers(false);
@@ -172,27 +155,6 @@ export default function Offers() {
   const currentData = carouselData[currentSlide] || null;
 
   // Si no hay ofertas, mostrar loading o mensaje
-  if (loadingOffers) {
-    return (
-      <Layout title="Special Offers">
-        <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
-        </div>
-      </Layout>
-    );
-  }
-
-  if (carouselData.length === 0) {
-    return (
-      <Layout title="Special Offers">
-        <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black flex items-center justify-center">
-          <p className="body1 text-white text-center">
-            No hay ofertas disponibles en este momento
-          </p>
-        </div>
-      </Layout>
-    );
-  }
 
   return (
     <Layout title="Special Offers">

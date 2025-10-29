@@ -49,7 +49,6 @@ export default function ManageOffers() {
       prevPathnameRef.current !== pathname &&
       prevPathnameRef.current !== null
     ) {
-      console.log("🔄 Volviendo a manage-offers, recargando lista...");
       fetchOffers();
     }
     prevPathnameRef.current = pathname;
@@ -72,7 +71,6 @@ export default function ManageOffers() {
       const data = await response.json();
       setOffers(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("Error fetching offers:", err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -84,45 +82,31 @@ export default function ManageOffers() {
     setDeletingId(id);
     setError(null);
 
-    console.log("🗑️ Intentando eliminar oferta con ID:", id);
-
     try {
-      // Usar directamente la URL de WordPress (sin proxy)
       const deleteUrl = `${WORDPRESS_URL}/wp-json/offers/v1/delete`;
-      console.log("📡 DELETE URL:", deleteUrl);
-      console.log("📦 Body:", JSON.stringify({ id }));
 
       const response = await fetch(deleteUrl, {
-        method: "POST", // o "DELETE" - ambos funcionan
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ id }),
       });
 
-      console.log("📥 Status:", response.status);
-      console.log("📥 OK:", response.ok);
-
       const text = await response.text();
-      console.log("📄 Respuesta texto:", text);
 
       let data;
       try {
         data = JSON.parse(text);
-        console.log("📦 Data parseada:", data);
       } catch (e) {
-        console.log("⚠️ No se pudo parsear JSON, usar texto como respuesta");
         data = { message: text };
       }
 
       if (!response.ok) {
         const errorMsg =
           data.message || `Error ${response.status}: ${response.statusText}`;
-        console.error("❌ Error en respuesta:", errorMsg);
         throw new Error(errorMsg);
       }
-
-      console.log("✅ Eliminación exitosa, recargando lista...");
 
       // Recargar la lista con un pequeño delay para asegurar que el servidor procesó
       setTimeout(async () => {
@@ -131,8 +115,6 @@ export default function ManageOffers() {
 
       setShowDeleteConfirm(null);
     } catch (err) {
-      console.error("💥 Error completo:", err);
-      console.error("💥 Error stack:", err.stack);
       setError("Error al eliminar: " + err.message);
     } finally {
       setDeletingId(null);
@@ -159,7 +141,7 @@ export default function ManageOffers() {
           <h3 className="myH2">Gestionar Ofertas</h3>
           <Link href="/addoffer">
             <Button variant="primary" height="54px" classNames="w-[250px]">
-              + Agregar Nueva Oferta
+              Agregar Nueva Oferta
             </Button>
           </Link>
         </div>

@@ -10,6 +10,7 @@ import MailIcon from "@/assets/contact/mail-icon.svg";
 import PhoneIcon from "@/assets/contact/phone-icon.svg";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,11 +20,41 @@ export default function Contact() {
     participants: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = "template_8hw7r7e";
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsSuccess(false);
+    setErrorMessage("");
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        {
+          publicKey,
+        }
+      );
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      setErrorMessage(
+        "There was an error sending your message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -282,6 +313,9 @@ export default function Contact() {
                   "Send"
                 )}
               </button>
+              {errorMessage && (
+                <p className="text-red-300 text-sm mt-3">{errorMessage}</p>
+              )}
             </form>
           </div>
         </div>

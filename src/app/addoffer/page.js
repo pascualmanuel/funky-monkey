@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useEffect, useCallback, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import Link from "next/link";
@@ -14,6 +14,7 @@ const WORDPRESS_URL =
 
 function AddOfferForm() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const editId = searchParams?.get("edit");
   const isEditMode = !!editId;
 
@@ -32,7 +33,6 @@ function AddOfferForm() {
   const [loading, setLoading] = useState(false);
   const [loadingOffer, setLoadingOffer] = useState(isEditMode);
   const [uploading, setUploading] = useState(false);
-  const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
@@ -96,14 +96,8 @@ function AddOfferForm() {
         setError(
           `Oferta no encontrada. ID buscado: ${id}. Total ofertas: ${offers.length}`
         );
-        console.error("Oferta no encontrada. ID:", id);
-        console.error(
-          "Ofertas disponibles:",
-          offers.map((o) => o.id)
-        );
       }
     } catch (err) {
-      console.error("Error completo al cargar oferta:", err);
       setError("Error al cargar la oferta: " + err.message);
     } finally {
       setLoadingOffer(false);
@@ -122,7 +116,6 @@ function AddOfferForm() {
 
     setLoading(true);
     setError(null);
-    setResponse(null);
 
     try {
       const response = await fetch(`${WORDPRESS_URL}/wp-json/offers/v1/add`, {
@@ -149,11 +142,10 @@ function AddOfferForm() {
         );
       }
 
-      setResponse(data);
-      console.log(`Oferta ${isEditMode ? "actualizada" : "agregada"}:`, data);
+      // Redirigir a /offers después de éxito
+      router.push("/offers");
     } catch (error) {
       setError(error.message);
-      console.error("Error:", error);
     } finally {
       setLoading(false);
     }
@@ -458,22 +450,6 @@ function AddOfferForm() {
             )}
           </div>
         </form>
-
-        {/* Respuesta */}
-        {response && (
-          <div
-            className="mt-8 p-6 rounded-lg"
-            style={{
-              backgroundColor: "rgba(50, 143, 3, 0.1)",
-              border: "1px solid #328f03",
-            }}
-          >
-            <h3 className="subH2 text-green mb-4">¡Éxito!</h3>
-            <pre className="body3 text-black overflow-auto">
-              {JSON.stringify(response, null, 2)}
-            </pre>
-          </div>
-        )}
 
         {/* Error */}
         {error && (

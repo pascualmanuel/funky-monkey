@@ -47,13 +47,10 @@ export default function Rooms() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching rooms:", err);
         setError(err.message);
         setLoading(false);
       });
   }, []);
-
-  console.log(properties, "properties");
 
   const rooms = [
     {

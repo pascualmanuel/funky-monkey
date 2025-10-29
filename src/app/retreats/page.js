@@ -14,6 +14,7 @@ import CarIcon from "@/assets/retreats/car-icon.svg";
 import FoodIcon from "@/assets/retreats/food-icon.svg";
 import WhatsApp from "@/assets/santa-teresa/whatsapp-icon.svg";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Faqs from "@/components/Faqs";
 import Link from "next/link";
 export default function Retreats() {
@@ -25,27 +26,46 @@ export default function Retreats() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = "template_i8d6r8y";
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsSuccess(false);
+    setErrorMessage("");
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          kindOfRetreat: formData.kindOfRetreat,
+          participants: formData.participants,
+        },
+        {
+          publicKey,
+        }
+      );
       setIsSuccess(true);
-
-      // Reset success state after 3 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-        setFormData({
-          name: "",
-          email: "",
-          kindOfRetreat: "",
-          participants: "",
-        });
-      }, 3000);
-    }, 1000);
+      setFormData({
+        name: "",
+        email: "",
+        kindOfRetreat: "",
+        participants: "",
+      });
+    } catch (err) {
+      setErrorMessage(
+        err.text || "There was an error sending your message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -326,7 +346,7 @@ export default function Retreats() {
                     name="kindOfRetreat"
                     value={formData.kindOfRetreat}
                     onChange={handleChange}
-                    placeholder="Write your message..."
+                    placeholder="Write the kind of retreat..."
                     required
                     rows={2}
                     className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200 resize-none"
@@ -346,7 +366,7 @@ export default function Retreats() {
                     name="participants"
                     value={formData.participants}
                     onChange={handleChange}
-                    placeholder="Write your message..."
+                    placeholder="Write the amount of participants..."
                     required
                     rows={1}
                     className="w-full px-4 py-3 rounded-lg bg-[#FFFFFF1A]  text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:text-[#176221] focus:border-transparent transition-all duration-200 resize-none"
@@ -410,6 +430,9 @@ export default function Retreats() {
                     "Send"
                   )}
                 </button>
+                {errorMessage && (
+                  <p className="text-red-300 text-sm mt-3">{errorMessage}</p>
+                )}
               </form>
             </div>
           </div>
