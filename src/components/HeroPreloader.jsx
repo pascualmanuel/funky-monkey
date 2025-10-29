@@ -57,7 +57,6 @@ export default function HeroPreloader() {
         resolve();
       };
       img.onerror = () => {
-        console.warn(`Failed to preload hero image: ${name}`);
         reject(new Error(`Failed to load: ${name}`));
       };
       img.src = imageSrc;
@@ -83,8 +82,8 @@ export default function HeroPreloader() {
       const delay = batchIndex * batchDelay;
 
       setTimeout(() => {
-        preloadImage(image.src, image.name).catch((error) => {
-          console.warn(`Preload failed for ${image.name}:`, error);
+        preloadImage(image.src, image.name).catch(() => {
+          // Image failed to preload
         });
       }, delay);
     });

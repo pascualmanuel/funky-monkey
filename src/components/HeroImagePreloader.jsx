@@ -24,18 +24,9 @@ const HeroImagePreloader = () => {
       return new Promise((resolve, reject) => {
         const img = new Image();
         img.onload = () => {
-          console.log(
-            `✅ Hero image ${index + 1}/6 loaded: ${src.split("/").pop()}`
-          );
           resolve(img);
         };
         img.onerror = (error) => {
-          console.error(
-            `❌ Failed to load hero image ${index + 1}/6: ${src
-              .split("/")
-              .pop()}`,
-            error
-          );
           reject(error);
         };
         img.src = src;
@@ -44,16 +35,12 @@ const HeroImagePreloader = () => {
 
     // Precargar todas las imágenes hero
     const preloadAllHeroImages = async () => {
-      console.log("🚀 Starting hero images preload...");
       try {
         await Promise.all(
           heroImages.map((src, index) => preloadImage(src, index))
         );
-        console.log(
-          "✅ All 6 hero images preloaded successfully! Users will have instant navigation experience."
-        );
       } catch (error) {
-        console.warn("⚠️ Some hero images failed to preload:", error);
+        // Some hero images failed to preload
       }
     };
 

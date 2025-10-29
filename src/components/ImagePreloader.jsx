@@ -44,7 +44,7 @@ export default function ImagePreloader({ images, onImagesLoaded }) {
       });
     };
     img.onerror = () => {
-      console.warn(`Failed to load image: ${imageSrc}`);
+      // Image failed to load
     };
     img.src = imageSrc;
   };

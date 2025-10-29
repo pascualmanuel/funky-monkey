@@ -58,7 +58,6 @@ export default function SmartHeroPreloader() {
         resolve();
       };
       img.onerror = () => {
-        console.warn(`Failed to preload hero image: ${name}`);
         reject(new Error(`Failed to load: ${name}`));
       };
       img.src = imageSrc;
@@ -76,8 +75,8 @@ export default function SmartHeroPreloader() {
             const image = heroImages.find((img) => img.name === pageName);
 
             if (image && !loadedImages.has(image.name)) {
-              preloadImage(image.src, image.name).catch((error) => {
-                console.warn(`Preload failed for ${image.name}:`, error);
+              preloadImage(image.src, image.name).catch(() => {
+                // Image failed to preload
               });
             }
           }
@@ -138,8 +137,8 @@ export default function SmartHeroPreloader() {
 
       highPriorityImages.forEach((image, index) => {
         setTimeout(() => {
-          preloadImage(image.src, image.name).catch((error) => {
-            console.warn(`Preload failed for ${image.name}:`, error);
+          preloadImage(image.src, image.name).catch(() => {
+            // Image failed to preload
           });
         }, index * 500); // Stagger by 500ms
       });
