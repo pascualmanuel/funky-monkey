@@ -29,7 +29,7 @@ const Button = forwardRef(
       danger: "bg-red-600 text-white hover:bg-red-700 ",
       warning: "bg-yellow-600 text-white hover:bg-yellow-700 ",
       outline:
-        "border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500",
+        "border-2 border-green text-green hover:bg-green hover:text-white focus:ring-green",
       ghost:
         "bg-white/8 backdrop-blur-5px rounded-8px font-bold border-1 border-white/8 hover:border-white",
     };
