@@ -167,7 +167,7 @@ export default function ManageOffers() {
             {offers.map((offer) => (
               <div
                 key={offer.id}
-                className="bg-grey2 rounded-[16px] overflow-hidden h-[max-content] relative"
+                className="bg-grey2 rounded-[16px] overflow-hidden h-[550px] relative"
               >
                 {/* Imagen */}
                 <div className="h-[60%] relative">
