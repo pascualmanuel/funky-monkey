@@ -4,10 +4,7 @@ import React from "react";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ArrowCarousel from "@/assets/carousel-arrow.svg";
-import CarouselImage from "@/assets/offers/offers.webp";
 import InstagramBg from "@/assets/offers/instagram-bg.png";
-import Jungle from "@/assets/santa-teresa/jungle.webp";
-import Yoga from "@/assets/retreats/retreats-4.webp";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
 import Link from "next/link";
@@ -59,59 +56,43 @@ export default function Offers() {
 
   console.log(properties, "properties");
 
-  const carouselData = [
-    {
-      image: CarouselImage,
-      title: "From 50% OFF month",
-      description:
-        "Long term stays - 30 nights + relax to the max enjoy free high speed internet in each room",
-      voucher: "Use voucher: 50MONTH",
-      buttonText: "Get this offer",
-      buttonLink: "/contact",
-    },
-    {
-      image: Yoga,
-      title: "SILK Retreat 2025",
-      description:
-        "FEB  - MAR  / HOSTED BY FLY TIME RETREATS / office@funkymonkeylodge.com 10% DISCOUNT FOR PARTICIPANTS",
-      voucher: "Use voucher: WEEKEND3",
-      buttonText: "Book Now",
-      buttonLink: "/contact",
-    },
-    {
-      image: Jungle,
-      title: "10% OFF week",
-      description:
-        "GET A DISCOUNT ON TOP OF OUR RATES   FOR WEEK / 7 NGHTS STAY FROM 08.04 TILL 15.12 /  Use VOUCHER: FUNKY24 - only direct reservations!",
-      voucher: "Use voucher: EARLY30",
-      buttonText: "Reserve Today",
-      buttonLink: "/contact",
-    },
-  ];
-  const [data, setData] = useState([]);
+  const WORDPRESS_URL =
+    "https://backend.funkymonkeylodge.com/funkymonkeylodge.com";
+  const [offers, setOffers] = useState([]);
+  const [loadingOffers, setLoadingOffers] = useState(true);
 
+  // Cargar ofertas desde la API
   useEffect(() => {
-    fetch(
-      `https://api.corsproxy.io/?${encodeURIComponent(
-        "https://funkymonkeylodge.com/wp-json/offers/v1/list"
-      )}`
-    )
-      .then((r) => {
-        if (!r.ok) {
-          throw new Error(`HTTP error! status: ${r.status}`);
-        }
-        return r.text();
-      })
-      .then((text) => {
-        const data = JSON.parse(text);
-        setData(data);
-      })
-      .catch((err) => {
-        console.error("Error fetching offers:", err);
-      });
-  }, []);
+    const fetchOffers = async () => {
+      try {
+        const timestamp = Date.now();
+        const response = await fetch(
+          `${WORDPRESS_URL}/wp-json/offers/v1/list?t=${timestamp}`
+        );
 
-  console.log(data[0], "data offers");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const offersArray = Array.isArray(data) ? data : [];
+        setOffers(offersArray);
+
+        // Resetear currentSlide si las nuevas ofertas son menos que el índice actual
+        if (offersArray.length > 0 && currentSlide >= offersArray.length) {
+          setCurrentSlide(0);
+        }
+      } catch (err) {
+        console.error("Error fetching offers:", err);
+        setOffers([]); // Si falla, usar array vacío para evitar errores
+      } finally {
+        setLoadingOffers(false);
+      }
+    };
+
+    fetchOffers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const currentRef = useRef(null);
   const prevRef = useRef(null);
 
@@ -123,14 +104,21 @@ export default function Offers() {
     setTimeout(() => setPrevSlide(null), DURATION);
   };
 
-  const nextSlide = () =>
-    startTransition((currentSlide + 1) % carouselData.length, "right");
+  // Usar ofertas como datos del carousel
+  const carouselData = offers.length > 0 ? offers : [];
 
-  const prevSlideFn = () =>
+  const nextSlide = () => {
+    if (carouselData.length === 0) return;
+    startTransition((currentSlide + 1) % carouselData.length, "right");
+  };
+
+  const prevSlideFn = () => {
+    if (carouselData.length === 0) return;
     startTransition(
       (currentSlide - 1 + carouselData.length) % carouselData.length,
       "left"
     );
+  };
 
   const goToSlide = (index) => {
     if (index === currentSlide) return;
@@ -181,19 +169,42 @@ export default function Offers() {
     };
   }, [currentSlide, prevSlide, slideDirection]);
 
-  const currentData = carouselData[currentSlide];
+  const currentData = carouselData[currentSlide] || null;
+
+  // Si no hay ofertas, mostrar loading o mensaje
+  if (loadingOffers) {
+    return (
+      <Layout title="Special Offers">
+        <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (carouselData.length === 0) {
+    return (
+      <Layout title="Special Offers">
+        <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black flex items-center justify-center">
+          <p className="body1 text-white text-center">
+            No hay ofertas disponibles en este momento
+          </p>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout title="Special Offers">
       {/* contenedor del carrusel */}
       <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black">
         {/* capa anterior (sale) */}
-        {prevSlide !== null && (
+        {prevSlide !== null && prevSlide < carouselData.length && (
           <Slide ref={prevRef} data={carouselData[prevSlide]} />
         )}
 
         {/* capa actual (entra) */}
-        <Slide ref={currentRef} data={currentData} />
+        {currentData && <Slide ref={currentRef} data={currentData} />}
 
         {/* Controles */}
         <div className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
@@ -282,12 +293,18 @@ export default function Offers() {
 }
 
 const Slide = React.forwardRef(function Slide({ data }, ref) {
+  if (!data) return null;
+
+  // La API devuelve image como URL string, no como objeto con .src
+  const imageUrl =
+    typeof data.image === "string" ? data.image : data.image?.src || "";
+
   return (
     <div
       ref={ref}
       className="absolute inset-0 flex flex-col justify-center items-center w-full will-change-transform"
       style={{
-        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 127.49%), url("${data.image.src}")`,
+        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 127.49%), url("${imageUrl}")`,
         backgroundPosition: "center bottom",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -303,16 +320,20 @@ const Slide = React.forwardRef(function Slide({ data }, ref) {
         <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[650px] mt-10">
           {data.description}
         </p>
-        <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[650px] mt-6">
-          {data.voucher}
-        </p>
-        <Button
-          variant="primary"
-          classNames="w-[155px] h-[50px] mt-10"
-          link={data.buttonLink}
-        >
-          {data.buttonText}
-        </Button>
+        {data.voucher && (
+          <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[650px] mt-6">
+            {data.voucher}
+          </p>
+        )}
+        {data.buttonText && data.buttonLink && (
+          <Button
+            variant="primary"
+            classNames="w-[155px] h-[50px] mt-10"
+            link={data.buttonLink}
+          >
+            {data.buttonText}
+          </Button>
+        )}
       </div>
     </div>
   );
