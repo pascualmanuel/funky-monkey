@@ -4,10 +4,9 @@ const path = require("path");
 
 // Configurar Cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "dnuo3aocw",
-  api_key: process.env.CLOUDINARY_API_KEY || "197717992249726",
-  api_secret:
-    process.env.CLOUDINARY_API_SECRET || "0f67VAXkGwiP7PtP6FtgFYJDtco",
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+  api_secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
 });
 
 const IMAGE_PREFIX = "carrete-hotel-";
