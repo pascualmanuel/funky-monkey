@@ -56,7 +56,7 @@ export const useImagePreloader = (images, options = {}) => {
       try {
         await Promise.all(promises);
       } catch (error) {
-        console.warn("Some images failed to preload:", error);
+        // Some images failed to preload
       }
     },
     [images, loadedImages, loadingImages, preloadImage, maxConcurrent]

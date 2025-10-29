@@ -6,16 +6,15 @@ import SmartHeroPreloader from "@/components/SmartHeroPreloader";
 
 export default function Home() {
   const handleVideoLoad = () => {
-    console.log("Video loaded successfully");
+    // Video loaded successfully
   };
 
   const handleVideoError = (error) => {
-    console.error("Video loading error:", error);
+    // Handle video error if needed
   };
 
   const handleVideoProgress = (progress) => {
-    // El progreso del video se puede usar para otras funcionalidades si es necesario
-    console.log("Video progress:", progress);
+    // Video progress tracking
   };
 
   return (
