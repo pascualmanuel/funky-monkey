@@ -124,7 +124,6 @@ export default function Hotel() {
       </div>
       <div className="mb-10 sm:hidden">
         <HotelCarouselMobile />
-        hola!!!!!!!
       </div>
       <Faqs category="hotel" showFilters={false} showViewMore={true} />
       <PreFooter />
