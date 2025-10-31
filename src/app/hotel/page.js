@@ -7,6 +7,7 @@ import HotelIcon4 from "@/assets/the-hotel/hotel-icon-4.svg";
 import HotelIcon5 from "@/assets/the-hotel/hotel-icon-5.svg";
 import HotelIcon6 from "@/assets/the-hotel/hotel-icon-6.svg";
 import HotelCarousel from "@/components/HotelCarousel";
+import HotelCarouselMobile from "@/components/HotelCarouselMobile";
 import Faqs from "@/components/Faqs";
 import PreFooter from "@/components/PreFooter";
 export default function Hotel() {
@@ -118,8 +119,12 @@ export default function Hotel() {
           </div>
         </div>
       </div>
-      <div className="mb-10">
+      <div className="mb-10 hidden sm:block">
         <HotelCarousel />
+      </div>
+      <div className="mb-10 sm:hidden">
+        <HotelCarouselMobile />
+        hola!!!!!!!
       </div>
       <Faqs category="hotel" showFilters={false} showViewMore={true} />
       <PreFooter />

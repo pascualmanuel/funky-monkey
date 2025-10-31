@@ -180,7 +180,7 @@ export default function Rooms() {
       buttonLink: "149020",
     },
     {
-      title: "Large Ocean view bungalow",
+      title: "Large bungalow",
       description:
         "Comfortable loft-style studio for families or small groups of friends surrounded by nature.",
       image: "/assets/rooms/Large-Bungalow/large-bungalow-1.webp",

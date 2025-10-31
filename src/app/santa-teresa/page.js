@@ -274,10 +274,10 @@ export default function Activities() {
               <p className="subH2">Fast & Comfortable</p>
             </div>
             <p className="body2 ml-8 text-darkGrey">
-              Domestic Flight + Transfer: Fly from San José or Liberia to
-              Cóbano. Then, take a 25 min taxi ride to the Lodge. Get in touch
-              with us to arrange the taxi to get you here. Fastest but priciest
-              option.
+              <span className="font-bold"> Domestic Flight + Transfer: </span>
+              Fly from San José or Liberia to Cóbano. Then, take a 25 min taxi
+              ride to the Lodge. Get in touch with us to arrange the taxi to get
+              you here. Fastest but priciest option.
             </p>
             <div className="flex flex-row gap-2 ml-8">
               <Link
@@ -326,9 +326,11 @@ export default function Activities() {
               <p className="subH2">Affordable way</p>
             </div>
             <p className="body2 ml-8 text-darkGrey">
-              Bus from San José: Take a direct bus from San José to Santa
-              Teresa. The journey takes about 5-6 hours and costs around $10-15.
-              Most comfortable and budget-friendly option for backpackers.
+              Shared Shuttle form SJO or Liberia + Ferry Adventure: The shuttle
+              picks you up at your hotel or SJO/LIR airport. Then, hop on to the
+              ferry from Puntarenas to Paquera, with your ticket covered! After
+              the ferry, another shuttle takes you to the lodge. The trip takes
+              about 5 to 6 hours. Comfortable and stress-free!
             </p>
           </div>
 
@@ -337,13 +339,15 @@ export default function Activities() {
               Adventure way
             </div>
             <div className="flex flex-row gap-2">
-              <img src={Car.src} alt="Car" />{" "}
+              <img src={Car.src} alt="Car" />
               <p className="subH2">Rental Car + Ferry Adventure</p>
             </div>
             <p className="body2 ml-8 text-darkGrey">
-              Drive from San José: Rent a car and drive to Puntarenas, take the
-              ferry to Paquera, then drive to Santa Teresa. About 4-5 hours
-              total. Perfect for exploring the area at your own pace.
+              Drive to Puntarenas, take the ferry to Paquera, then drive from
+              Paquera to Santa Teresa. An adventure in itself!
+            </p>
+            <p className="body2 ml-8 text-darkGrey">
+              Tip! Pre book ferry tickets www.quickpay.com
             </p>
           </div>
 
@@ -356,7 +360,7 @@ export default function Activities() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-[50px] lg:mb-[100px]">
               <Link
-                href="https://wa.me/50626400272"
+                href="https://wa.me/50683922295"
                 className="w-full h-[50px] text-white flex flex-row gap-4 items-center justify-center text-base font-bold"
                 target="_blank"
                 style={{
