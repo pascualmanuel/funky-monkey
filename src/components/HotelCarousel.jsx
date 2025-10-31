@@ -17,7 +17,9 @@ export default function Carousel({ images }) {
   const [startX, setStartX] = useState(0);
   const [startScrollLeft, setStartScrollLeft] = useState(0);
   const [hasDragged, setHasDragged] = useState(false);
+  const [failedImages, setFailedImages] = useState(new Set());
   const carouselRef = useRef(null);
+  const checkedImagesRef = useRef(new Set());
 
   // Configuración de tamaños de imagen
   const imageSizeConfig = {
@@ -38,8 +40,9 @@ export default function Carousel({ images }) {
     },
   };
 
-  // Usar imágenes de Cloudinary
-  const slides = images || cloudinaryImages;
+  // Usar imágenes de Cloudinary y filtrar las que fallaron al cargar
+  const allSlides = images || cloudinaryImages;
+  const slides = allSlides.filter((slide) => !failedImages.has(slide.src));
 
   // Función helper para obtener el ancho apropiado según el dispositivo
   const getSlideWidth = (slide) => {
@@ -173,6 +176,48 @@ export default function Carousel({ images }) {
     }
   };
 
+  // Manejar cuando una imagen falla al cargar
+  const handleImageError = (imageSrc) => {
+    setFailedImages((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(imageSrc);
+      return newSet;
+    });
+  };
+
+  // Verificar imágenes al cargar el componente y cuando cambien
+  useEffect(() => {
+    // Solo ejecutar en el cliente (navegador)
+    if (typeof window === "undefined") return;
+
+    const checkImages = () => {
+      allSlides.forEach((slide) => {
+        // Si ya verificamos esta imagen, no hacerlo de nuevo
+        if (checkedImagesRef.current.has(slide.src)) return;
+        // Si ya sabemos que esta imagen falló, no verificar de nuevo
+        if (failedImages.has(slide.src)) {
+          checkedImagesRef.current.add(slide.src);
+          return;
+        }
+
+        // Marcar como verificada inmediatamente para evitar verificaciones duplicadas
+        checkedImagesRef.current.add(slide.src);
+
+        const img = new window.Image();
+        img.onerror = () => {
+          handleImageError(slide.src);
+        };
+        img.onload = () => {
+          // Imagen cargó correctamente, no hacer nada
+        };
+        img.src = slide.src;
+      });
+    };
+
+    checkImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allSlides]); // Verificar cuando cambien las imágenes
+
   // Prepare images array for GalleryModal
   const galleryImages = slides.map((slide) => slide.src);
 
@@ -215,6 +260,13 @@ export default function Carousel({ images }) {
       setHasDragged(false);
     }, 100);
   };
+
+  // Ajustar currentIndex si las slides cambian debido a imágenes fallidas
+  useEffect(() => {
+    if (currentIndex >= slides.length && slides.length > 0) {
+      setCurrentIndex(Math.max(0, slides.length - 1));
+    }
+  }, [slides.length, currentIndex]);
 
   // Track scroll position to update currentIndex
   useEffect(() => {
@@ -317,7 +369,7 @@ export default function Carousel({ images }) {
           </div>
         </div>
 
-        <div className="carousel-navigation flex justify-center sm:justify-end items-center mt-10 sm:mr-15 ">
+        <div className="carousel-navigation flex justify-center sm:justify-start items-center mt-10 sm:ml-15 ">
           <button
             className={`carousel-arrow carousel-arrow-left !border-1 !border-grey3 !rounded-[50%] ${
               isPrevDisabled ? "disabled" : ""

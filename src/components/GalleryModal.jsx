@@ -21,6 +21,9 @@ export default function GalleryModal({
   // Pre-load images when modal opens (optimized)
   useEffect(() => {
     if (isOpen && images && images.length > 0) {
+      // Solo ejecutar en el cliente (navegador)
+      if (typeof window === "undefined") return;
+
       const preloadImages = () => {
         // Preload images in batches to avoid overwhelming the browser
         const batchSize = 3;
@@ -34,7 +37,7 @@ export default function GalleryModal({
           setTimeout(() => {
             batch.forEach((imageSrc, index) => {
               const globalIndex = batchIndex * batchSize + index;
-              const img = new Image();
+              const img = new window.Image();
               img.onload = () => {
                 setImagesLoaded((prev) => new Set([...prev, globalIndex]));
               };
@@ -162,7 +165,7 @@ export default function GalleryModal({
           <div className="relative w-full h-full">
             {!imagesLoaded.has(currentIndex) && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+                <div className="spin-loader"></div>
               </div>
             )}
             <Image
@@ -216,7 +219,7 @@ export default function GalleryModal({
                 >
                   {!imagesLoaded.has(index) && (
                     <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-600"></div>
+                      <div className="spin-loader"></div>
                     </div>
                   )}
                   <Image

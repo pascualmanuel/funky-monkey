@@ -126,7 +126,7 @@ export default function ManageOffers() {
       <Layout title="Gestionar Ofertas">
         <div className="py-8 md:py-12 mt-[102px] mx-4 sm:mx-8 lg:mx-[70px]">
           <div className="flex items-center justify-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green"></div>
+            <div className="spin-loader"></div>
           </div>
         </div>
       </Layout>

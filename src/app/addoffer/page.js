@@ -248,7 +248,7 @@ function AddOfferForm() {
       <Layout title={isEditMode ? "Editar Oferta" : "Agregar Oferta"}>
         <div className="py-8 md:py-12 mt-[102px] mx-4 sm:mx-8 lg:mx-[70px]">
           <div className="flex items-center justify-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green"></div>
+            <div className="spin-loader"></div>
           </div>
         </div>
       </Layout>
@@ -302,8 +302,8 @@ function AddOfferForm() {
                   />
                   {uploading ? (
                     <div className="flex flex-col items-center">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green mb-2"></div>
-                      <p className="body3 text-darkGrey">Subiendo imagen...</p>
+                      <div className="spin-loader mb-2"></div>
+                      <p classNeame="body3 text-darkGrey">Subiendo imagen...</p>
                     </div>
                   ) : previewImage ? (
                     <div className="space-y-2">
@@ -472,7 +472,7 @@ export default function AddOfferPage() {
         <Layout title="Agregar Oferta">
           <div className="py-8 md:py-12 mt-[102px] mx-4 sm:mx-8 lg:mx-[70px]">
             <div className="flex items-center justify-center min-h-[400px]">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green"></div>
+              <div className="spin-loader"></div>
             </div>
           </div>
         </Layout>
