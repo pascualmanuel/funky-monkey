@@ -204,8 +204,8 @@ export default function Offers() {
           {" "}
           Don&apos;t miss any offer
         </h3>
-        <div className="flex flex-col md:flex-row items-center justify-between mt-10 mx-auto max-w-[770px]">
-          <div>
+        <div className="flex flex-col md:flex-row items-center justify-center mt-10 mx-auto max-w-[770px]">
+          {/* <div>
             <p className="subH2 mb-6">Suscribe to our newsletter</p>
             <input
               type="email"
@@ -215,7 +215,7 @@ export default function Offers() {
             <button className="bg-green text-white font-bold px-4 py-3 rounded-md ml-2">
               Subscribe
             </button>
-          </div>
+          </div> */}
           <div className="mt-8 md:mt-0">
             <p className="subH2">Follow us</p>
             <div className="flex items-center gap-3 mt-6">
