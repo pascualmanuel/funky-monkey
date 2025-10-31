@@ -258,10 +258,8 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
           </div>
         </div>
 
-        {/* Book Now Button */}
-        <a
-          href={`https://beds24.com/booking2.php?roomid=${room.buttonLink}`}
-          // href={"https://beds24.com/booking2.php?propid="}
+        <a  
+          href={`https://beds24.com/booking2.php?propid=63844#roomid${room.buttonLink}`}
           target="_blank"
           className="w-full bg-green hover:bg-[#176221] text-white font-bold py-3 px-6 rounded-[8px] text-center transition-colors duration-200"
         >

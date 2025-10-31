@@ -8,14 +8,12 @@ const Card = ({
   const baseClasses =
     "bg-white rounded-lg shadow-md transition-all duration-300";
   const hoverClasses = hover ? "hover:shadow-lg hover:-translate-y-1" : "";
-
   const paddingClasses = {
     none: "p-0",
     small: "p-4",
     medium: "p-6",
     large: "p-8",
   };
-
   const classes = `${baseClasses} ${hoverClasses} ${paddingClasses[padding]} ${className}`;
 
   return (
