@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import HeroImagePreloader from "@/components/HeroImagePreloader";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -50,6 +51,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${plusJakartaSans.variable} antialiased`}>
+        {/* Google Analytics - Script de gtag.js
+            Se carga después de que la página sea interactiva (afterInteractive)
+            para no bloquear el renderizado inicial y mejorar el rendimiento */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-189470251103793"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics - Inicialización
+            Script inline que configura gtag con el ID de medición.
+            Se ejecuta después de que el script de gtag.js se haya cargado.
+            Este script se ejecuta en todas las páginas automáticamente gracias
+            a que está en el RootLayout, que envuelve toda la aplicación. */}
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-189470251103793');
+          `}
+        </Script>
+
         <HeroImagePreloader />
         {children}
         <WhatsAppButton />
