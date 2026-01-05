@@ -51,19 +51,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${plusJakartaSans.variable} antialiased`}>
-        {/* Google Analytics - Script de gtag.js
-            Se carga después de que la página sea interactiva (afterInteractive)
-            para no bloquear el renderizado inicial y mejorar el rendimiento */}
-        <Script
+        {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-189470251103793"
           strategy="afterInteractive"
         />
 
-        {/* Google Analytics - Inicialización
-            Script inline que configura gtag con el ID de medición.
-            Se ejecuta después de que el script de gtag.js se haya cargado.
-            Este script se ejecuta en todas las páginas automáticamente gracias
-            a que está en el RootLayout, que envuelve toda la aplicación. */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -71,7 +63,32 @@ export default function RootLayout({ children }) {
             gtag('js', new Date());
             gtag('config', 'G-189470251103793');
           `}
+        </Script> */}
+
+        {/* Meta Pixel */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '189470251103793');
+    fbq('track', 'PageView');
+  `}
         </Script>
+
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=189470251103793&ev=PageView&noscript=1"
+          />
+        </noscript>
 
         <HeroImagePreloader />
         {children}
