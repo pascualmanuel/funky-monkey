@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // Optimize CSS loading to reduce render blocking
+  // Note: This requires 'critters' package to be installed
   experimental: {
     optimizeCss: true,
   },
@@ -17,8 +18,7 @@ const nextConfig: NextConfig = {
       exclude: ["error", "warn"],
     } : false,
   },
-  // Configure SWC to target modern browsers and reduce polyfills
-  swcMinify: true,
+  // Note: swcMinify is enabled by default in Next.js 15, no need to specify
 };
 
 export default nextConfig;

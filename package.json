@@ -28,6 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "cloudinary": "^2.7.0",
+    "critters": "^0.0.23",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "typescript": "^5"
