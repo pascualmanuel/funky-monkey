@@ -1,0 +1,16 @@
+# Modern browsers only - reduces Legacy JavaScript polyfills
+# This targets browsers that support ES6+ features natively
+
+# Last 2 versions of major browsers
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
+
+# Modern mobile browsers
+iOS >= 14
+Android >= 8
+
+# Exclude very old browsers to reduce polyfills
+not dead
+not op_mini all

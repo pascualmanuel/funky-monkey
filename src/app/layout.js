@@ -45,6 +45,9 @@ export const metadata = {
       "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
     images: ["/assets/funky-logo-og.webp"],
   },
+  other: {
+    "preload-css": "true",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -65,8 +68,8 @@ export default function RootLayout({ children }) {
           `}
         </Script> */}
 
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+        {/* Meta Pixel - Loaded lazily to improve initial page performance */}
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
