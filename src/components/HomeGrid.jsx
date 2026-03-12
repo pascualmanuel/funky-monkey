@@ -1,28 +1,44 @@
 import React from "react";
 import Link from "next/link";
-import Rooms from "../assets/home/rooms.webp";
-import Activities from "../assets/home/activities.webp";
-import Location from "../assets/home/location.webp";
-import Offer from "../assets/home/offer-2.webp";
-import Retreats from "../assets/home/retreats.webp";
-import TheHotel from "../assets/home/the-hotel.webp";
 import OfferIcon from "../assets/home/offer-icon.svg";
 import Button from "./Button";
 import HomeArrow from "../assets/arrow.svg";
 
+const ASSETS = "/assets/home";
+const GRID_SIZES =
+  "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw";
+const ROW_SIZES = "(max-width: 768px) 100vw, 1200px";
+
+function ResponsiveImg({ base, alt, sizes = GRID_SIZES, loading, className }) {
+  const srcSet = `${ASSETS}/${base}-400w.webp 400w, ${ASSETS}/${base}-800w.webp 800w, ${ASSETS}/${base}-1200w.webp 1200w`;
+  return (
+    <img
+      src={`${ASSETS}/${base}-800w.webp`}
+      srcSet={srcSet}
+      sizes={sizes}
+      alt={alt}
+      decoding="async"
+      loading={loading}
+      className={className}
+    />
+  );
+}
+
 const HomeGrid = () => {
   return (
     <>
+
       <div className="mx-4 sm:mx-8 lg:mx-[70px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Link
             href="/rooms"
             className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer group"
           >
-            <img
-              src={Rooms.src}
+            <ResponsiveImg
+              base="rooms"
+              alt="Rooms"
+              loading="eager"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              alt="Home Grid"
             />
             <div
               className="absolute inset-0"
@@ -44,10 +60,11 @@ const HomeGrid = () => {
             href="/activities"
             className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer group"
           >
-            <img
-              src={Activities.src}
+            <ResponsiveImg
+              base="activities"
+              alt="Activities"
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              alt="Home Grid"
             />
             <div
               className="absolute inset-0"
@@ -69,10 +86,11 @@ const HomeGrid = () => {
             href="/santa-teresa"
             className=" h-[200px] sm:h-[677px] relative overflow-hidden rounded-[16px] cursor-pointer group"
           >
-            <img
-              src={Location.src}
+            <ResponsiveImg
+              base="location"
+              alt="Location"
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              alt="Home Grid"
             />
             <div
               className="absolute inset-0"
@@ -94,10 +112,11 @@ const HomeGrid = () => {
             href="/hotel"
             className="relative overflow-hidden rounded-[16px]  h-[200px] sm:h-[677px] lg:hidden cursor-pointer group"
           >
-            <img
-              src={TheHotel.src}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            <ResponsiveImg
+              base="the-hotel"
               alt="The Hotel"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div
               className="absolute inset-0"
@@ -122,10 +141,12 @@ const HomeGrid = () => {
           href="/hotel"
           className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] cursor-pointer block group"
         >
-          <img
-            src={TheHotel.src}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          <ResponsiveImg
+            base="the-hotel"
             alt="The Hotel"
+            sizes={ROW_SIZES}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
           <div
             className="absolute inset-0"
@@ -150,10 +171,12 @@ const HomeGrid = () => {
             href="/retreats"
             className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[65%] cursor-pointer group"
           >
-            <img
-              src={Retreats.src}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            <ResponsiveImg
+              base="retreats"
               alt="Retreats"
+              sizes="(max-width: 768px) 100vw, 65vw"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div
               className="absolute inset-0"
@@ -175,10 +198,12 @@ const HomeGrid = () => {
             href="/offers"
             className="relative overflow-hidden rounded-[16px] h-[200px] sm:h-[365px] w-full lg:w-[35%] cursor-pointer group"
           >
-            <img
-              src={Offer.src}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            <ResponsiveImg
+              base="offer-2"
               alt="Offers"
+              sizes="(max-width: 768px) 100vw, 35vw"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div
               className="absolute inset-0"
