@@ -1,8 +1,8 @@
+import { SITE_URL } from "@/lib/seo";
+
 export const dynamic = "force-static";
 
 export default function sitemap() {
-  const baseUrl = "https://funkymonkeylodge.com";
-
   const routes = [
     "",
     "/hotel",
@@ -11,15 +11,15 @@ export default function sitemap() {
     "/santa-teresa",
     "/activities",
     "/offers",
-    "/location",
     "/faq",
     "/contact",
+    "/general-policy",
   ];
 
   const now = new Date();
 
   return routes.map((path) => ({
-    url: `${baseUrl}${path}`,
+    url: `${SITE_URL}${path}`,
     lastModified: now,
     changeFrequency: "weekly",
     priority: path === "" ? 1.0 : 0.7,

@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import HeroImagePreloader from "@/components/HeroImagePreloader";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SITE_URL, pageMetadata } from "@/lib/seo";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -11,39 +12,17 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "Funky Monkey - Adventure & Wellness Destination",
-  description:
-    "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
-  metadataBase: new URL("https://funkymonkeylodge.com/"),
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata({
+    title: "Funky Monkey Lodge | Boutique Hotel in Santa Teresa, Costa Rica",
+    description:
+      "Boutique hotel in Santa Teresa, Costa Rica, steps from the beach. Surf, yoga, pool and jungle vibes at Funky Monkey Lodge since 2001. Book direct.",
+    path: "/",
+  }),
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
-  },
-  openGraph: {
-    title: "Funky Monkey - Adventure & Wellness Destination",
-    description:
-      "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
-    url: "https://funkymonkeylodge.com/",
-    siteName: "Funky Monkey Lodge",
-    images: [
-      {
-        url: "/assets/funky-logo-og.webp",
-        width: 1200,
-        height: 630,
-        alt: "Funky Monkey Lodge",
-        type: "image/webp",
-      },
-    ],
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Funky Monkey - Adventure & Wellness Destination",
-    description:
-      "Funky Monkey Lodge in Santa Teresa, Costa Rica, offers adventure, surf & yoga retreats, luxury accommodations, and a relaxing jungle-beach experience.",
-    images: ["/assets/funky-logo-og.webp"],
   },
   other: {
     "preload-css": "true",

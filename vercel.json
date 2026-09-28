@@ -1,0 +1,164 @@
+{
+  "redirects": [
+    {
+      "source": "/costa-rica-vacations-funky-monkey-lodge-2",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-vacations-funky-monkey-lodge-2/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-jungle-hotel-santa-teresa",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-jungle-hotel-santa-teresa/",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/funky-monkey-restaurant-hotel",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/funky-monkey-restaurant-hotel/",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/vacation-rentals-pool-santa-teresa",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/vacation-rentals-pool-santa-teresa/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/book-hotel-costa-rica-rates",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/book-hotel-costa-rica-rates/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-event-group-rentals",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-event-group-rentals/",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-costa-rica",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-costa-rica/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-costa-rica/aerial-silk-yoga-retreat",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-costa-rica/aerial-silk-yoga-retreat/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-costa-rica/learn-how-to-surf-camp",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-costa-rica/learn-how-to-surf-camp/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-and-yoga-experience-in-the-best-jungle-hotel",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-and-yoga-experience-in-the-best-jungle-hotel/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/yoga-schedule",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/yoga-schedule/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/transportation-santa-teresa-costa-rica",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/transportation-santa-teresa-costa-rica/",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-travel-links",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-travel-links/",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq-good-to-know-about-costa-rica",
+      "destination": "/faq",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq-good-to-know-about-costa-rica/",
+      "destination": "/faq",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-hotel-funky-monkey-surf-lodge",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-hotel-funky-monkey-surf-lodge/",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/current-offers",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/current-offers/",
+      "destination": "/offers",
+      "statusCode": 301
+    }
+  ]
+}
