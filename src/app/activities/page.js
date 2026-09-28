@@ -139,7 +139,7 @@ export default function Activities() {
         }}
       >
         <div className="flex flex-col justify-center items-center">
-          <h2 className="myH1 text-center text-white ">Activities</h2>
+          <h1 className="myH1 text-center text-white ">Activities</h1>
         </div>
         <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           Discover a wide range of exciting activities and adventures designed
@@ -175,7 +175,7 @@ export default function Activities() {
               <div className="relative md:w-1/2 w-full h-[300px] sm:h-[390px] lg:h-[390px] rounded-[24px] overflow-hidden">
                 <img
                   src={img}
-                  alt=""
+                  alt={`${text} in Santa Teresa, Costa Rica`}
                   className="parallax-img absolute inset-0 w-full h-full object-cover will-change-transform"
                   style={{ transform: "translateY(0%)", scale: 1.12 }}
                 />

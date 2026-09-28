@@ -267,6 +267,8 @@ export default function Faqs({
   showFilters = true,
   showViewMore = false,
 }) {
+  // On the standalone FAQ page (with filters) this is the page's main title
+  const Heading = showFilters ? "h1" : "h2";
   const [openFaqs, setOpenFaqs] = useState({});
   const [activeFilter, setActiveFilter] = useState(category);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -312,9 +314,9 @@ export default function Faqs({
           showFilters ? "mt-40" : "mt-10"
         }`}
       >
-        <h2 className="myH3 text-[#211F20] text-center">
+        <Heading className="myH3 text-[#211F20] text-center">
           Frequently Asked Questions
-        </h2>
+        </Heading>
       </div>
 
       {showFilters && (

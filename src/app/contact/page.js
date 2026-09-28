@@ -81,7 +81,7 @@ export default function Contact() {
         >
           <div className="flex flex-col md:flex-row items-start md:justify-between md:gap-8 ">
             <div className="col-span-1 md:col-span-2 lg:w-1/2">
-              <p className="myH2">Get in touch</p>
+              <h1 className="myH2">Get in touch</h1>
 
               <p className="text-grey3 body1  max-w-[430px] mt-4 md:mb-10 mb-4">
                 Whether you have questions about our accommodations, want to

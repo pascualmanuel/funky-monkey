@@ -36,7 +36,7 @@ export default function Activities() {
         }}
       >
         <div className="flex flex-col justify-center items-center">
-          <h2 className="myH1 text-center text-white ">Santa Teresa</h2>
+          <h1 className="myH1 text-center text-white ">Santa Teresa</h1>
         </div>
         <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           A laid-back beach town where the jungle meets the ocean and adventure

@@ -158,6 +158,8 @@ export default function Offers() {
 
   return (
     <Layout title="Special Offers">
+      {/* Título principal para buscadores; el carrusel ya muestra el título de cada oferta */}
+      <h1 className="sr-only">Special Offers at Funky Monkey Lodge, Santa Teresa</h1>
       {/* contenedor del carrusel */}
       <div className="min-h-[680px] md:min-h-[600px] md:h-[100dvh] relative max-h-[850px] overflow-hidden bg-black">
         {/* capa anterior (sale) */}
