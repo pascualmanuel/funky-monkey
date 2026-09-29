@@ -282,7 +282,7 @@ export default function Retreats() {
                 Let us help you bring your vision to life in one of Costa
                 Rica&apos;s most magical locations.
               </p>
-              <Link href="tel:+50626400272" target="_blank" rel="noopener">
+              <Link href="https://wa.me/50683922295" target="_blank" rel="noopener">
                 <div className="bgreen-gradient2 text-white text-center py-4 px-6 rounded-[58px] md:max-w-[200px] flex items-center gap-2 justify-center font-bold">
                   <img src={WhatsApp.src} alt="WhatsApp" /> WhatsApp us
                 </div>

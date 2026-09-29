@@ -72,12 +72,12 @@
     },
     {
       "source": "/surf-yoga-costa-rica/aerial-silk-yoga-retreat",
-      "destination": "/activities",
+      "destination": "/retreats",
       "statusCode": 301
     },
     {
       "source": "/surf-yoga-costa-rica/aerial-silk-yoga-retreat/",
-      "destination": "/activities",
+      "destination": "/retreats",
       "statusCode": 301
     },
     {
@@ -158,6 +158,406 @@
     {
       "source": "/current-offers/",
       "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/aerial-silk-yoga-retreat",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/aerial-silk-yoga-retreat/",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/learn-how-to-surf-camp",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/learn-how-to-surf-camp/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/surf-yoga-camp",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/surf-yoga-camp/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/costa-rica-all-inclusive",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/costa-rica-all-inclusive/",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/costa-rica-event-group-rentals",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/surf-yoga-packages-costa-rica/costa-rica-event-group-rentals/",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-all-inclusive",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/costa-rica-all-inclusive/",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/budget-room",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/budget-room/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/large-apartment",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/large-apartment/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/large-bungalow",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/large-bungalow/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/luxury-garden-view-apartment",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/luxury-garden-view-apartment/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/oceanview-apartment",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/oceanview-apartment/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/private-bungalow",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/private-bungalow/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/small-apartment",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/small-apartment/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/suite",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-room-list/suite/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/room-list/rooms",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/room-list/rooms/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/rates",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/rates/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/reservations",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/reservations/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/amenity-list/amenities",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/amenity-list/amenities/",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/accommodation-and-food-half-board",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/accommodation-and-food-half-board/",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/accommodation-food-full-board-package",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/accommodation-food-full-board-package/",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/group-discounts",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/group-discounts/",
+      "destination": "/retreats",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yoga-family-package",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yoga-family-package/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yogaaerial-silk-camp-7-nights",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yogaaerial-silk-camp-7-nights/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yogaaerial-silk-camp-9-nights",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yogaaerial-silk-camp-9-nights/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yogaaerial-silk",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-and-yogaaerial-silk/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-lesson-package",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/surf-lesson-package/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/yoga-aerial-silk-surf-lesson-package",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-offer-list/yoga-aerial-silk-surf-lesson-package/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/offer-list/special-packages",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/offer-list/special-packages/",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/offer-list/surf-and-yoga-packages",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/offer-list/surf-and-yoga-packages/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surrounding-activities",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/surrounding-activities/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/directions",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/directions/",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/links",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/links/",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/cancellation-policy",
+      "destination": "/general-policy",
+      "statusCode": 301
+    },
+    {
+      "source": "/cancellation-policy/",
+      "destination": "/general-policy",
+      "statusCode": 301
+    },
+    {
+      "source": "/apply-work-funky-monkey",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/apply-work-funky-monkey/",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/transportation",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/transportation/",
+      "destination": "/santa-teresa",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/vacation-activities",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/vacation-activities/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/special-promotions",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/special-promotions/",
+      "destination": "/offers",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/booking-information",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/booking-information/",
+      "destination": "/rooms",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/hotel-info",
+      "destination": "/hotel",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/hotel-info/",
+      "destination": "/hotel",
       "statusCode": 301
     }
   ]
