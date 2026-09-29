@@ -5,6 +5,8 @@ import HeroImagePreloader from "@/components/HeroImagePreloader";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE_URL, pageMetadata } from "@/lib/seo";
 
+const GA_ID = "G-43SGZN5QR6";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
@@ -33,19 +35,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${plusJakartaSans.variable} antialiased`}>
-        {/* <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-189470251103793"
-          strategy="afterInteractive"
-        />
-
+        {/* Google Analytics - only on the production domain (skips localhost and Vercel previews) */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-189470251103793');
+            if (location.hostname.endsWith('funkymonkeylodge.com')) {
+              var s = document.createElement('script');
+              s.async = true;
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+              document.head.appendChild(s);
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            }
           `}
-        </Script> */}
+        </Script>
 
         {/* Meta Pixel - Loaded lazily to improve initial page performance */}
         <Script id="meta-pixel" strategy="lazyOnload">
