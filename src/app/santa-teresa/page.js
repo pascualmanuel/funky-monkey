@@ -175,6 +175,9 @@ export default function Activities() {
               Santa Teresa is beautiful year-round, but each season brings its
               own magic and surf conditions.
             </p>
+            <p className="body1 text-grey2 mb-5">
+              Learning to surf? <Link href="/activities/surf-lessons-santa-teresa" className="underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4">Explore surf lessons with an ISA-certified coach</Link> who chooses the beach and time for your level.
+            </p>
             <Button
               link="https://www.surfline.com/surf-report/santa-teresa/5842041f4e65fad6a7708e31?view=table"
               variant="primary"

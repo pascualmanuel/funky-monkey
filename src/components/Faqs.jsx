@@ -1,7 +1,7 @@
 "use client";
 // faqs.jsx
 import { useState } from "react";
-import Button from "@/components/Button";
+import FaqSection, { FaqAccordion } from "@/components/FaqSection";
 import Link from "next/link";
 const faqsData = [
   {
@@ -267,24 +267,13 @@ export default function Faqs({
   showFilters = true,
   showViewMore = false,
 }) {
-  // On the standalone FAQ page (with filters) this is the page's main title
-  const Heading = showFilters ? "h1" : "h2";
-  const [openFaqs, setOpenFaqs] = useState({});
   const [activeFilter, setActiveFilter] = useState(category);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const toggleFaq = (index) => {
-    setOpenFaqs((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   const handleFilter = (filter) => {
     if (filter === activeFilter) return; // Prevent unnecessary transitions
 
     setIsTransitioning(true);
-    setOpenFaqs({}); // Close all FAQs when changing filter
 
     // Add a small delay to create a smooth transition effect
     setTimeout(() => {
@@ -308,17 +297,7 @@ export default function Faqs({
   ];
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 lg:px-8 bg-[#F6F8F6]">
-      <div
-        className={`mx-4 sm:mx-8 lg:mx-[70px]  lg:mt-[160px] pb-10 ${
-          showFilters ? "mt-40" : "mt-10"
-        }`}
-      >
-        <Heading className="myH3 text-[#211F20] text-center">
-          Frequently Asked Questions
-        </Heading>
-      </div>
-
+    <FaqSection mainHeading={showFilters}>
       {showFilters && (
         <div className="flex flex-wrap gap-3 sm:gap-6 text-left justify-start max-w-[1000px] mx-auto w-full">
           {filters.map((filter) => (
@@ -337,51 +316,14 @@ export default function Faqs({
         </div>
       )}
       <div
+        key={activeFilter}
         className={`transition-all duration-500 ease-in-out ${
           isTransitioning
             ? "opacity-0 transform translate-y-4"
             : "opacity-100 transform translate-y-0"
         }`}
       >
-        {filteredFaqs.map((faq, index) => (
-          <div
-            key={`${activeFilter}-${index}`}
-            onClick={() => toggleFaq(index)}
-            className="flex cursor-pointer mx-auto flex-col bg-[#ffffff] rounded-[12px] sm:rounded-[16px] p-7 md:p-9 max-w-[1000px] w-full shadow-[0px_9px_15px_2px_rgba(0,0,0,0.05)] mb-4 sm:mb-6"
-          >
-            <div className="flex flex-row justify-between items-start cursor-pointer h-full">
-              <div className="flex flex-col justify-between h-full flex-1 md:pr-4">
-                <p
-                  className="subH2 text-black leading-tight select-none
-"
-                >
-                  {faq.question}
-                </p>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openFaqs[index] ? " opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <p className=" !leading-[24px] body2 select-none text-darkGrey  mt-2 sm:mt-3 lg:mt-4">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex items-start pt-1">
-                <svg
-                  className={`w-[11px] h-[11px] sm:w-[13px] sm:h-[13px] lg:w-[15px] lg:h-[15px] cursor-pointer transition-transform duration-300 ${
-                    openFaqs[index] ? "rotate-45" : "rotate-0"
-                  }`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 11.11 11.11"
-                  fill="#211f20"
-                >
-                  <path d="M6.73,4.38h4.38v2.35h-4.38v4.38h-2.35v-4.38H0v-2.35h4.38V0h2.35v4.38Z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        ))}
+        <FaqAccordion items={filteredFaqs} />
       </div>
       {showViewMore && (
         <div className="flex justify-center mb-8">
@@ -392,6 +334,6 @@ export default function Faqs({
           </Link>
         </div>
       )}
-    </div>
+    </FaqSection>
   );
 }

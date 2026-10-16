@@ -47,7 +47,7 @@ const Navbar = () => {
 
   // Índice activo real (o null si está oculto/no existe) // CHANGED
   const rawIndex = isClient
-    ? navLinks.findIndex((l) => l.link === pathname)
+    ? navLinks.findIndex((l) => l.link === pathname || (l.link === "/activities" && pathname.startsWith("/activities/")))
     : -1;
   const isRouteHidden = isClient ? HIDE_INDICATOR_ON.has(pathname) : true;
   const activeIndex =
@@ -309,6 +309,7 @@ const Navbar = () => {
                     <Link
                       key={index}
                       href={item.link}
+                      aria-current={activeIndex === index ? "page" : undefined}
                       ref={(el) => (linkRefs.current[index] = el)}
                       onClick={(e) => handleLinkClick(e, index)}
                       className={`hidden lg:inline-block text-grey2 text-base  boton-navbar transition-colors px-3 py-2 rounded-md relative z-10 ${
@@ -389,6 +390,7 @@ const Navbar = () => {
               <Link
                 key={index}
                 href={item.link}
+                aria-current={activeIndex === index ? "page" : undefined}
                 onClick={(e) => {
                   // si querés animación de indicador en mobile, podés llamar handleLinkClick(e, index)
                   closeMenu();

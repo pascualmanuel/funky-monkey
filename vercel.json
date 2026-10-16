@@ -102,12 +102,12 @@
     },
     {
       "source": "/yoga-schedule",
-      "destination": "/activities",
+      "destination": "/activities/yoga-aerial-silk-santa-teresa",
       "statusCode": 301
     },
     {
       "source": "/yoga-schedule/",
-      "destination": "/activities",
+      "destination": "/activities/yoga-aerial-silk-santa-teresa",
       "statusCode": 301
     },
     {
@@ -422,12 +422,12 @@
     },
     {
       "source": "/all-offer-list/surf-lesson-package",
-      "destination": "/activities",
+      "destination": "/activities/surf-lessons-santa-teresa",
       "statusCode": 301
     },
     {
       "source": "/all-offer-list/surf-lesson-package/",
-      "destination": "/activities",
+      "destination": "/activities/surf-lessons-santa-teresa",
       "statusCode": 301
     },
     {

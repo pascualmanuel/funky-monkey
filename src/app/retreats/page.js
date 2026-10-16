@@ -16,6 +16,7 @@ import WhatsApp from "@/assets/santa-teresa/whatsapp-icon.svg";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Faqs from "@/components/Faqs";
+import RetreatActivityCard from "@/components/RetreatActivityCard";
 import Link from "next/link";
 export default function Retreats() {
   const [formData, setFormData] = useState({
@@ -108,56 +109,27 @@ export default function Retreats() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-[70px]  mx-auto">
-        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
-          <div className="h-[60%] relative">
-            <img
-              src={Retreats1.src}
-              alt="Surf"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="h-[40%] p-6 flex flex-col justify-center">
-            <h4 className="subH1 mb-3">Yoga & meditation</h4>
-            <p className="body1 text-darkGrey">
-              Breathe, stretch, and reset in a space made for slowing down and
-              tuning in.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
-          <div className="h-[60%] relative">
-            <img
-              src={Retreats2.src}
-              alt="Jungle"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="h-[40%] p-6 flex flex-col justify-center">
-            <h4 className="subH1 mb-3">Surf</h4>
-            <p className="body1 text-darkGrey">
-              Learn, improve, and have fun with warm water and ideal conditions
-              year-round.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
-          <div className="h-[60%] relative">
-            <img
-              src={Retreats3.src}
-              alt="Laid"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="h-[40%] p-6 flex flex-col justify-center">
-            <h4 className="subH1 mb-3">Aerial & movements</h4>
-            <p className="body1 text-darkGrey">
-              Fly, dance & flow with space to explore your acrobatic side above
-              the jungle.
-            </p>
-          </div>
-        </div>
+        <RetreatActivityCard
+          title="Yoga & meditation"
+          description="Breathe, stretch, and reset in a space made for slowing down and tuning in."
+          image={Retreats1}
+          alt="Yoga class on the lodge's open-air deck"
+          href="/activities/yoga-aerial-silk-santa-teresa"
+        />
+        <RetreatActivityCard
+          title="Surf"
+          description="Learn, improve, and have fun with warm water and ideal conditions year-round."
+          image={Retreats2}
+          alt="Surf group standing on the beach with their boards"
+          href="/activities/surf-lessons-santa-teresa"
+        />
+        <RetreatActivityCard
+          title="Aerial & movements"
+          description="Fly, dance & flow with space to explore your acrobatic side above the jungle."
+          image={Retreats3}
+          alt="Aerial silk practitioner on the lodge's deck"
+          href="/activities/yoga-aerial-silk-santa-teresa#aerial-silk"
+        />
 
         <div className="bg-grey2 rounded-[16px] overflow-hidden h-[400px] md:h-[450px] lg:h-[500px] ">
           <div className="h-[60%] relative">

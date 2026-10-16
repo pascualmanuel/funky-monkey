@@ -10,7 +10,7 @@ const OG_IMAGE = {
 
 // Builds the full metadata for a page. Next.js replaces nested objects like
 // openGraph instead of merging them, so every page needs the complete set.
-export function pageMetadata({ title, description, path, noindex = false }) {
+export function pageMetadata({ title, description, path, noindex = false, image = OG_IMAGE }) {
   return {
     title,
     description,
@@ -21,7 +21,7 @@ export function pageMetadata({ title, description, path, noindex = false }) {
       description,
       url: path,
       siteName: SITE_NAME,
-      images: [OG_IMAGE],
+      images: [image],
       type: "website",
       locale: "en_US",
     },
@@ -29,7 +29,7 @@ export function pageMetadata({ title, description, path, noindex = false }) {
       card: "summary_large_image",
       title,
       description,
-      images: [OG_IMAGE.url],
+      images: [image.url],
     },
   };
 }
