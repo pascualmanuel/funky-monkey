@@ -14,7 +14,11 @@ export default function ManageOffers() {
   const [error, setError] = useState(null);
   const [deletingId, setDeletingId] = useState(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(null);
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(null);
   const pathname = usePathname();
+
+  const REQUIRED_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "";
   const prevPathnameRef = useRef(pathname);
 
   // Agregar meta tags noindex para evitar indexación
@@ -77,8 +81,21 @@ export default function ManageOffers() {
     }
   };
 
+  const openDeleteConfirm = (id) => {
+    setPassword("");
+    setPasswordError(null);
+    setShowDeleteConfirm(id);
+  };
+
   // Eliminar oferta
   const handleDelete = async (id) => {
+    // Validar contraseña
+    if (password !== REQUIRED_PASSWORD) {
+      setPasswordError("Contraseña incorrecta. Acceso denegado.");
+      return;
+    }
+
+    setPasswordError(null);
     setDeletingId(id);
     setError(null);
 
@@ -114,6 +131,7 @@ export default function ManageOffers() {
       }, 300);
 
       setShowDeleteConfirm(null);
+      setPassword("");
     } catch (err) {
       setError("Error al eliminar: " + err.message);
     } finally {
@@ -218,7 +236,7 @@ export default function ManageOffers() {
                       variant="danger"
                       classNames="flex-1"
                       height="40px"
-                      onClick={() => setShowDeleteConfirm(offer.id)}
+                      onClick={() => openDeleteConfirm(offer.id)}
                       disabled={deletingId === offer.id}
                     >
                       {deletingId === offer.id ? "Eliminando..." : "Eliminar"}
@@ -233,26 +251,50 @@ export default function ManageOffers() {
         {/* Modal de confirmación de eliminación */}
         {showDeleteConfirm && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-[16px] p-6 max-w-md w-full">
+            <form
+              className="bg-white rounded-[16px] p-6 max-w-md w-full"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleDelete(showDeleteConfirm);
+              }}
+            >
               <h3 className="subH2 mb-4">Confirmar Eliminación</h3>
               <p className="body1 text-darkGrey mb-6">
                 ¿Estás seguro de que deseas eliminar esta oferta? Esta acción no
                 se puede deshacer.
               </p>
+              <div className="mb-6">
+                <label className="block text-base font-bold mb-2">
+                  Contraseña de publicación *
+                </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Ingresa la contraseña"
+                  required
+                  autoFocus
+                  className="w-full px-4 py-3 rounded-lg bg-[#F6F8F6] text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green transition-all duration-200"
+                />
+                {passwordError && (
+                  <p className="body3 text-red-600 mt-2">{passwordError}</p>
+                )}
+              </div>
               <div className="flex gap-4">
                 <Button
                   variant="secondary"
                   classNames="flex-1"
                   height="45px"
+                  type="button"
                   onClick={() => setShowDeleteConfirm(null)}
                 >
                   Cancelar
                 </Button>
                 <Button
+                  type="submit"
                   variant="danger"
                   classNames="flex-1"
                   height="45px"
-                  onClick={() => handleDelete(showDeleteConfirm)}
                   disabled={deletingId === showDeleteConfirm}
                 >
                   {deletingId === showDeleteConfirm
@@ -260,7 +302,7 @@ export default function ManageOffers() {
                     : "Eliminar"}
                 </Button>
               </div>
-            </div>
+            </form>
           </div>
         )}
       </div>
