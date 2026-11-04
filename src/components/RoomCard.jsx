@@ -155,7 +155,7 @@ export default function RoomCard({ room, imageIndex = 1, totalImages = 1 }) {
         >
           <Image
             src={roomImages[currentImageIndex]}
-            alt={room.title}
+            alt={`${room.title.replace(/\s*\(\d+\)$/, "")} at Funky Monkey Lodge, Santa Teresa, Costa Rica`}
             fill
             className="object-cover transition-transform duration-400 group-hover:scale-105"
           />

@@ -111,6 +111,16 @@
       "statusCode": 301
     },
     {
+      "source": "/visit-costa-rica-activities-santa-teresa",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
+      "source": "/visit-costa-rica-activities-santa-teresa/",
+      "destination": "/activities",
+      "statusCode": 301
+    },
+    {
       "source": "/transportation-santa-teresa-costa-rica",
       "destination": "/santa-teresa",
       "statusCode": 301

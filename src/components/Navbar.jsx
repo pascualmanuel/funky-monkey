@@ -398,7 +398,7 @@ const Navbar = () => {
                 className="text-white text-[20px] font-semibold  flex items-center myH3"
               >
                 {item.text}
-                <img src={Arrow.src} className="ml-4" alt="Arrow" />
+                <img src={Arrow.src} className="ml-4" alt="" />
               </Link>
             ))}
           </nav>

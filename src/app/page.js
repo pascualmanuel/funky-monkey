@@ -3,6 +3,7 @@
 import Layout from "@/components/Layout";
 import HomeHero from "@/components/HomeHero";
 import SmartHeroPreloader from "@/components/SmartHeroPreloader";
+import { hotelSchema } from "@/lib/hotelSchema";
 
 export default function Home() {
   const handleVideoLoad = () => {
@@ -19,6 +20,12 @@ export default function Home() {
 
   return (
     <Layout fullWidth>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(hotelSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* Smart hero preloader for navigation pages */}
       <SmartHeroPreloader />
 

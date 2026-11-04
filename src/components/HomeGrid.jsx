@@ -53,7 +53,7 @@ const HomeGrid = () => {
             <img
               src={HomeArrow.src}
               className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100  group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
-              alt="Arrow"
+              alt=""
             />
           </Link>
           <Link
@@ -79,7 +79,7 @@ const HomeGrid = () => {
             <img
               src={HomeArrow.src}
               className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100  group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
-              alt="Arrow"
+              alt=""
             />
           </Link>
           <Link
@@ -105,7 +105,7 @@ const HomeGrid = () => {
             <img
               src={HomeArrow.src}
               className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100  group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
-              alt="Arrow"
+              alt=""
             />
           </Link>
           <Link
@@ -131,7 +131,7 @@ const HomeGrid = () => {
             <img
               src={HomeArrow.src}
               className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100  group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
-              alt="Arrow"
+              alt=""
             />
           </Link>
         </div>
@@ -161,7 +161,7 @@ const HomeGrid = () => {
           <img
             src={HomeArrow.src}
             className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            alt="Arrow"
+            alt=""
           />
         </Link>
       </div>
@@ -191,7 +191,7 @@ const HomeGrid = () => {
             <img
               src={HomeArrow.src}
               className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100  group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
-              alt="Arrow"
+              alt=""
             />
           </Link>
           <Link
@@ -223,7 +223,7 @@ const HomeGrid = () => {
             <img
               src={HomeArrow.src}
               className="absolute bottom-[30px] right-[30px] z-10 opacity-0 group-hover:opacity-100  group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300"
-              alt="Arrow"
+              alt=""
             />
           </Link>
         </div>

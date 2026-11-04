@@ -151,6 +151,9 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#03000D] to-transparent"></div>
         <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-22 lg:px-28 pb-[50px] text-white max-w-screen-2xl mx-auto">
           <h1 className="myH1  mb-6 lg:mb-8 md:w-[550px] 2xl:w-auto  ">
+            <span className="sr-only">
+              Boutique surf &amp; yoga lodge in Costa Rica:{" "}
+            </span>
             Santa Teresa’s hidden oasis
           </h1>
           <p className="body1">

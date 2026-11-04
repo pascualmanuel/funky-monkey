@@ -336,7 +336,7 @@ export default function Contact() {
                 Santa Teresa
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3 "
                 />
               </div>
@@ -344,7 +344,7 @@ export default function Contact() {
                 Santa Teresa
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -357,7 +357,7 @@ export default function Contact() {
                 The hotel
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -365,7 +365,7 @@ export default function Contact() {
                 The hotel
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -378,7 +378,7 @@ export default function Contact() {
                 Rooms
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -386,7 +386,7 @@ export default function Contact() {
                 Rooms
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -399,7 +399,7 @@ export default function Contact() {
                 Activities
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -407,7 +407,7 @@ export default function Contact() {
                 Activities
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -420,7 +420,7 @@ export default function Contact() {
                 Retreats
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -428,7 +428,7 @@ export default function Contact() {
                 Retreats
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -441,7 +441,7 @@ export default function Contact() {
                 Offers
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -449,7 +449,7 @@ export default function Contact() {
                 Offers
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -462,7 +462,7 @@ export default function Contact() {
                 Contact
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -470,7 +470,7 @@ export default function Contact() {
                 Contact
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>

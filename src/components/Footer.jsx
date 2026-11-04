@@ -77,7 +77,7 @@ export default function Footer() {
                 Santa Teresa
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3 "
                 />
               </div>
@@ -85,7 +85,7 @@ export default function Footer() {
                 Santa Teresa
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -98,7 +98,7 @@ export default function Footer() {
                 The hotel
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -106,7 +106,7 @@ export default function Footer() {
                 The hotel
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -119,7 +119,7 @@ export default function Footer() {
                 Rooms
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -127,7 +127,7 @@ export default function Footer() {
                 Rooms
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -140,7 +140,7 @@ export default function Footer() {
                 Activities
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -148,7 +148,7 @@ export default function Footer() {
                 Activities
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -161,7 +161,7 @@ export default function Footer() {
                 Retreats
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -169,7 +169,7 @@ export default function Footer() {
                 Retreats
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -182,7 +182,7 @@ export default function Footer() {
                 Offers
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -190,7 +190,7 @@ export default function Footer() {
                 Offers
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -203,7 +203,7 @@ export default function Footer() {
                 Contact
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
@@ -211,7 +211,7 @@ export default function Footer() {
                 Contact
                 <img
                   src={Arrow.src}
-                  alt="Arrow"
+                  alt=""
                   className="inline-block ml-3"
                 />
               </div>
