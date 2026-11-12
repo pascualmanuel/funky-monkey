@@ -1,9 +1,10 @@
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Yoga & Wellness Retreats in Santa Teresa, Costa Rica",
+  title:
+    "Retreats, Groups & Events in Santa Teresa, Costa Rica | Funky Monkey Lodge",
   description:
-    "Host your yoga, wellness or group retreat in Santa Teresa, Costa Rica. A jungle-beach venue with yoga studio, pool and rooms for your group.",
+    "Host your retreat, family reunion, celebration or team trip in Santa Teresa. Rent rooms or the whole lodge for up to 30 guests, with yoga shala, pool and group meal plans.",
   path: "/retreats",
 });
 

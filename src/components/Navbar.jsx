@@ -22,7 +22,7 @@ const Navbar = () => {
     { text: "The Hotel", link: "/hotel" },
     { text: "Rooms", link: "/rooms" },
     { text: "Activities", link: "/activities" }, // ojo: ruta distinta
-    { text: "Retreats", link: "/retreats" },
+    { text: "Retreats & Groups", link: "/retreats" },
     { text: "Offers", link: "/offers" },
     { text: "Contact", link: "/contact" },
   ];
@@ -312,7 +312,7 @@ const Navbar = () => {
                       aria-current={activeIndex === index ? "page" : undefined}
                       ref={(el) => (linkRefs.current[index] = el)}
                       onClick={(e) => handleLinkClick(e, index)}
-                      className={`hidden lg:inline-block text-grey2 text-base  boton-navbar transition-colors px-3 py-2 rounded-md relative z-10 ${
+                      className={`hidden lg:inline-block text-grey2 text-base  boton-navbar transition-colors whitespace-nowrap px-2 2xl:px-3 py-2 rounded-md relative z-10 ${
                         activeIndex === index ? "!text-[#ffffff] " : ""
                       }`}
                     >

@@ -221,7 +221,12 @@ const faqsData = [
   {
     question: "How many people can I bring?",
     answer:
-      "Our retreat capacity depends on the room configuration and the level of privacy you're looking for. Max 40 pp. Reach out to discuss your ideal group size.",
+      "Our retreat capacity depends on the room configuration and the level of privacy you're looking for, up to 30 guests. Reach out to discuss your ideal group size.",
+    category: "retreats",
+  },
+  {
+    question: "Can we rent the whole lodge?",
+    answer: "Yes! Contact us for availability and group rates.",
     category: "retreats",
   },
   {

@@ -1,6 +1,7 @@
 "use client";
 import Layout from "@/components/Layout";
 import RetreatsImage from "@/assets/retreats/retreats.webp";
+import GroupStaysImage from "@/assets/home/rooms.webp";
 import Retreats4 from "@/assets/retreats/retreats-4.webp";
 import Retreats5 from "@/assets/retreats/retreats-5.webp";
 import Retreats6 from "@/assets/retreats/retreats-6.webp";
@@ -87,7 +88,9 @@ export default function Retreats() {
         }}
       >
         <div className="flex flex-col justify-center items-center">
-          <h1 className="myH1 text-center text-white "> Retreats</h1>
+          <h1 className="myH1 text-center text-white mx-5 md:mx-0 max-w-[900px]">
+            Retreats, group stays &amp; events in Santa Teresa
+          </h1>
         </div>
         <p className="body1 text-center text-white mx-5 md:mx-0 max-w-[450px] absolute bottom-16">
           Rejuvenate your mind, body, and soul with our carefully designed
@@ -107,6 +110,48 @@ export default function Retreats() {
           beach of Santa Teresa, home to world-class surf.
         </p>
       </div>
+
+      <section className="bg-grey2 rounded-[24px] mx-4 md:mx-[70px] mb-[50px] md:mb-[130px] overflow-hidden flex flex-col md:flex-row">
+        <div className="relative md:w-1/2 h-[300px] sm:h-[390px] md:h-auto md:min-h-[520px]">
+          <img
+            src={GroupStaysImage.src}
+            alt="Treetop apartment with ocean view at Funky Monkey Lodge, Santa Teresa"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <div className="md:w-1/2 flex flex-col justify-center p-6 sm:p-10 lg:p-16 text-left">
+          <h2 className="myH2 mb-6 text-balance">
+            Group stays{" "}
+            <span className="text-[#5AB012]">for family &amp; friends</span>
+          </h2>
+          <p className="body1 text-darkGrey">
+            Traveling with family or friends? Book several rooms together or
+            rent the whole lodge for up to 30 guests. Treetop apartments,
+            bungalows and ocean view rooms keep everyone close while giving each
+            family its own space. Breakfast is served daily in our restaurant,
+            and we offer meal plans for groups upon request.
+          </p>
+          <ul className="flex flex-wrap gap-2 mt-8">
+            {["Up to 30 guests", "Whole-lodge rental", "Group meal plans"].map(
+              (label) => (
+                <li
+                  key={label}
+                  className="rounded-full bg-white border border-black/10 px-4 py-2 text-sm font-semibold text-black"
+                >
+                  {label}
+                </li>
+              )
+            )}
+          </ul>
+          <a
+            href="#retreat-form"
+            className="mt-8 self-start h-[54px] px-8 text-base font-bold inline-flex items-center justify-center rounded-[8px] bg-green text-white hover:bg-[#176221] transition-all duration-200"
+          >
+            Ask about group rates
+          </a>
+        </div>
+      </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-[70px]  mx-auto">
         <RetreatActivityCard
@@ -262,8 +307,9 @@ export default function Retreats() {
             </div>
             <div className="w-full lg:w-[60%] mt-6 lg:mt-0 ">
               <form
+                id="retreat-form"
                 onSubmit={handleSubmit}
-                className="lg:max-w-[520px] ml-auto "
+                className="lg:max-w-[520px] ml-auto scroll-mt-32"
               >
                 {/* Name and Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
