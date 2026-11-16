@@ -36,7 +36,7 @@ const HomeGrid = () => {
           >
             <ResponsiveImg
               base="rooms"
-              alt="Rooms"
+              alt=""
               loading="eager"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
@@ -62,7 +62,7 @@ const HomeGrid = () => {
           >
             <ResponsiveImg
               base="activities"
-              alt="Activities"
+              alt=""
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
@@ -88,7 +88,7 @@ const HomeGrid = () => {
           >
             <ResponsiveImg
               base="location"
-              alt="Location"
+              alt=""
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
@@ -114,7 +114,7 @@ const HomeGrid = () => {
           >
             <ResponsiveImg
               base="the-hotel"
-              alt="The Hotel"
+              alt=""
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
@@ -143,7 +143,7 @@ const HomeGrid = () => {
         >
           <ResponsiveImg
             base="the-hotel"
-            alt="The Hotel"
+            alt=""
             sizes={ROW_SIZES}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -173,7 +173,7 @@ const HomeGrid = () => {
           >
             <ResponsiveImg
               base="retreats"
-              alt="Retreats"
+              alt=""
               sizes="(max-width: 768px) 100vw, 65vw"
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -200,7 +200,7 @@ const HomeGrid = () => {
           >
             <ResponsiveImg
               base="offer-2"
-              alt="Offers"
+              alt=""
               sizes="(max-width: 768px) 100vw, 35vw"
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -218,7 +218,7 @@ const HomeGrid = () => {
             <img
               src={OfferIcon.src}
               className="absolute sm:bottom-10 sm:right-10 bottom-2 right-2"
-              alt="Offer Icon"
+              alt=""
             />
             <img
               src={HomeArrow.src}
@@ -231,9 +231,9 @@ const HomeGrid = () => {
       <div className="mx-4 sm:mx-8 lg:mx-[70px]">
         <div className=" overflow-hidden bgreen-gradient rounded-[16px]  my-[100px]">
           <div className="flex flex-col items-center justify-center gap-6 py-[55px]">
-            <p className="myH3 h-full text-white text-center z-10  max-w-[200px] sm:max-w-[520px] mx-auto">
+            <h2 className="myH3 h-full text-white text-center z-10  max-w-[200px] sm:max-w-[520px] mx-auto">
               Ready for a Costa Rican adventure?
-            </p>
+            </h2>
             <Button
               variant="greenBlue"
               link="https://beds24.com/booking2.php?propid=63844"

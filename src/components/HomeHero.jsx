@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 // import HomeHeroImage from "@/assets/home/home-hero.webp";
 
+const homeTextLink =
+  "text-black underline decoration-[#5AB012] decoration-2 underline-offset-[5px] transition-colors hover:text-green";
+
 const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -181,18 +184,61 @@ const HomeHero = ({ onVideoLoad, onError, playVideo, onVideoProgress }) => {
         </div>
       </section>
 
-      <div className=" mx-auto md:mt-[130px] md:mb-[130px] mt-[50px] mb-[50px] text-center flex items-center flex-col gap-10 px-4">
-        <h3 className="myH2 max-w-[776px]">
-          Boutique hotel in Santa Teresa,{" "}
-          <span className="text-[#5AB012]">steps from the beach </span>
-        </h3>
-        <p className="body1 max-w-[560px] text-darkGrey">
-          Funky Monkey Lodge is designed for relaxation. With a vibrant
-          atmosphere and attentive staff, we ensure your stay is nothing short
-          of amazing. Whether for a romantic escape or a family vacation, our
-          accommodations cater to every need.{" "}
-        </p>
-      </div>
+      <section className="mx-4 sm:mx-8 lg:mx-[70px] md:my-[130px] my-[50px] grid gap-8 lg:grid-cols-12 lg:gap-16">
+        <h2 className="myH2 lg:col-span-5 text-balance">
+          Your boutique surf &amp; yoga hotel{" "}
+          <span className="text-[#5AB012]">
+            in Santa Teresa, Costa Rica
+          </span>
+        </h2>
+        <div className="lg:col-span-7 max-w-[720px] flex flex-col gap-6">
+          <p className="text-[20px] leading-[30px] md:text-[24px] md:leading-[36px] text-black">
+            Since 2001, Funky Monkey Lodge has welcomed surfers, yogis,
+            families, couples and digital nomads to Santa Teresa, on Costa
+            Rica&apos;s Nicoya Peninsula. Our family-owned lodge has 12 rooms
+            set between the tropical forest and the beach, just a 5-minute walk
+            from Playa Santa Teresa and some of the best surf in the country.
+          </p>
+          <p className="body1 text-darkGrey">
+            Choose from{" "}
+            <Link href="/rooms" className={homeTextLink}>
+              ocean view rooms, treetop apartments, private bungalows and
+              budget-friendly rooms
+            </Link>
+            . Every stay includes a light breakfast, daily housekeeping and
+            fast Wi-Fi. Spend your days surfing, practicing yoga in our jungle
+            studio or{" "}
+            <Link href="/activities" className={homeTextLink}>
+              exploring Tortuga Island
+            </Link>
+            , cool off in the pool, and end the day watching the sunset over
+            the Pacific.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6 mt-2">
+            <p className="border-t border-black/15 pt-5 text-[16px] leading-[24px] text-darkGrey">
+              <strong className="block mb-1 text-[18px] font-semibold text-black">
+                Traveling with a group?
+              </strong>
+              Book several rooms or the whole lodge for family reunions,
+              friends&apos; trips and{" "}
+              <Link href="/retreats" className={homeTextLink}>
+                surf and yoga retreats
+              </Link>
+              .
+            </p>
+            <p className="border-t border-black/15 pt-5 text-[16px] leading-[24px] text-darkGrey">
+              <strong className="block mb-1 text-[18px] font-semibold text-black">
+                New to the area?
+              </strong>
+              Our{" "}
+              <Link href="/santa-teresa" className={homeTextLink}>
+                Santa Teresa guide
+              </Link>{" "}
+              has everything you need to plan your trip.
+            </p>
+          </div>
+        </div>
+      </section>
       <HomeGrid />
     </>
   );

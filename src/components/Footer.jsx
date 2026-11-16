@@ -8,6 +8,39 @@ import Arrow from "../assets/arrow.svg";
 import Instagram from "../assets/instagram.svg";
 import Facebook from "../assets/facebook.svg";
 
+const FOOTER_LINKS = [
+  { href: "/santa-teresa", label: "Santa Teresa" },
+  { href: "/hotel", label: "The hotel" },
+  { href: "/rooms", label: "Rooms" },
+  { href: "/activities", label: "Activities" },
+  { href: "/retreats", label: "Retreats" },
+  { href: "/offers", label: "Offers" },
+  { href: "/contact", label: "Contact" },
+];
+
+// The second row only exists for the hover slide animation. Its text comes
+// from CSS (data-label) so the link text stays "Rooms" and not "Rooms Rooms".
+function FooterNavLink({ href, label }) {
+  return (
+    <Link
+      href={href}
+      className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
+    >
+      <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
+        {label}
+        <img src={Arrow.src} alt="" className="inline-block ml-3" />
+      </div>
+      <div
+        aria-hidden="true"
+        data-label={label}
+        className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0 whitespace-nowrap before:content-[attr(data-label)]"
+      >
+        <img src={Arrow.src} alt="" className="inline-block ml-3" />
+      </div>
+    </Link>
+  );
+}
+
 export default function Footer() {
   return (
     <footer
@@ -69,153 +102,9 @@ export default function Footer() {
         </div>
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-4 lg:justify-between lg:flex lg:flex-row">
-            <Link
-              href="/santa-teresa"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                Santa Teresa
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3 "
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                Santa Teresa
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
-            <Link
-              href="/hotel"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                The hotel
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                The hotel
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
-            <Link
-              href="/rooms"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                Rooms
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                Rooms
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
-            <Link
-              href="/activities"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                Activities
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                Activities
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
-            <Link
-              href="/retreats"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                Retreats
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                Retreats
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
-            <Link
-              href="/offers"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                Offers
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                Offers
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
-            <Link
-              href="/contact"
-              className="text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold group relative overflow-hidden h-8"
-            >
-              <div className="flex items-center transition-transform duration-300 group-hover:-translate-y-8">
-                Contact
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-              <div className="flex items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-8 absolute top-0 left-0">
-                Contact
-                <img
-                  src={Arrow.src}
-                  alt=""
-                  className="inline-block ml-3"
-                />
-              </div>
-            </Link>
+            {FOOTER_LINKS.map(({ href, label }) => (
+              <FooterNavLink key={href} href={href} label={label} />
+            ))}
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-darkGrey  flex-col sm:flex-row gap-2 sm:gap-4 justify-start hidden md:flex">
